@@ -7,7 +7,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+:root {
+  --blue-light: #3C8EDA;
+  --red: #F65858;
+  --white: #F1F8FF;
+  --blue-dark: #20385C;
+  --black: #0F0F0F;
+  --green: #00CD70;
+  --orange: #E9781B;
+  --yellow: #FFCF48;
+  --grey: #707070;
+  --pink: #F065BE;
+  --gold: #CEAC4C;
+  --purple: #7A2377;
+  --shadow:0px 6px 100px 10px rgba(0,0,0,0.19);  
 }
+
+/* 62.5% ensures that 1rem = 10px */
+html {
+  font-size: 62.5%;
+}
+
+
+ ::selection {
+   color: var(--white);
+   background: var(--green);
+ }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  line-height: 2rem;
+}
+
+

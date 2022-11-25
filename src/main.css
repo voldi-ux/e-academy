@@ -1,0 +1,17 @@
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+
+.main-container .main {
+  width: 40%;
+  flex: 1;
+}
+
+
+.nav1 {
+  background-color: blue;
+  width: 15%;
+}

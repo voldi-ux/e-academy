@@ -1,0 +1,20 @@
+.logo-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    color: var(--white);
+    height: 10rem;
+    border-bottom: 4px solid var(--gold);
+}
+
+.logo-container .icon path {
+    fill: var(--gold);
+}
+.logo-container .icon {
+ transform: scale(1.2);
+}
+.logo-container .name {
+    margin-left: 10px;
+}
