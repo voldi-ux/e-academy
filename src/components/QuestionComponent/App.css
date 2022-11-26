@@ -1,0 +1,158 @@
+
+:root
+{
+  --primary: #20385c;
+}
+
+
+/* General styling */
+img{
+  width: 100%;
+}
+a{
+  text-decoration: none;
+}
+li
+{
+  list-style: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+
+/*  Question  */
+div.question
+{ 
+ 
+  margin: auto;
+  box-shadow: var(shadow);
+  width: 80%;
+  border-radius: 20px;
+  background: #fff;
+  
+ 
+
+}
+
+div.question header
+{
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  background-color: var(--primary);
+  border-radius:20px 20px 0 0;
+  padding:  .5rem 2rem;
+
+  color: white;
+}
+
+
+div.question header div.share
+{
+  font-size: 30px;
+}
+
+
+
+div.question header a{
+  color: white;
+}
+
+div.question header li
+{
+ font-size: 15px; 
+}
+div.question img{
+  width: 100%;
+}
+
+div.question .showcase h3
+{
+  
+  padding: 1rem 2rem;
+  color: #333;
+
+}
+
+div.showcase 
+{
+  border-bottom: 1px solid #ccc;
+}
+
+div.showcase .illustration
+{ 
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  
+}
+
+div.showcase .illustration img
+{ 
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* Footer */
+div.question footer
+{
+  
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+
+
+div.question footer div.btns
+{
+  display: flex;
+  gap: .5rem;
+}
+
+
+/* Button */
+
+button{
+  color: #fff;
+  padding: .5rem;
+  border: none;
+  border-radius: 12px;
+  width: 110px;
+}
+
+
+/*Questions */
+
+div.questions
+{
+ 
+  background: #C5DDEB;
+  width: 100%;
+  padding:1rem;
+  margin: auto;
+
+
+}
+div.questions div#questions div
+{
+   margin-bottom: 2rem;
+}
+
+/* Filter */
+
+
+
+
+
+
+
+  
