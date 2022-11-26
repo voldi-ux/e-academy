@@ -6,7 +6,11 @@ import React from "react";
 // I will implemnting routing as soon as possible.
 
 const Home = () => {
-  return <h1>Home page</h1>;
+  return (
+    <div>
+      <h1>Home page</h1>;
+    </div>
+  );
 };
 
 export default Home;
