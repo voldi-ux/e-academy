@@ -1,0 +1,38 @@
+
+.slider-container {
+     height: 40rem;
+     width: 90%;
+     margin: 2rem auto;
+     box-shadow: var(--shadow);
+    
+}
+
+.slider-item {
+  position: relative;
+  height: 40rem;
+  width: 100%;
+}
+
+.slider-item img {
+  object-fit: contain;
+}
+.slider-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,0.039653361344537785) 10%, rgba(32,56,92,1) 100%);
+}
+
+.slider-item .overlay p {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  position: absolute;
+  line-height: 4rem;
+  bottom: 20%;
+  left: 5%;
+  text-transform: capitalize;
+}

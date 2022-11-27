@@ -1,0 +1,29 @@
+.blocks-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 90%;
+    margin: 1rem auto;
+}
+
+
+.blocks-container .block {
+    height: 15rem;
+    width: 23%;
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+}
+
+.blocks-container .block-1  {
+  background-color: var(--green);
+}
+.blocks-container .block-2  {
+  background-color: var(--yellow);
+}
+.blocks-container .block-3  {
+  background-color: var(--red);
+}
+.blocks-container .block-4  {
+  background-color: var(--blue-light);
+}

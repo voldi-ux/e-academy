@@ -20,6 +20,5 @@
 .main-outlets {
   height: calc(100% - 10rem);
   width: 100%;
-   background-color: red;
    overflow: scroll;
 }

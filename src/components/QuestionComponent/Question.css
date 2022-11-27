@@ -23,7 +23,7 @@ div.question header
   display: flex;
   justify-content: space-between;
   place-items: center;
-  background-color: var(--blue-dark);
+  background-color: var(--blue-dark-2);
   border-radius:20px 20px 0 0;
   padding:  .5rem 2rem;
 
