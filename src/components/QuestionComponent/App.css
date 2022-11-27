@@ -150,6 +150,29 @@ div.questions div#questions div
 /* Filter */
 
 
+ /*Media Queries */
+
+  @media (max-width:860px) {
+    
+
+    div.question{
+      width: 500px;
+    }
+  }
+
+  @media (max-width:630px) {
+    
+    div.question{
+      width: 300px;
+    }
+
+    div.question footer div.btns{
+
+      display: grid;
+    }
+  }
+
+
 
 
 
