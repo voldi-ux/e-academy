@@ -6,12 +6,20 @@
 
 
 .main-container .main {
-  width: 40%;
   flex: 1;
+  height: 100%;
 }
 
 
 .nav1 {
   background-color: blue;
   width: 15%;
+}
+
+
+.main-outlets {
+  height: calc(100% - 10rem);
+  width: 100%;
+   background-color: red;
+   overflow: scroll;
 }

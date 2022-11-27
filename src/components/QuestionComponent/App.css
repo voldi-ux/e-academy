@@ -5,8 +5,6 @@
  
 }
 
-
-
 :root
 {
   --primary: #20385c;
@@ -36,12 +34,10 @@ div.question
  
   margin: auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 700px;
+  width: 90%;
   border-radius: 20px;
   background: #fff;
-  
  
-
 }
 
 div.question header
@@ -62,8 +58,6 @@ div.question header div.share
   font-size: 30px;
 }
 
-
-
 div.question header a{
   color: white;
 }
@@ -81,6 +75,7 @@ div.question .showcase h3
   
   padding: 1rem 2rem;
   color: #333;
+  font-size:16px;
 
 }
 
@@ -118,8 +113,6 @@ div.question footer
  
 }
 
-
-
 div.question footer div.btns
 {
   display: flex;
@@ -143,12 +136,13 @@ button{
 div.questions
 {
  
-  background: #C5DDEB;
-  width: 100%;
-  padding:1rem;
+  
+  background: var(--white);
+  width: 95%;
+  border-radius: 20px;
+  padding:2rem 0;
   margin: auto;
-
-
+  margin-top: 3rem;
 }
 div.questions div#questions div
 {
@@ -157,10 +151,21 @@ div.questions div#questions div
 
 /* Filter */
 
+/*Media */
 
+@media (max-width: 730px) {
 
+  div.question footer div.btns
+  {
+    display: grid;
+  }
 
-
-
-
+  div.questions{
+    background: none;
+    padding: 2rem 0;
+    margin-top: 0;
+    width: 100%;
+  }
   
+ 
+}
