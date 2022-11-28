@@ -1,0 +1,138 @@
+
+/* General styling */
+img{
+  width: 100%;
+}
+
+
+
+/*  Question  */
+div.question
+{ 
+ 
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 90%;
+  border-radius: 20px;
+  background: #fff;
+ 
+}
+
+div.question header
+{
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  background-color: var(--blue-dark);
+  border-radius:20px 20px 0 0;
+  padding:  .5rem 2rem;
+
+  color: white;
+}
+
+
+
+div.question header .icon 
+{
+  fill: white;
+  
+}
+
+div.question header a{
+  color: white;
+}
+
+div.question header li
+{
+ font-size: 15px; 
+}
+div.question img{
+  width: 100%;
+}
+
+div.question .showcase h3
+{
+  
+  padding: 1rem 2rem;
+  color: #333;
+  font-size:16px;
+
+}
+
+div.showcase 
+{
+  border-bottom: 1px solid #ccc;
+}
+
+div.showcase .illustration
+{ 
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  
+}
+
+div.showcase .illustration img
+{ 
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* Footer */
+div.question footer
+{
+  
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+div.question footer div.btns
+{
+  display: flex;
+  gap: .5rem;
+}
+
+/*Questions */
+div.questions
+{
+ 
+  
+  background: var(--white);
+  width: 95%;
+  border-radius: 20px;
+  padding:2rem 0;
+  margin: auto;
+  margin-top: 3rem;
+}
+div.questions div#questions div
+{
+   margin-bottom: 2rem;
+}
+
+/* Filter */
+
+/*Media */
+
+@media (max-width: 730px) {
+
+  div.question footer div.btns
+  {
+    display: grid;
+  }
+
+  div.questions{
+    background: none;
+    padding: 2rem 0;
+    margin-top: 0;
+    width: 100%;
+  }
+  
+ 
+}

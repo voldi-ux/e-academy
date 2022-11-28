@@ -1,0 +1,23 @@
+/** @format */
+
+.topNav {
+  height: 10rem;
+  background-color: var(--white);
+  padding: .5rem 3rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.topNav .icons {
+    display: flex;
+    align-items: center;
+}
+
+
+.topNav .icons h3 {
+    margin-left: 1rem;
+    color: var(--gold);
+}
