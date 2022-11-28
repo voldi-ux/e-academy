@@ -1,5 +1,5 @@
 
-import './App.css'
+import './Question.css'
 import Question from "./Question"
 
 

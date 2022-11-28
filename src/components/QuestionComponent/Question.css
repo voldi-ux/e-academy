@@ -1,31 +1,9 @@
-*{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
- 
-}
-
-:root
-{
-  --primary: #20385c;
-}
-
 
 /* General styling */
 img{
   width: 100%;
 }
-a{
-  text-decoration: none;
-}
-li
-{
-  list-style: none;
-}
 
-button:hover{
-  cursor: pointer;
-}
 
 
 /*  Question  */
@@ -45,7 +23,7 @@ div.question header
   display: flex;
   justify-content: space-between;
   place-items: center;
-  background-color: var(--primary);
+  background-color: var(--blue-dark);
   border-radius:20px 20px 0 0;
   padding:  .5rem 2rem;
 
@@ -53,9 +31,11 @@ div.question header
 }
 
 
-div.question header div.share
+
+div.question header .icon 
 {
-  font-size: 30px;
+  fill: white;
+  
 }
 
 div.question header a{
@@ -119,20 +99,7 @@ div.question footer div.btns
   gap: .5rem;
 }
 
-
-/* Button */
-
-button{
-  color: #fff;
-  padding: .5rem;
-  border: none;
-  border-radius: 12px;
-  width: 110px;
-}
-
-
 /*Questions */
-
 div.questions
 {
  

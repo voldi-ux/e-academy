@@ -1,4 +1,13 @@
-import Button from './Button'
+import Button from '../Button/Button'
+
+import {ReactComponent as Share} from '../../resources/icons/share.svg'
+import { ReactComponent as Like } from '../../resources/icons/thumbUp.svg'
+import {ReactComponent as BookMark} from '../../resources/icons/bookmark.svg'
+import {ReactComponent as Visible} from '../../resources/icons/visibility.svg'
+import {ReactComponent as Schedule} from '../../resources/icons/schedule.svg'
+
+
+
 
 const Question = ({identity, grade, school, subject, topic, description, illustration}) => {
   return (
@@ -15,7 +24,7 @@ const Question = ({identity, grade, school, subject, topic, description, illustr
          </div>
 
             <div className='share'>
-               <a href="index.html"> <i className='fa fa-share-alt fa-lg' /></a>
+               <a href="index.html"> <Share className="icon" /> </a>
             </div>
 
         </header>
@@ -29,13 +38,13 @@ const Question = ({identity, grade, school, subject, topic, description, illustr
 
         <footer className='questionFooter'>
            <div className='btns'>
-            <Button iconName="fa fa-clock" title="2 days ago" color="#800080" />
-            <Button iconName="fa fa-thumbs-up" title="20 likes" color="#888888" />
-            <Button iconName="fa fa-eye" title="view" color="#03C03C" />
+            <Button color="var(--purple)">  <Schedule className="icon"/> 2 min ago  </Button>
+            <Button color="var(--grey)"> <Like className="icon"/>  20 likes </Button>
+            <Button color="var(--green)"> <Visible className="icon"/>  View </Button>
            </div>
 
            <div className='btn'>
-           <Button iconName="fa fa-bookmark" title="Bookmark"  color="#FFC72C"/>
+           <Button color="var(--yellow)"> <BookMark style={{width:"20px", height:"20px"}}  className="icon"/>  Bookmark </Button>
            </div>
         </footer>
       
