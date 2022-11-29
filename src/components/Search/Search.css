@@ -1,0 +1,50 @@
+
+input
+{
+    border: none;
+    width: 100%;
+    border-radius: 20px;
+   
+    
+}
+
+input[type="text"]
+{
+    height: 6rem;
+    padding-left: 2rem;
+}
+
+label.search
+{
+    position: relative;
+}
+
+
+.s-icon  
+{
+    position: absolute;
+   
+     top: -2.4rem;
+     border-radius:  0 20px 20px 0;
+     bottom: 0;
+     padding: 0  2rem;
+     display: grid;
+     place-items: center;
+     right: 0;
+     height: 6rem;
+    
+     background-color: var(--blue-dark);
+}
+
+.s-icon:hover
+{
+    cursor: pointer;
+}
+
+.icon{
+
+    fill: var(--white);
+    width: 40px;
+    height: 40px;
+}
+
