@@ -10,6 +10,9 @@
   margin: 1rem ;
   user-select: none;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: var(--white);
 }
 
 

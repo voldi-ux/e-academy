@@ -5,16 +5,29 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
 import Home from './pages/home/home';
-
+import Questions from './components/QuestionComponent/Questions';
+import Notifications from './components/Notification/Notifications/Notifications';
 
 
 const Router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
-    children: [{index:true, element: <Home />}]
+    errorElement: <h1>component not yet created, please create it🤷‍♂️😎!!!</h1>,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "questions",
+        element: <Questions />
+      },
+      {
+        path: "notifications",
+        element: <Notifications/>
+      }
+    ]
   }
-])
+]);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

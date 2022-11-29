@@ -1,0 +1,33 @@
+
+.graph-container {
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    font-size: 1.4rem !important;
+    margin-bottom: 5rem;
+}
+
+
+.graph-container h1 {
+  text-align: center;
+  padding: 1rem;
+  /* background-color: #20385C; */
+  color: #2267ac;
+  font-size: 2rem;
+
+}
+
+.graph-container .feedback {
+  display: flex;
+  align-items: center;
+  color: #00CD70;
+  margin: 1rem 0 ;
+}
+
+
+.graph-container .feedback .content {
+  margin-left: 1rem; 
+}
