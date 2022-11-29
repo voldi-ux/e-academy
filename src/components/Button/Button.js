@@ -11,7 +11,7 @@ const Button = (props) => {
 
 Button.defaultProps = 
 {
-   color: "var(--green)"
+   color: "var(--yellow)"
 }
 
 export default Button

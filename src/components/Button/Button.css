@@ -19,3 +19,8 @@ button{
     padding-left: .3rem;
    
   }
+
+  button:hover
+  {
+    cursor: pointer;
+  }

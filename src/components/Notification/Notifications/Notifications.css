@@ -1,0 +1,46 @@
+.quest{
+
+    background-color: var(--white);
+    padding: 3rem;
+   
+} 
+
+div.header 
+{
+    color: var(--orange);
+    margin-left: 3rem;
+    padding-bottom: 2rem;
+}
+
+.notifications
+{
+   padding: 2rem;
+} 
+
+.search
+{
+    
+    margin: auto;
+    width: 95%;
+    margin-bottom: 2rem;
+}
+
+
+@media (max-width:500px) {
+    
+    .search{
+        width: 100%;
+     
+    }
+
+    div.header 
+    {
+        padding-left: 0rem;
+    }
+
+    .notifications 
+    {
+       padding: 1rem;
+       width: 100%;
+    }
+}
