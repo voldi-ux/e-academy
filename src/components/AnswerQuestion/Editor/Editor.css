@@ -1,0 +1,48 @@
+
+
+.editor
+
+{
+    margin: auto;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    width: 90%;
+    border-radius: 1rem;
+    background: #fff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+.editor nav
+
+{
+    padding: 1rem;
+    display: grid;
+    border-radius: 1rem 1rem 0 0;
+    background: var(--blue-dark);
+    width: 100%;
+}
+
+main .editor-input
+{
+    border: none;
+    border-radius: none;
+    height: 300px;
+    width: 100%;
+    padding: 1rem;
+}
+
+button.submit-btn
+{
+
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    background-color: var(--blue-dark);
+    
+}
+
+

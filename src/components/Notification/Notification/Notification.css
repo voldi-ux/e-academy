@@ -38,12 +38,13 @@ display: none;
     position: absolute;
     display: grid;
     place-items: center;
-    fill: var(--white);
+    color: var(--white);
     top: 0;
     right: 0;
     bottom: 0;
     background-color: var(--red);
     padding: 0 2rem;
+    font-size: 15px;
     border-radius: 0 20px 20px 0 ;
 }
 
