@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
 import Home from './pages/home/home';
 import Questions from './components/QuestionComponent/Questions';
 import Notifications from './components/Notification/Notifications/Notifications';
-
+import QuestionWrapper from './components/AnswerQuestion/Wrapper/QuestionWrapper';
 
 const Router = createBrowserRouter([
   {
@@ -23,7 +23,12 @@ const Router = createBrowserRouter([
       {
         path: "notifications",
         element: <Notifications/>
+      },
+      {
+        path: "answer-question",
+        element: <QuestionWrapper/>
       }
+      
     ]
   }
 ]);

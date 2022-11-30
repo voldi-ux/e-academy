@@ -1,10 +1,15 @@
 import Button from '../Button/Button'
+import './Question.css'
 
+//icons
 import {ReactComponent as Share} from '../../resources/icons/share.svg'
 import { ReactComponent as Like } from '../../resources/icons/thumbUp.svg'
 import {ReactComponent as BookMark} from '../../resources/icons/bookmark.svg'
 import {ReactComponent as Visible} from '../../resources/icons/visibility.svg'
 import {ReactComponent as Schedule} from '../../resources/icons/schedule.svg'
+
+//react packages
+import {Link} from "react-router-dom"
 
 
 
@@ -12,7 +17,7 @@ import {ReactComponent as Schedule} from '../../resources/icons/schedule.svg'
 const Question = ({identity, grade, school, subject, topic, description, illustration}) => {
   return (
     <div className='question'>
-        <header>
+        <header className='q-header'>
              
          <div>
             <h3>Posted By: {identity}  </h3>
@@ -40,7 +45,10 @@ const Question = ({identity, grade, school, subject, topic, description, illustr
            <div className='btns'>
             <Button color="var(--purple)">  <Schedule className="icon"/> 2 min ago  </Button>
             <Button color="var(--grey)"> <Like className="icon"/>  20 likes </Button>
+
+            <Link to={"/answer-question"}>
             <Button color="var(--green)"> <Visible className="icon"/>  View </Button>
+            </Link>
            </div>
 
            <div className='btn'>

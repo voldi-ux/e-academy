@@ -24,7 +24,7 @@ div.question
  
 }
 
-div.question header
+div.question header.q-header
 {
   display: flex;
   justify-content: space-between;
@@ -38,17 +38,17 @@ div.question header
 
 
 
-div.question header .icon 
+div.question header.q-header .icon 
 {
   fill: white;
   
 }
 
-div.question header a{
+div.question header.q-header a{
   color: white;
 }
 
-div.question header li
+div.question header.q-header li
 {
  font-size: 15px; 
 }

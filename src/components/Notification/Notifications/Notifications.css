@@ -2,6 +2,7 @@
 
     background-color: var(--white);
     padding: 3rem;
+    border-radius: 1rem;
    
 } 
 
@@ -15,6 +16,7 @@ div.header
 .notifications
 {
    padding: 2rem;
+  ;
 } 
 
 .search

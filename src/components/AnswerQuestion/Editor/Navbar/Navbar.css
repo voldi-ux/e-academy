@@ -1,0 +1,32 @@
+
+
+ul.fonts{
+    display: flex; 
+}
+
+ul.fonts li 
+{
+    background: var(--white);
+    padding: 2rem;
+    border-right: 1px solid #ccc;
+}
+
+ul.fonts a{
+    color: var(--black);
+    font-size: 15px;
+}
+
+ul.fonts a:hover{
+    cursor: pointer;
+}
+
+
+@media (max-width:800px) {
+     
+    ul.fonts li {
+        padding: .5rem;
+    }
+    ul.fonts a{
+        font-size: 10px;
+    }
+}
