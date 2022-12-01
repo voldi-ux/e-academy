@@ -5,6 +5,10 @@
     padding: 2rem;
 }
 
+.notify .item
+{
+    margin-bottom: 1rem;
+}
 .questionWrapper div.heading
 {
     display: flex;

@@ -2,7 +2,7 @@
 import AQuestion from  '../Question/AQuestion'
 import './QuestionWrapper.css'
 import Editor from '../Editor/Editor'
-import Notification from '../../Notification/Notification/Notification'
+import Bookmark from '../../BookMark/Bookmark/Bookmark'
 
 //React packages
 import {Link} from 'react-router-dom'
@@ -22,9 +22,12 @@ const QuestionWrapper = () => {
      
      <div className="notify">
       <h1><span className="not"><i style={{color:"black"}} className="fa fa-comments fa-lg"></i></span> 56 people answered this question</h1>
-      <Notification question="This is the first principal approach" icon="fa fa-comments fa-lg"/>
-      <Notification question="This is the first principal approach" icon="fa fa-comments fa-lg"/>
-      <Notification question="This is the first principal approach, you have to factor out h" icon="fa fa-comments fa-lg"/>
+     
+      <div className="item"> <Bookmark/></div>
+      <div className="item"> <Bookmark/></div>
+      <div className="item"> <Bookmark/></div>
+
+      
 
       <h2 style={{paddingLeft:"1rem"}}>show more...</h2>
       </div>

@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import Questions from './components/QuestionComponent/Questions';
 import Notifications from './components/Notification/Notifications/Notifications';
 import QuestionWrapper from './components/AnswerQuestion/Wrapper/QuestionWrapper';
+import BookMarks from './components/BookMark/Bookmarks/Bookmarks'
 
 const Router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const Router = createBrowserRouter([
       {
         path: "answer-question",
         element: <QuestionWrapper/>
+      },
+      {
+        path: "bookemarked-questions",
+        element: <BookMarks/>
       }
       
     ]
