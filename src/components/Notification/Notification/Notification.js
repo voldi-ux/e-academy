@@ -12,7 +12,8 @@ const Notification = ({name, question, icon}) => {
     <div className='notification'>
 
         <div>
-      <h2 className='question-container'> <span className='question'> {name} :  </span> {question}</h2>
+      <h2 className='question-container'> <span className='question'> {name}:  </span> </h2>
+     <p>{question}</p>
        
        <div className="btns">
       <Button color="var(--purple)">  <Schedule className='icon'/> 20 min ago</Button>

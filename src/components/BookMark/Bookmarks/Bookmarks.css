@@ -1,0 +1,29 @@
+.bookmarks 
+{
+
+    margin: auto;
+    
+}
+
+
+.bookmarks div.item
+{
+    margin: 2rem 3.5rem;
+ 
+}
+
+.bookmarks-title
+{
+    padding-left: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.bookmarks-title h1
+{
+    font-size: 2em;
+    color: var(--orange);
+}
+
+
+

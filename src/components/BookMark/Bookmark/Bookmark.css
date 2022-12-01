@@ -1,0 +1,85 @@
+
+
+p h1, h2 small {
+    line-height: 1.6;
+}
+.bookmark
+{
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1.5rem;
+    place-items: center;
+    padding: 1rem 3rem;
+  
+}
+.bookmark h2{
+    padding-top: 1rem;
+    width: 95%;
+}
+.bookmark img
+{
+    width: 100%;
+}
+.bookmark .first-content
+{
+    display: flex;
+    gap: 2rem;
+}
+
+.bookmark-btns
+{
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.bookmark-btns i
+{
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+.bookmark .illustrate:hover
+{
+    cursor: pointer;
+}
+.bookmark .illustrate 
+{
+    width: 150px;
+    height: 150px;
+    display: grid;
+    place-items: center;
+    object-fit: cover;
+    background-color: var(--white);
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+   
+    
+}
+
+.bookmark .illustrate img
+{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.bookmark-icons
+{
+    display: flex;
+    gap: 3rem;
+}
+.bookmark-icons i
+{
+    font-size: 25px;
+}
+
+.bookmark-icons i:hover
+{
+    cursor: pointer;
+}
