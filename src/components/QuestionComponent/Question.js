@@ -3,10 +3,6 @@ import './Question.css'
 
 //icons
 import {ReactComponent as Share} from '../../resources/icons/share.svg'
-import { ReactComponent as Like } from '../../resources/icons/thumbUp.svg'
-import {ReactComponent as BookMark} from '../../resources/icons/bookmark.svg'
-import {ReactComponent as Visible} from '../../resources/icons/visibility.svg'
-import {ReactComponent as Schedule} from '../../resources/icons/schedule.svg'
 
 //react packages
 import {Link} from "react-router-dom"
@@ -43,16 +39,16 @@ const Question = ({identity, grade, school, subject, topic, description, illustr
 
         <footer className='questionFooter'>
            <div className='btns'>
-            <Button color="var(--purple)">  <Schedule className="icon"/> 2 min ago  </Button>
-            <Button color="var(--grey)"> <Like className="icon"/>  20 likes </Button>
+            <Button color="var(--purple)">  <i className="fa fa-clock"></i> 2 min ago  </Button>
+            <Button color="var(--grey)"> <i className="fa fa-thumbs-up"></i>  20 likes </Button>
 
             <Link to={"/answer-question"}>
-            <Button color="var(--green)"> <Visible className="icon"/>  View </Button>
+            <Button color="var(--green)"> <i className="fa fa-eye"></i>  View </Button>
             </Link>
            </div>
 
            <div className='btn'>
-           <Button color="var(--yellow)"> <BookMark style={{width:"20px", height:"20px"}}  className="icon"/>  Bookmark </Button>
+           <Button color="var(--yellow)"> <i className="fa fa-bookmark"></i>  Bookmark </Button>
            </div>
         </footer>
       

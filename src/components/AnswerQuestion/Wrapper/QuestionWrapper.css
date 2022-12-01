@@ -26,7 +26,7 @@ div.heading a:hover
 }
 div.heading h1 
 {
-    color: var(--orange);
+    color: var(--blue-dark);
     font-size: 2em;
 
 }
@@ -34,7 +34,7 @@ div.heading h1
 .notify h1
 {
     font-size: 2em;
-    color: var(--orange);
+    color: var(--blue-dark);
     padding: 3rem 1rem;
 }
 
@@ -50,7 +50,7 @@ div.heading h1
 
 h1.answer-h{
 
-    color: var(--orange);
+    color: var(--blue-dark);
     padding-left: 7rem;
     padding-top: 2rem;
 }

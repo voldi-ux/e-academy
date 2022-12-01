@@ -1,10 +1,4 @@
 import './Notification.css'
-import { ReactComponent as Schedule } from '../../../resources/icons/schedule.svg'
-import { ReactComponent as Like } from '../../../resources/icons/thumbUp.svg'
-
-
-
-
 import Button from '../../Button/Button'
 
 const Notification = ({name, question, icon}) => {
@@ -16,10 +10,10 @@ const Notification = ({name, question, icon}) => {
      <p>{question}</p>
        
        <div className="btns">
-      <Button color="var(--purple)">  <Schedule className='icon'/> 20 min ago</Button>
-      <Button color="var(--green)">  <Like className='icon'/>  53 likes </Button>
+      <Button color="var(--purple)"> <i className="fa fa-clock"></i>  20 min ago</Button>
+      <Button color="var(--green)"> <i className="fa fa-thumbs-up"></i> 56 likes </Button>
        <div className="remove">
-       <Button color="var(--red)">  Delete </Button>
+       <Button color="var(--red)"> <i className="fa fa-trash"></i> Delete </Button>
        </div>
       </div>
       </div>

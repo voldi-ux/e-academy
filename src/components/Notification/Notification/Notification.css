@@ -11,6 +11,7 @@
     gap: 1rem;
     place-items: center;
     justify-content: space-between;
+    box-shadow: var(--shadow);
 }
 
 .notification p

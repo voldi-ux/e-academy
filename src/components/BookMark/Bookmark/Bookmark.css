@@ -3,13 +3,18 @@
 p h1, h2 small {
     line-height: 1.6;
 }
+
+:root
+{
+  --bookmark-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
 .bookmark
 {
     width: 100%;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: var(--shadow);
     border-radius: 1rem;
     padding: 1rem;
     gap: 1.5rem;
@@ -57,7 +62,7 @@ p h1, h2 small {
     object-fit: cover;
     background-color: var(--white);
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    box-shadow: var(--bookmark-shadow);
    
     
 }

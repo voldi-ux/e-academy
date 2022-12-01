@@ -9,7 +9,7 @@
 /*  Question  */
 div.question {
   margin: auto;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--shadow);
   width: 90%;
   border-radius: 20px;
   background: #fff;
