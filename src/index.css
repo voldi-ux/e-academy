@@ -45,3 +45,16 @@ html {
 }
 
 
+/* General styling */
+img{
+  width: 100%;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+

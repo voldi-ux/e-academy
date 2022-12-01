@@ -10,6 +10,12 @@
     text-transform: capitalize;
 }
 
+
+.stats-container-filters {
+   display: flex;
+   justify-content: center;
+   margin: 4rem 0;
+}
 .cotainer-1 {
     display: flex;
     justify-content: space-between;
@@ -86,6 +92,3 @@
 }
 
 
-.cotainer-1 .table-1 {
-    
-}
