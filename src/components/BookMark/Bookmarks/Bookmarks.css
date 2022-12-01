@@ -1,15 +1,12 @@
 .bookmarks 
 {
-
-    margin: auto;
-    
+    margin: auto;   
 }
 
 
 .bookmarks div.item
 {
     margin: 2rem 3.5rem;
- 
 }
 
 .bookmarks-title
@@ -22,7 +19,7 @@
 .bookmarks-title h1
 {
     font-size: 2em;
-    color: var(--orange);
+    color: var(--blue-dark);
 }
 
 
