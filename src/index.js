@@ -33,6 +33,10 @@ const Router = createBrowserRouter([
         path: "bookemarked-questions",
         element: <BookMarks/>
       }
+      {
+        path: "create-questions",
+        element: <CQuestion/>
+      }
       
     ]
   }
