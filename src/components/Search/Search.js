@@ -5,7 +5,7 @@ const Search = ({placeholder, bgColor, color}) => {
   return (
     <div>
      <label className="search">
-        <input style={{backgroundColor:bgColor, color: color}} placeholder={placeholder} type="text" />
+        <input className='input' style={{backgroundColor:bgColor, color: color}} placeholder={placeholder} type="text" />
         <div className="s-icon">
             <SearchIcon className='icon'/>
         </div>

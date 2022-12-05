@@ -2,7 +2,7 @@ import './Button.css'
 
 const Button = (props) => {
   return (
-    <button style= {{backgroundColor: props.color}}> 
+    <button className='button' style= {{backgroundColor: props.color}}> 
       {props.children}
     </button>
   )
