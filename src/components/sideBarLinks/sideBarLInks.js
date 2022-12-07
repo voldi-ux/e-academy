@@ -52,7 +52,7 @@ const SideBarlinks = () => {
           <Icon8 className="icon-8" />
           <h3>Schedule</h3>
         </Link>
-        <Link className="link-item">
+        <Link className="link-item" to={"auth/sign-in"}>
           <Icon9 className="icon-9" />
           <h3>Log Out</h3>
         </Link>

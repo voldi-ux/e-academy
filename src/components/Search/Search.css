@@ -1,17 +1,13 @@
 
-input
+.input
 {
     border: none;
     width: 100%;
     border-radius: 20px;
    
-    
-}
-
-input[type="text"]
-{
     height: 6rem;
     padding-left: 2rem;
+    
 }
 
 label.search

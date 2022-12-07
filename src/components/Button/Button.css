@@ -1,4 +1,8 @@
-/* Button */
+/**
+ * Button
+ *
+ * @format
+ */
 
 button{
     color: #fff;
@@ -27,3 +31,18 @@ button{
   {
     cursor: pointer;
   }
+.button {
+  color: var(--white);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  width: 120px;
+  gap: 0.5rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
