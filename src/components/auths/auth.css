@@ -47,7 +47,7 @@
   font-size: 2.5rem;
   color: var(--blue-dark);
   position: relative;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .sign-in-container-heading::before {
@@ -84,7 +84,7 @@
 
 .profile-heading-2 {
     position: relative;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     margin-bottom: 4rem;
 
 }

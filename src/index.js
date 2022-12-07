@@ -13,8 +13,11 @@ import Auth from './pages/auth/auth';
 import SignIn from './components/auths/signIn';
 import SignUp from './components/auths/signUp';
 import Profile from './components/auths/profile';
+
 import ManageStud from './components/ManageStudents/ManageStud';
 import Analysis from './components/Analysis/Analysis';
+import MainEditor from './components/EitorMain/mainEditor';
+
 
 const Router = createBrowserRouter([
   {
@@ -69,7 +72,13 @@ const Router = createBrowserRouter([
         element: <Profile />
       }
     ]
-  }
+  },
+
+  //tesing the editor component
+ {
+   path: 'editor',
+   element: <MainEditor />
+ }
 ]);
 
 
