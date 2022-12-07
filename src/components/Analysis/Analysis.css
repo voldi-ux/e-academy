@@ -1,0 +1,85 @@
+:root
+{ 
+    --wrapper-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.analysis-wrapper
+{
+    background: #fff;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+
+}
+
+.analysis-wrapper i
+{
+    color: var(--blue-dark);
+   
+}
+.analysis-wrapper .an-header
+{
+    color: var(--blue-dark);
+    display: flex;
+    place-items: center;
+    place-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.analysis-wrapper .box1 
+{
+    width: 80%;
+   
+    box-shadow: var(--wrapper-shadow);
+}
+
+.analysis-wrapper .box1 .box1-header
+{
+    background-color: var(--grey);
+    text-align: center;
+    color: #fff;
+    padding: .5rem;
+}
+
+.analysis-wrapper .box1 li
+{
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
+    font-size: 15px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    padding-left: 1rem;
+}
+
+
+/* box 2 */
+
+.analysis-wrapper .box2
+{
+    width: 80%;
+    margin-top: 2rem;
+    box-shadow: var(--wrapper-shadow);
+}
+
+.analysis-wrapper .box2 .box2-header
+{
+    background-color: var(--blue-dark);
+    text-align: center;
+    color: #fff;
+    padding: .5rem;
+}
+
+.analysis-wrapper .box2 li
+{   
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 1rem;
+    font-size: 15px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    padding-left: 1rem;
+}

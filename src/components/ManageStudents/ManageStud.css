@@ -1,0 +1,96 @@
+
+div.ms
+{
+ padding: 3rem;
+ background-color: var(--white);
+ width: 95%;
+ border-radius: 1rem;
+ margin: auto;
+ margin-top: 4rem;
+ margin-bottom: 4rem;
+}
+
+div.ms .ms-table
+{
+    background-color: #fff;
+
+}
+div.ms .ms-table .ms-header 
+{
+    background-color: var(--red);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+}
+div.ms .ms-table .ms-header input
+{
+    width: 300px;
+    height: 3rem;
+    border: none;
+    border-radius: 1rem;
+    padding-left: 1rem;
+
+    
+}
+
+div.ms .ms-table .ms-titles
+{
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 1rem 3rem;
+    color: var(--blue-dark);
+
+   
+}
+
+.ms-students
+{    
+    display: block;
+    width: 100%;
+    padding: 2rem;
+    place-items: center;
+    place-content: center;
+    margin: auto;
+}
+
+.ms-filter
+{
+    display: flex;
+    place-items: center;
+    padding-bottom: 2rem;
+    place-content: center;
+}
+
+.ms .ms-btns 
+{
+    margin: auto;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+.ms .ms-btns button
+{
+   
+    width: 100px;
+    height: 3rem;
+    border: none;
+    color: var(--white);
+}
+
+.ms-btns button.prev
+{
+    background: var(--grey);
+    color: #fff;
+}
+
+.ms-btns button.next
+{
+    background-color: var(--green);
+}
+ 
+
+/*  box anaylysis */
