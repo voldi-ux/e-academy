@@ -1,0 +1,43 @@
+/** @format */
+
+.main-editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-editor-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-editor-header {
+  background-color: var(--blue-dark);
+  color: var(--white);
+  padding: 1rem;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.main-editor-icons-left {
+  display: flex;
+}
+
+.main-editor-header .icons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.main-editor-content {
+  min-height: 50%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.main-editor-contents {
+  flex:1;
+
+}
