@@ -13,7 +13,11 @@ import Auth from './pages/auth/auth';
 import SignIn from './components/auths/signIn';
 import SignUp from './components/auths/signUp';
 import Profile from './components/auths/profile';
+
+import ManageStud from './components/ManageStudents/ManageStud';
+import Analysis from './components/Analysis/Analysis';
 import MainEditor from './components/EitorMain/mainEditor';
+
 
 const Router = createBrowserRouter([
   {
@@ -37,6 +41,14 @@ const Router = createBrowserRouter([
       {
         path: "bookemarked-questions",
         element: <BookMarks/>
+      },
+      {
+        path: 'manage-students',
+        element:<ManageStud/>
+      },
+      {
+        path: "manage-students/analysis",
+        element: <Analysis/>
       }
       
     ]

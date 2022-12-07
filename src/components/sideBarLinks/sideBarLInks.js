@@ -12,6 +12,11 @@ import { ReactComponent as Icon9 } from '../../resources/icons/logout.svg';
 
 import { Link} from 'react-router-dom'
 
+import {FaHome, FaBell, FaUsers, FaCommentAlt, FaBookmark} from 'react-icons/fa'
+import { FaBook, FaPaperPlane, FaCalendarAlt, FaSignOutAlt} from 'react-icons/fa';
+
+
+
 
 //should add booked marked questions
 
@@ -21,39 +26,39 @@ const SideBarlinks = () => {
     return (
       <div className="side-links">
         <Link to={"/"} className="link-item">
-          <Icon1 className="icon-1" />
+          <FaHome fontSize="40px" className="icon-1" />
           <h3>Dashboard</h3>
         </Link>
         <Link to={"notifications"} className="link-item">
-          <Icon2 className="icon-2" />
+          <FaBell fontSize="40px" className="icon-2" />
           <h3>Notifications</h3>
         </Link>
         <Link to={"manage-students"} className="link-item">
-          <Icon3 className="icon-3" />
+          <FaUsers fontSize="40px" className="icon-3" />
           <h3>Manage Students</h3>
         </Link>
         <Link to={"manage-answers"} className="link-item">
-          <Icon4 className="icon-4" />
+          <FaCommentAlt fontSize="40px" className="icon-4" />
           <h3>Manage Answers</h3>
         </Link>
         <Link to={"bookemarked-questions"} className="link-item">
-          <Icon5 className="icon-5" />
+          <FaBookmark fontSize="50px" className="icon-5" />
           <h3>Booked Marked Questions</h3>
         </Link>
         <Link to={"create-questions"} className="link-item">
-          <Icon6 className="icon-6" />
+          <FaBook fontSize='40px' className="icon-6" />
           <h3>Create Questions</h3>
         </Link>
         <Link to={"questions"} className="link-item">
-          <Icon7 className="icon-7" />
+          <FaPaperPlane fontSize="40px" className="icon-7" />
           <h3>Answer Questions</h3>
         </Link>
         <Link to={"schedule"} className="link-item">
-          <Icon8 className="icon-8" />
+          <FaCalendarAlt fontSize="40px" className="icon-8" />
           <h3>Schedule</h3>
         </Link>
         <Link className="link-item" to={"auth/sign-in"}>
-          <Icon9 className="icon-9" />
+          <FaSignOutAlt fontSize="40px" className="icon-9" />
           <h3>Log Out</h3>
         </Link>
       </div>
