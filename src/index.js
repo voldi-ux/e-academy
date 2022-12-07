@@ -9,6 +9,10 @@ import Questions from './components/QuestionComponent/Questions';
 import Notifications from './components/Notification/Notifications/Notifications';
 import QuestionWrapper from './components/AnswerQuestion/Wrapper/QuestionWrapper';
 import BookMarks from './components/BookMark/Bookmarks/Bookmarks'
+import Auth from './pages/auth/auth';
+import SignIn from './components/auths/signIn';
+import SignUp from './components/auths/signUp';
+import Profile from './components/auths/profile';
 
 const Router = createBrowserRouter([
   {
@@ -38,6 +42,26 @@ const Router = createBrowserRouter([
         element: <CQuestion/>
       }
       
+    ]
+  },
+
+  //authentication routes
+
+  {
+    path: 'auth',
+    element: <Auth />,
+    children: [
+      {
+        path: 'sign-in',
+        element: <SignIn />
+      },
+      {
+        path: "sign-up",
+        element: <SignUp />
+      }, {
+        path: "create-profile", 
+        element: <Profile />
+      }
     ]
   }
 ]);

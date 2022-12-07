@@ -3,16 +3,12 @@ import './filter.css';
 
 
 /* 
-
-
 selections = {
     title: ...,
     Onclick: () => 
 }
 
 */
-
-
 
 const Filter = ({ title, defaultSelect, selection }) => { 
 

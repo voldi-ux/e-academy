@@ -4,7 +4,7 @@
 
 {
     margin: auto;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    box-shadow: var(--shadow);
     width: 90%;
     border-radius: 1rem;
     background: #fff;

@@ -1,0 +1,235 @@
+/** @format */
+
+.sign-in-container,
+.sign-up-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(180deg, rgba(245, 240, 240, 0.911), hsla(153, 100%, 40%, 0.9)), url("../../resources/images/slider-4.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.sign-up-container {
+  background-image: linear-gradient(180deg, rgba(245, 240, 240, 0.911), #136d97fa), url("../../resources/images/slider-1.jpg");
+}
+
+.create-profile-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-image: linear-gradient(180deg, rgba(245, 240, 240, 0.911), #f65858ee), url("../../resources/images/slider-2.jpg");
+}
+
+.create-profile-container-inner {
+  height: 100%;
+  width: 50%;
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  color: var(--blue-dark);
+
+}
+
+.sign-in-container-inner,
+.sign-up-container-inner {
+  padding: 2rem;
+  background-color: white;
+  width: 40%;
+  box-shadow: var(--shadow);
+  animation: scale-in .3s linear;
+}
+
+.auth-heading {
+  text-transform: capitalize;
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
+  color: var(--blue-dark);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sign-in-container-heading::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 20rem;
+  background-color: var(--green);
+}
+
+.sign-up-container-heading::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 20rem;
+  background-color: var(--blue-dark-2);
+}
+.sign-in-container-heading-2,
+.sign-up-container-heading-2 {
+  text-transform: capitalize;
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  color: var(--blue-dark);
+  display: block;
+  width: 15rem;
+  margin: 2rem auto;
+}
+
+.profile-heading-2 {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 4rem;
+
+}
+ .profile-heading-2::after {
+ content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 10rem;
+  background-color: var(--red);
+ }
+.profile-heading::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 10rem;
+  background-color: #f65858ee;
+}
+
+.sign-in-container input,
+.sign-up-container input, .profile-input {
+  padding: 2rem !important;
+  margin-bottom: 2rem;
+  color: var(--blue-dark);
+  box-shadow: var(--shadow);
+  width: 100%;
+  border-radius:10rem ;
+  border: none;
+}
+
+
+.profile-input {
+    margin-bottom: 4rem;
+}
+.sign-p,
+.sign-up {
+  font-size: 1.6rem;
+  margin: 2rem 0;
+  color: var(--blue-dark);
+}
+
+.sign-up {
+  color: var(--red);
+}
+
+.sign-p .sign-in-link {
+  color: rgb(11, 92, 197);
+}
+
+.auth-button {
+  min-width: 15rem;
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+  border-radius: 15rem;
+  border: none;
+  font-size: 2rem;
+  color: var(--white);
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: 0.4s all ease;
+}
+
+.sign-in-button {
+  background-color: var(--green);
+  box-shadow: 0px 3px 3rem var(--green);
+}
+.sign-up-button {
+  background-color: var(--blue-dark-2);
+  box-shadow: 0px 3px 3rem var(--blue-dark-2);
+}
+.profile-button {
+  margin-top: 4rem;
+ background-color: var(--red);
+  box-shadow: 0px 3px 3rem var(--red);
+
+}
+
+.sign-in-button:hover {
+  box-shadow: 0px 3px 1rem var(--green);
+}
+
+.sign-up-button:hover {
+  box-shadow: 0px 3px 1rem var(--blue-dark-2);
+}
+
+.profile-button:hover {
+    box-shadow: 0px 3px 1rem var(--red);
+}
+
+.auth-button-google {
+  background-color: var(--grey);
+  display: flex;
+  font-size: 1rem;
+  align-items: center;
+  font-weight: normal;
+  padding: 0.5rem 1rem;
+}
+
+
+.create-profile-container .two-input-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-profile-container .two-input-container input {
+    width: 48%;
+}
+
+.create-profile-container > div {
+    margin-bottom: 3rem;
+}
+
+.profile-selection {
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+}
+
+.profile-selection > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+
+.profile-selection > div > label {
+    margin-left: 1rem;
+    font-size: 1.6rem;
+}
+
+
+@keyframes scale-in {
+    from {
+       transform: scale(.3);
+       opacity: .5;
+    }
+
+    to {
+         transform: scale(1);
+         opacity: 1;
+    }
+}

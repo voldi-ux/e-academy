@@ -23,7 +23,7 @@ body {
   --pink: #F065BE;
   --gold: #CEAC4C;
   --purple: #7A2377;
-  --shadow:0px 6px 100px 10px rgba(0,0,0,0.19);  
+  --shadow:0px 6px 100px  rgba(0,0,0,0.19);  
 }
 
 /* 62.5% ensures that 1rem = 10px */
@@ -31,6 +31,10 @@ html {
   font-size: 62.5%;
 }
 
+
+input:focus {
+  outline: none;
+}
 
  ::selection {
    color: var(--white);

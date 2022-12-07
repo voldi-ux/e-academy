@@ -48,6 +48,8 @@
     margin-top: 2rem;
     background-color: var(--green);
     border-radius: 0 !important;
+    border: none;
+    color: var(--white);
     
     display: flex;
     align-items: center;
