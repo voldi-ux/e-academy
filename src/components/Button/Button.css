@@ -6,8 +6,11 @@ button{
     border: none;
     border-radius: 12px;
     width: 110px;
+    place-items: center;
+    place-content: center;
     display: flex;
     gap: 1rem;
+    
   }
 
 

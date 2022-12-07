@@ -1,0 +1,39 @@
+.wrapper {
+    margin: 2rem;
+}
+
+.question-properties{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.option-btns{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    text-align: center;
+}
+
+.optn-btn{
+    text-align: center;
+}
+
+.choices{
+    padding: 1rem;
+}
+
+
+.prev-btn {
+    width: 99%;
+    display: grid;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.quest-body{
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 1rem;
+}
