@@ -1,7 +1,8 @@
 import React from 'react'
-import Button from '../../Button/Button'
 import { Badge } from '@tremor/react'
 import './Student.css'
+
+
 const Student = ({name, surname, school, stdNum, qstns, numPrac, succRate}) => {
   return (
     <div className='student'>

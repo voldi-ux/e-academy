@@ -7,7 +7,7 @@
 .side-links  .link-item {
   display: flex;
   align-items: center;
-  margin: 1rem ;
+  margin: 2rem 1rem ;
   user-select: none;
   cursor: pointer;
   text-decoration: none;
@@ -53,5 +53,5 @@
 }
 
 .side-links  .link-item .icon-9 path {
-   fill: var(--black);
+
 }

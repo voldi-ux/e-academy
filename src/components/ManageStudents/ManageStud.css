@@ -23,6 +23,12 @@ div.ms .ms-table .ms-header
     justify-content: space-between;
     place-items: center;
 }
+
+.ms  hr {
+  border: 1px solid rgba(128, 128, 128, 0.2);
+ 
+}
+
 div.ms .ms-table .ms-header input
 {
     width: 300px;
