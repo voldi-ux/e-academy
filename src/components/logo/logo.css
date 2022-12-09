@@ -9,12 +9,6 @@
     border-bottom: 4px solid var(--gold);
 }
 
-.logo-container .icon path {
-    fill: var(--gold);
-}
-.logo-container .icon {
- transform: scale(1.2);
-}
-.logo-container .name {
-    margin-left: 10px;
+.logo-container .icon  {
+  color: red;
 }

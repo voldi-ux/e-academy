@@ -1,10 +1,10 @@
 /** @format */
 
 import React from "react";
-import "./mainEditor.css";
 import { IconContext } from "react-icons";
 import { BsFillImageFill, BsTypeBold, BsTypeUnderline, BsTextLeft, BsTextCenter } from "react-icons/bs";
 import { AiFillSave } from "react-icons/ai";
+import "./mainEditor.css";
 
 const MainEditor = () => {
   return (

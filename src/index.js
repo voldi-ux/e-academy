@@ -17,7 +17,7 @@ import Profile from './components/auths/profile';
 
 import ManageStud from './components/ManageStudents/ManageStud';
 import Analysis from './components/Analysis/Analysis';
-import MainEditor from './components/EitorMain/mainEditor';
+import MainEditor from './components/EditorMain/mainEditor';
 
 
 const Router = createBrowserRouter([
@@ -31,25 +31,32 @@ const Router = createBrowserRouter([
         path: "questions",
         element: <Questions />
       },
+
       {
         path: "notifications",
         element: <Notifications/>
       },
+
       {
         path: "answer-question",
         element: <QuestionWrapper/>
       },
+
       {
         path: "bookemarked-questions",
         element: <BookMarks/>
       },
+
       {
         path: "create-questions",
-        element: <CQuestion/>
+        element: <CQuestion/>,
+      },
 
+      {
         path: 'manage-students',
         element:<ManageStud/>
       },
+
       {
         path: "manage-students/analysis",
         element: <Analysis/>
