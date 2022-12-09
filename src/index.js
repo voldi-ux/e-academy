@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import Questions from './components/QuestionComponent/Questions';
 import Notifications from './components/Notification/Notifications/Notifications';
 import QuestionWrapper from './components/AnswerQuestion/Wrapper/QuestionWrapper';
+import CQuestion from './components/CreateQuestion/CQuestion';
 import BookMarks from './components/BookMark/Bookmarks/Bookmarks'
 import Auth from './pages/auth/auth';
 import SignIn from './components/auths/signIn';
@@ -43,12 +44,16 @@ const Router = createBrowserRouter([
         element: <BookMarks/>
       },
       {
+        path: "create-questions",
+        element: <CQuestion/>
+
         path: 'manage-students',
         element:<ManageStud/>
       },
       {
         path: "manage-students/analysis",
         element: <Analysis/>
+
       }
       
     ]
