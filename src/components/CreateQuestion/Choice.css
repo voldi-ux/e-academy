@@ -1,11 +1,11 @@
 
 
-.choice { 
+.choice-container{ 
     position: relative;
     background-color: white;
     margin-bottom: 2rem;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 2rem;
     padding: 1rem;
     display: flex;
     gap: 1rem;
@@ -13,13 +13,13 @@
     justify-content: space-between;
 }
 
-.btn{
+.delete-btn-container{
     display: flex;
     gap: 1rem;
     padding: 1rem 0;
 }
 
-.delete{   
+.delete-btn{   
 display: none;
 }
 
@@ -34,8 +34,8 @@ display: none;
     bottom: 0;
     background-color: var(--red);
     padding: 0 2rem;
-    font-size: 15px;
-    border-radius: 0 20px 20px 0 ;
+    font-size: 1.5rem;
+    border-radius: 0 2rem 2rem 0;
 }
 .delete-icon:hover{
 cursor: pointer;

@@ -9,41 +9,39 @@ const CQuestion = () => {
 
 
     return(
-        <div className='wrapper'>
+      <div className='create-question-wrapper'>
 
-         <div className='quest-body'>
-
-            <div className="question-properties">
-                  <Filter title={'Question Type'} defaultSelect={'MCQ'} />
-                  <Filter title={'Question Type'} defaultSelect={'MCQ'} />
-                  <Filter title={'Question Type'} defaultSelect={'MCQ'} />
-                  <Filter title={'Question Type'} defaultSelect={'MCQ'} />
-            </div>
-
-            <div className="question-container">
-               <TextEditor/>
-            </div>
-
-            <div className="quest-tools">
-               <div className='option-btns'>
-                  <span><Button className="optn-btn">options</Button></span>
-                  <span><Button className="optn-btn" color='var(--green)' >add option<i className='fa fa-add'></i></Button></span>
-               </div>
-
-               <div className='choices'>
-                  <Choice text='The ball will move to the left' icon="fa fa-trash fa-lg"/>
-                  <Choice text='The ball will move to the left' icon="fa fa-trash fa-lg"/>
-                  <Choice text='The ball will move to the left' icon="fa fa-trash fa-lg"/>
-                  <Choice text='The ball will move to the left' icon="fa fa-trash fa-lg"/>
-               </div>
-
-               <div className='prev'>
-                  <Button className='prev-btn' color='var(--blue-dark)'>Preview Question</Button>
-               </div>
-            </div>
-
+         <div className="question-properties-container">
+               <Filter title={'Question Type'} defaultSelect={'MCQ'} />
+               <Filter title={'Subject'} defaultSelect={'Maths'} />
+               <Filter title={'Grade'} defaultSelect={'10'} />
+               <Filter title={'Level'} defaultSelect={'3'} />
          </div>
-        </div>
+
+         <div className="txt-editor-container">
+            <TextEditor/>
+         </div>
+
+         <div className="quest-tools">
+            <div className='option-btns-container'>
+               <span><Button className="optn-btn"><strong>options</strong></Button></span>
+               <span><Button className="optn-btn" color='var(--green)' ><strong>add option</strong><i className='fa fa-add'></i></Button></span>
+            </div>
+
+            <div className='mcq-choices'>
+               <Choice text='The ball will move to the left' icon="fa fa-trash fa-lg"/>
+               <Choice text='The ball will move to the right' icon="fa fa-trash fa-lg"/>
+               <Choice text='The ball will move in a straight path' icon="fa fa-trash fa-lg"/>
+               <Choice text='none of the above' icon="fa fa-trash fa-lg"/>
+            </div>
+
+            <div className='prev-btn-container'>
+               <Button className='prev-btn' color='var(--blue-dark)'><strong>Preview Question</strong></Button>
+            </div>
+         </div>
+
+      </div>
+        
     )
 }
 

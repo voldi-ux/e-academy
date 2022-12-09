@@ -1,14 +1,17 @@
-.wrapper {
+.create-question-wrapper{
     margin: 2rem;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 1rem;
 }
 
-.question-properties{
+.question-properties-container{
     display: flex;
     justify-content: center;
     padding-bottom: 2rem;
 }
 
-.option-btns{
+.option-btns-container{
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -19,7 +22,7 @@
     text-align: center;
 }
 
-.choices{
+.mcq-choices{
     padding: 1rem;
 }
 
@@ -32,8 +35,3 @@
     text-align: center;
 }
 
-.quest-body{
-    background-color: var(--white);
-    padding: 2.5rem;
-    border-radius: 1rem;
-}

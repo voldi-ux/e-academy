@@ -4,10 +4,10 @@ import Button from '../Button/Button'
 
 const Choice = ({text,icon}) => {
   return (
-    <div className='choice'>
+    <div className='choice-container'>
         <p>{text}</p>
-        <div className="btn">
-            <Button className="delete" color="var(--red)">Delete</Button>
+        <div className="delete-btn-container">
+            <Button className="delete-btn" color="var(--red)">Delete</Button>
         </div>
 
         <div className='delete-icon'>
