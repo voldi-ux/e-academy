@@ -1,18 +1,20 @@
 import React from 'react'
 import './Navbar.css'
 
+import { FaBold, FaItalic, FaUnderline, FaListOl, FaPaperclip, FaPencilAlt, FaChartLine, FaImage } from 'react-icons/fa'
+
 const Navbar = () => {
   return (
     <ul className="fonts">
-        <li><a href="dontkno"><i className="fa fa-solid fa-bold fa-lg"></i></a></li>
-        <li><a href="dontkno"><i class="fas fa-italic fa-lg"></i></a></li>
-        <li><a href="dontkno"><i class="fa-solid fa-underline fa-lg"></i></a></li>
-        <li><a style={{color:"var(--purple)"}} href="dontkno"><i class="fa-solid fa-list fa-lg"></i></a></li>
-        <li><a style={{color:"var(--green)"}} href="dontkno"><i class="fa fa-duotone fa-list-ol fa-lg"></i></a></li>
-        <li><a style={{color:"var(--orange)"}} href="dontkno"><i class="fa-solid fa-paperclip fa-lg"></i></a></li>
-        <li><a style={{color:"var(--blue-dark)"}} href="dontkno"><i class="fa-solid fa-pencil fa-lg"></i></a></li>
-        <li><a href="dontkno"><i class="fa-sharp fa-solid fa-chart-simple"></i></a></li>
-        <li><a style={{color:"var(--red)"}} href="dontkno"><i class="fa-solid fa-image fa-lg"></i></a></li>
+        <li><a href="dontkno"><FaBold/></a></li>
+        <li><a href="dontkno"><FaItalic/></a></li>
+        <li><a href="dontkno"><FaUnderline/></a></li>
+        <li><a style={{color:"var(--purple)"}} href="dontkno"><FaListOl/></a></li>
+        <li><a style={{color:"var(--green)"}} href="dontkno"><FaListOl/></a></li>
+        <li><a style={{color:"var(--orange)"}} href="dontkno"><FaPaperclip/></a></li>
+        <li><a style={{color:"var(--blue-dark)"}} href="dontkno"><FaPencilAlt/></a></li>
+        <li><a href="dontkno"><FaChartLine/></a></li>
+        <li><a style={{color:"var(--red)"}} href="dontkno"><FaImage/></a></li>
     </ul>
   )
 }

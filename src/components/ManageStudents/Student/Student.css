@@ -1,0 +1,25 @@
+
+
+:root
+{
+    --student-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+div.student
+{
+    display: flex;
+  
+   justify-content: space-between;
+   
+    padding: 1rem 2rem;
+    place-items: center;
+    width: 100%;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: var(--student-shadow);
+    margin-top: 1rem;
+}
+
+div.student h3
+{
+    color: var(--blue-dark);
+}

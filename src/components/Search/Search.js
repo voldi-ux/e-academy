@@ -1,5 +1,5 @@
 import './Search.css'
-import { ReactComponent as SearchIcon } from '../../resources/icons/search.svg'
+import { FaSearch } from 'react-icons/fa'
 
 const Search = ({placeholder, bgColor, color}) => {
   return (
@@ -7,7 +7,7 @@ const Search = ({placeholder, bgColor, color}) => {
      <label className="search">
         <input className='input' style={{backgroundColor:bgColor, color: color}} placeholder={placeholder} type="text" />
         <div className="s-icon">
-            <SearchIcon className='icon'/>
+            <FaSearch className='icon'/>
         </div>
      </label>
     </div>

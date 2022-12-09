@@ -12,6 +12,11 @@
     margin-bottom: 1rem;
 }
 
+.editor button 
+{
+    color: var(--white);
+}
+
 
 
 
@@ -45,4 +50,7 @@ button.submit-btn
     
 }
 
+ textarea:focus{
+    outline: none;
+}
 

@@ -2,6 +2,9 @@ import React from 'react'
 import './Bookmark.css'
 import Button from '../../Button/Button'
 
+//font awesome
+import { FaThumbsUp, FaComment, FaShare, FaTrash, FaEllipsisH} from 'react-icons/fa'
+
 const Bookmark = ({name, description, illustration}) => {
   return (
     <div className='bookmark'>
@@ -24,8 +27,8 @@ const Bookmark = ({name, description, illustration}) => {
            </div>
 
            <div className="bookmark-btns">
-            <Button color="var(--purple)"><span><i class="fa-solid fa-thumbs-up"></i> 2 234</span></Button>
-            <Button color="var(--green)"> <span><i class="fa-regular fa-comment"></i> 900</span> </Button>
+            <Button color="var(--purple)"><span><FaThumbsUp/> 2 234</span></Button>
+            <Button color="var(--green)"> <span><FaComment/> 900</span> </Button>
            </div>
            </section>
 
@@ -33,9 +36,9 @@ const Bookmark = ({name, description, illustration}) => {
 
         <div className='bookmark-icons'>
            
-        <i style={{color:"var(--green)"}} class="fas fa-share fa-2x"></i>
-        <i style={{color:"var(--red"}} class="fa-solid fa-trash fa-2x"></i>
-        <i style={{color:"var(--grey)"}} class="fa-solid fa-ellipsis fa-2x"></i>
+        <i style={{color:"var(--green)"}} ><FaShare/> </i>
+        <i style={{color:"var(--red"}} > <FaTrash/> </i>
+        <i style={{color:"var(--grey)"}}><FaEllipsisH/> </i>
 
           
 

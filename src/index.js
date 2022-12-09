@@ -15,6 +15,11 @@ import SignIn from './components/auths/signIn';
 import SignUp from './components/auths/signUp';
 import Profile from './components/auths/profile';
 
+import ManageStud from './components/ManageStudents/ManageStud';
+import Analysis from './components/Analysis/Analysis';
+import MainEditor from './components/EitorMain/mainEditor';
+
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +46,14 @@ const Router = createBrowserRouter([
       {
         path: "create-questions",
         element: <CQuestion/>
+
+        path: 'manage-students',
+        element:<ManageStud/>
+      },
+      {
+        path: "manage-students/analysis",
+        element: <Analysis/>
+
       }
       
     ]
@@ -64,7 +77,13 @@ const Router = createBrowserRouter([
         element: <Profile />
       }
     ]
-  }
+  },
+
+  //tesing the editor component
+ {
+   path: 'editor',
+   element: <MainEditor />
+ }
 ]);
 
 

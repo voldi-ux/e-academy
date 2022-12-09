@@ -3,6 +3,7 @@ import './Question.css'
 
 //icons
 import {ReactComponent as Share} from '../../resources/icons/share.svg'
+import { FaClock, FaThumbsUp, FaEye, FaBookmark, FaShareAlt} from 'react-icons/fa'
 
 //react packages
 import {Link} from "react-router-dom"
@@ -25,7 +26,7 @@ const Question = ({identity, grade, school, subject, topic, description, illustr
          </div>
 
             <div className='share'>
-               <a href="index.html"> <Share className="icon" /> </a>
+               <a href="index.html"> <FaShareAlt className='icon'/> </a>
             </div>
 
         </header>
@@ -39,16 +40,16 @@ const Question = ({identity, grade, school, subject, topic, description, illustr
 
         <footer className='questionFooter'>
            <div className='btns'>
-            <Button color="var(--purple)">  <i className="fa fa-clock"></i> 2 min ago  </Button>
-            <Button color="var(--grey)"> <i className="fa fa-thumbs-up"></i>  20 likes </Button>
+            <Button color="var(--purple)">  <FaClock  />   2 min ago  </Button>
+            <Button color="var(--grey)"> <FaThumbsUp/>  20 likes </Button>
 
             <Link to={"/answer-question"}>
-            <Button color="var(--green)"> <i className="fa fa-eye"></i>  View </Button>
+            <Button color="var(--green)"> <FaEye fontSize="20px" />  View </Button>
             </Link>
            </div>
 
            <div className='btn'>
-           <Button color="var(--yellow)"> <i className="fa fa-bookmark"></i>  Bookmark </Button>
+           <Button color="var(--yellow)"> <FaBookmark/>  Bookmark </Button>
            </div>
         </footer>
       
