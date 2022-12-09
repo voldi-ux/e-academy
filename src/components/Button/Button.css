@@ -4,6 +4,33 @@
  * @format
  */
 
+button{
+    color: #fff;
+    padding: .5rem;
+    border: none;
+    border-radius: 12px;
+    width: 110px;
+    place-items: center;
+    place-content: center;
+    display: flex;
+    gap: 1rem;
+    
+  }
+
+
+  button .icon 
+  {
+    fill: white;
+    height: 20px;
+    width: 20px;
+    padding-left: .3rem;
+   
+  }
+
+  button:hover
+  {
+    cursor: pointer;
+  }
 .button {
   color: var(--white);
   padding: 0.5rem;

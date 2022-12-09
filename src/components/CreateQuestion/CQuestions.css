@@ -1,0 +1,37 @@
+.create-question-wrapper{
+    margin: 2rem;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 1rem;
+}
+
+.question-properties-container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.option-btns-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    text-align: center;
+}
+
+.optn-btn{
+    text-align: center;
+}
+
+.mcq-choices{
+    padding: 1rem;
+}
+
+
+.prev-btn {
+    width: 99%;
+    display: grid;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+}
+
