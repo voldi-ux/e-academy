@@ -34,63 +34,63 @@ const Router = createBrowserRouter([
 
       {
         path: "notifications",
-        element: <Notifications/>
+        element: <Notifications />
       },
 
       {
         path: "answer-question",
-        element: <QuestionWrapper/>
+        element: <QuestionWrapper />
       },
 
       {
         path: "bookemarked-questions",
-        element: <BookMarks/>
+        element: <BookMarks />
       },
 
       {
         path: "create-questions",
-        element: <CQuestion/>,
+        element: <CQuestion />
       },
 
       {
-        path: 'manage-students',
-        element:<ManageStud/>
-      },
-
-      {
-        path: "manage-students/analysis",
-        element: <Analysis/>
-
+        path: "manage-students",
+        element: <ManageStud />,
+        children: [
+          {
+            path: "analysis",
+            element: <Analysis />
+          }
+        ]
       }
-      
     ]
   },
 
   //authentication routes
 
   {
-    path: 'auth',
+    path: "auth",
     element: <Auth />,
     children: [
       {
-        path: 'sign-in',
+        path: "sign-in",
         element: <SignIn />
       },
       {
         path: "sign-up",
         element: <SignUp />
-      }, {
-        path: "create-profile", 
+      },
+      {
+        path: "create-profile",
         element: <Profile />
       }
     ]
   },
 
   //tesing the editor component
- {
-   path: 'editor',
-   element: <MainEditor />
- }
+  {
+    path: "editor",
+    element: <MainEditor />
+  }
 ]);
 
 

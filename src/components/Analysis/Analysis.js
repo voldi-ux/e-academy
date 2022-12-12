@@ -1,14 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Analysis.css'
 import { Badge } from '@tremor/react'
 import { FaArrowLeft } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link , NavigationType, useNavigate} from 'react-router-dom'
 
 const Analysis = () => {
+
+
   return (
-    <div className='analysis-wrapper'>
-        
-        <h1 className='an-header' > <Link to="/manage-students"> <i><FaArrowLeft /> </i></Link>  <span>  Running Analysis For Grade 12 Mathematics</span> </h1 >
+    <div className="analysis-container">
+      <div className="analysis-wrapper">
+        <h1 className="an-header">
+          {" "}
+          <Link to="/manage-students" className="analysis-arrow-back">
+            {" "}
+            <i>
+              <FaArrowLeft color="#F1F8FF" />{" "}
+            </i>{" "}
+            Back
+          </Link>{" "}
+          <span> Running Analysis For Grade 12 Mathematics</span>{" "}
+        </h1>
         <div className="box1">
           <div className="box1-header">
             <h2>Students At Risk</h2>
@@ -23,35 +35,44 @@ const Analysis = () => {
         </div>
 
         <div className="box2">
-        <div className="box2-header">
+          <div className="box2-header">
             <h2>Struggling Topics for Students</h2>
           </div>
 
-        <ul>
-            <li> 
-             <div>Problem Solving </div>
-             <div> <Badge color='red' text='<78%'/></div>
+          <ul>
+            <li>
+              <div>Problem Solving </div>
+              <div>
+                {" "}
+                <Badge color="red" text="<78%" />
+              </div>
             </li>
-            <li> 
-             <div>Euclidean Geometry </div>
-             <div> <Badge color='red' text='<78%'/></div>
+            <li>
+              <div>Euclidean Geometry </div>
+              <div>
+                {" "}
+                <Badge color="red" text="<78%" />
+              </div>
             </li>
-            <li> 
-             <div>Trigonometric functions (2D) </div>
-             <div> <Badge color='red' text='<78%'/></div>
+            <li>
+              <div>Trigonometric functions (2D) </div>
+              <div>
+                {" "}
+                <Badge color="red" text="<78%" />
+              </div>
             </li>
-            <li> 
-             <div>Financial Mathematics</div>
-             <div> <Badge color='red' text='<78%'/></div>
+            <li>
+              <div>Financial Mathematics</div>
+              <div>
+                {" "}
+                <Badge color="red" text="<78%" size='lg' />
+              </div>
             </li>
-            
           </ul>
         </div>
-
-
-        </div>
-      
-  )
+      </div>
+    </div>
+  );
 }
 
 export default Analysis

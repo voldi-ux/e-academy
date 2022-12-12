@@ -3,13 +3,30 @@
     --wrapper-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.analysis-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.63);
+    padding-top: 3rem;
+     animation: scale-in2 .3s linear;
+
+
+       text-transform: capitalize;
+}
+
 .analysis-wrapper
 {
     background: #fff;
-    width: 100%;
+    width: 80%;
     display: grid;
     place-items: center;
     padding: 2rem;
+    margin: 1rem auto;
+    height: 90%;
+    overflow: scroll;
 
 }
 
@@ -21,12 +38,27 @@
 .analysis-wrapper .an-header
 {
     color: var(--blue-dark);
-    display: flex;
-    place-items: center;
-    place-content: center;
-    gap: 1rem;
     padding: 2rem 0;
+    position: relative;
+    width: 100%;
     text-align: center;
+}
+
+.analysis-arrow-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  color: var(--white);
+  padding: 1rem;
+  background-color:#E9781B;
+  border-radius: 3rem;
+  min-width: 10rem;
+
 }
 
 .analysis-wrapper .box1 
@@ -40,13 +72,13 @@
 {
     background-color: var(--grey);
     text-align: center;
-    color: #fff;
-    padding: .5rem;
+    color: var(--white);
+    padding: 1rem;
 }
 
 .analysis-wrapper .box1 li
 {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.452);
     padding: 1rem 0;
     font-size: 15px;
     color: var(--blue-dark);
@@ -68,18 +100,32 @@
 {
     background-color: var(--blue-dark);
     text-align: center;
-    color: #fff;
-    padding: .5rem;
+    color: var(--white);
+    padding: 1rem;
+  
 }
 
 .analysis-wrapper .box2 li
 {   
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.452);
     padding: 1rem 1rem;
     font-size: 15px;
     color: var(--blue-dark);
     font-weight: bold;
     padding-left: 1rem;
+}
+
+
+@keyframes scale-in2 {
+    from {
+       transform: scale(.3);
+      
+    }
+
+    to {
+         transform: scale(1);
+       
+    }
 }
