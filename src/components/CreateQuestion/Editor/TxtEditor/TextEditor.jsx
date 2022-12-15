@@ -14,18 +14,64 @@ const TextEditor = () => {
 
     return(
         <>
-            <div className='text-editor-header' >
-                <div className="header">
-                    <ul id="txt-format-icons">
-                        <li id="format-icon"><FaImage size={20} id="icon"/><br /><strong>Insert Image</strong></li>
-                        <li id="format-icon"><MdOutlineModeEdit size={20} id="icon"/><br /><strong>Edit</strong></li>
-                        <li id="format-icon"><FaBold size={20} id="icon"/><br /><strong>Bold Text</strong></li>
-                        <li id="format-icon"><FaUnderline size={20} id="icon"/><br /><strong>Underlined Text</strong></li>
-                        <li id="format-icon"><FaAlignCenter size={20} id="icon"/><FaAlignLeft size={20} id="icon"/><br /><strong>Allign Text</strong></li>
-                        <li id="format-icon"><FaSave size={20}/><br /><strong>Save</strong></li>
-                    </ul>
+            <div className="text-editor-header-container">
+                <div className='text-editor-header' >
+                    <header className="header">
+                            <div className="format-icon">
+                                <FaImage size={15} id="icon"/>
+                                <small id="text">Insert</small>
+                            </div>
+                            <div className="format-icon">
+                                <MdOutlineModeEdit size={15} id="icon"/>
+                                <small id="text">Edit</small>
+                            </div>
+                            <div className="format-icon">
+                                <FaBold size={15} id="icon"/>
+                                <small id="text">Bold</small>
+                            </div>
+                            <div className="format-icon">
+                                <FaUnderline size={15} id="icon"/>
+                                <small id="text">Underlined</small>
+                            </div>
+                            <div className="format-icon">
+                                <div className="align-icons">
+                                    <FaAlignCenter size={15} id="icon"/>
+                                    <FaAlignLeft size={15} id="icon"/>
+                                </div>
+                                <small id="align-text">Allign</small>
+                            </div>
+                            <div className="format-icon">
+                                <FaSave size={15}/>
+                                <small id="text">Save</small>
+                            </div>
+                    </header>
                 </div>
             </div>
+
+            {/* <div className="txt">
+                <div className="head">
+                    <div className="icons-container">
+                        <FaImage size={15} id="icon"/>
+                        <small id="text">Insert</small>
+                    </div>
+                    <div className="icons-container">
+                        <MdOutlineModeEdit size={15} id="icon"/>
+                        <strong id="text">Edit</strong>
+                    </div>
+                    <div className="icons-container">
+                        <FaImage size={15} id="icon"/>
+                        <strong id="text">Insert</strong>
+                    </div>
+                    <div className="icons-container">
+                        <FaImage size={15} id="icon"/>
+                        <strong id="text">Insert</strong>
+                    </div>
+                    <div className="icons-container">
+                        <FaImage size={15} id="icon"/>
+                        <strong id="text">Insert</strong>
+                    </div>
+                </div>
+            </div> */}
 
             <div className='text-area-container' contentEditable='true' placeholder="Type something here">
             </div>

@@ -46,8 +46,9 @@ const Router = createBrowserRouter([
       {
         path: "create-questions",
         element: <CQuestion/>
-
-        path: 'manage-students',
+      },
+      {
+        path: "manage-students",
         element:<ManageStud/>
       },
       {
