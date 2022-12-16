@@ -36,7 +36,7 @@ const CQuestion = () => {
             </div>
 
             <div className='prev-btn-container'>
-               <Button className='preview-quest-btn' color='var(--blue-dark)'><strong>Preview Question</strong></Button>
+               <Button className='prev-btn' color='var(--blue-dark)'><strong>Preview Question</strong></Button>
             </div>
          </div>
 

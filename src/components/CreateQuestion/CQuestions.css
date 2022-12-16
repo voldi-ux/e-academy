@@ -9,7 +9,6 @@
     display: flex;
     justify-content: center;
     padding-bottom: 2rem;
-    font-size: 1.6rem;
 }
 
 .option-btns-container{
@@ -17,7 +16,6 @@
     justify-content: space-between;
     padding: 1rem;
     text-align: center;
-    
 }
 
 .optn-btn{
@@ -26,11 +24,10 @@
 
 .mcq-choices{
     padding: 1rem;
-    font-size: 1.6rem;
 }
 
 
-.preview-quest-btn {
+.prev-btn {
     width: 99%;
     display: grid;
     margin: auto;
