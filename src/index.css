@@ -8,6 +8,16 @@ body {
  
 }
 
+/* hiding the scrollbar on  Chrome, Safari and Opera while still alowing the user to scroll*/
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
+* {
+   -ms-overflow-style: none;  /* IE and Edge */
+   scrollbar-width: none;  /* Firefox */
+}
 
 
 :root {
