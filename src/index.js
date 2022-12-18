@@ -49,7 +49,11 @@ const Router = createBrowserRouter([
 
       {
         path: "create-questions",
-        element: <CQuestion />
+        element: <CQuestion/>
+      },
+      {
+        path: "manage-students",
+        element:<ManageStud/>
       },
 
       {

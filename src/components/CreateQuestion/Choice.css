@@ -37,6 +37,7 @@ display: none;
     font-size: 1.5rem;
     border-radius: 0 2rem 2rem 0;
 }
+
 .delete-icon:hover{
 cursor: pointer;
 }
