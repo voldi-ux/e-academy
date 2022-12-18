@@ -1,12 +1,12 @@
 import './Button.css'
 
 const Button = (props) => {
-  console.log(props)
+  
   return (
-    <button style= {{backgroundColor: props.color}} className={props.className}> 
+    <button style={{ backgroundColor: props.color }} className={props.className + " btn-1"}>
       {props.children}
     </button>
-  )
+  );
 }
 
 

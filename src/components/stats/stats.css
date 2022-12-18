@@ -6,7 +6,7 @@
     border-radius: 1rem;
     box-shadow: var(--shadow);
     margin-bottom: 10rem;
-
+    color: var(--blue-dark);
     text-transform: capitalize;
 }
 

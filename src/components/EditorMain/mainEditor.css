@@ -3,7 +3,7 @@
 .main-editor-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 60%; 
 }
 
 .main-editor-header {
@@ -34,7 +34,7 @@
 
 .main-editor-content {
   min-height: 50%;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.7);
 }
 
 .main-editor-contents {

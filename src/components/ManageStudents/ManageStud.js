@@ -4,7 +4,7 @@ import "./ManageStud.css"
 import Filter from "../../filter/filter"
 import Button from "../Button/Button"
 import Student from "./Student/Student"
-import { Link } from "react-router-dom"
+import { Link , Outlet} from "react-router-dom"
 
 //styling compoenents
 import {FaRocket} from 'react-icons/fa'
@@ -57,7 +57,8 @@ const ManageStud = () => {
 
       </div>
 
-
+       {/* the analysis component will be automatically be rendered by this outlet */}
+       <Outlet />
     </div>
   )
 }
