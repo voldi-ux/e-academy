@@ -14,13 +14,13 @@ const Notifications = () => {
       <div className="search">
         <Search />
       </div>
-      <div className="quest">
         <div className="notification-filers-container">
           <Filter title={"Time"} defaultSelect={"New"} />
           <Filter title={"Seen"} defaultSelect={"false"} />
           <Filter title={"Grade"} defaultSelect={"All"} />
           <Filter title={"Subject"} defaultSelect={"All"} />
         </div>
+      <div className="quest">
         <Notification name="Axel" question="Eh, what is trig?" />
         <Notification name="Benjamin" question="What is the integration of the following question?" />
         <Notification name="Hope" question="f(x) is the tangent in this example right?" />

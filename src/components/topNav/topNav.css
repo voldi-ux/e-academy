@@ -3,21 +3,46 @@
 .topNav {
   height: 10rem;
   background-color: var(--white);
-  padding: .5rem 3rem;
+  padding: 0.5rem 3rem;
   box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-
 .topNav .icons {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
 .topNav .icons h3 {
-    margin-left: 1rem;
-    color: var(--gold);
+  margin-left: 1rem;
+  color: var(--gold);
+}
+
+.top-nav-menu-bar {
+  display: none;
+  cursor: pointer;
+  color: var(--blue-dark);
+}
+.top-nav-bar-icon {
+  font-size: 2rem;
+}
+
+/* tablets  */
+@media (max-width: 1080px) {
+  .top-nav-menu-bar {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .topNav {
+    padding: 0 0.5rem;
+    height: 7rem;
+  }
+
+  .topNav .icons h3 {
+    display: none;
+  }
 }

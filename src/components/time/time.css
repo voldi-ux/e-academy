@@ -9,3 +9,15 @@
     color: var(--green);
 
 }
+
+
+@media (max-width:500px) {
+    .time-container {
+        min-width: 15rem;
+        padding: .5rem;
+    }
+
+     .time-container h2 {
+         font-size: 1rem;
+     }
+}

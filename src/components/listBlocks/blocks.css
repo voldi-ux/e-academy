@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   width: 90%;
   margin: 1rem auto;
@@ -12,11 +13,12 @@
 
 .blocks-container .block {
   height: 15rem;
+  min-width: 25rem;
   width: 23%;
+
   box-shadow: var(--shadow);
   border-radius: 1rem;
-  padding: 1rem;
-  padding-left: 2rem;
+  padding: 2rem;
 
   display: flex;
   align-items: center;
@@ -49,4 +51,28 @@
 .blocks-container .icon {
   fill: var(--white);
   transform: scale(1.5);
+}
+
+@media (max-width: 1366px) {
+.blocks-container .block {
+  height: 12rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+}
+
+
+@media (max-width: 550px) {
+  .blocks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.blocks-container .block {
+  width: 100%;
+}
+
 }

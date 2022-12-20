@@ -12,7 +12,6 @@
 
 
 .nav1 {
-  background-color: blue;
   width: 20%;
 }
 
@@ -22,3 +21,60 @@
   width: 100%;
   overflow: scroll;
 }
+
+
+/*  */
+
+.nav-menu {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+
+  background-color: rgba(21, 35, 61, 0.719);
+  z-index: 1;
+
+  display: none;
+}
+
+.nav-menu-container {
+  transform:translateX(-100%);
+  width: 60%;
+  height: 100%;
+  animation: slide-in .5s ease-in forwards;
+}
+
+
+
+
+/* tablets  */
+@media  (max-width: 1080px) {
+  .nav1 {
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 500px) {
+ .main-outlets {
+  height: calc(100% - 7rem);
+}
+.nav-menu-container {
+  width: 80%;
+}
+
+}
+
+
+
+
+@keyframes slide-in {
+  from {
+    transform:translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+

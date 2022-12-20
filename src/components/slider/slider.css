@@ -27,12 +27,37 @@ background: linear-gradient(180deg, rgba(255,255,255,0.039653361344537785) 10%, 
 }
 
 .slider-item .overlay p {
-  color: #fff;
-  font-size: 40px;
+  color: var(--white);
+  font-size: 4rem;
   font-weight: 700;
   position: absolute;
   line-height: 4rem;
   bottom: 20%;
   left: 5%;
   text-transform: capitalize;
+}
+
+
+
+
+
+
+@media (max-width: 500px) {
+  .slider-item .overlay p {
+  font-size: 2rem;
+    line-height: 3rem;
+
+}
+
+.slider-container {
+     height: 20rem;
+}
+
+.slider-item {
+  position: relative;
+  height: 20rem;
+}
+
+
+
 }
