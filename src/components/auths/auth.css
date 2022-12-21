@@ -25,7 +25,7 @@
 .create-profile-container-inner {
   height: 100%;
   width: 50%;
-  background: white;
+  background: var(--white);
   box-shadow: var(--shadow);
   padding: 2rem;
   color: var(--blue-dark);
@@ -35,7 +35,7 @@
 .sign-in-container-inner,
 .sign-up-container-inner {
   padding: 2rem;
-  background-color: white;
+  background-color: var(--white);
   width: 40%;
   box-shadow: var(--shadow);
   animation: scale-in .3s linear;
@@ -140,7 +140,7 @@
 }
 
 .auth-button {
-  min-width: 15rem;
+  min-width: 18rem !important;
   margin: 0 auto;
   display: block;
   padding: 1rem;
@@ -165,6 +165,7 @@
   margin-top: 4rem;
  background-color: var(--red);
   box-shadow: 0px 3px 3rem var(--red);
+ 
 
 }
 
@@ -220,6 +221,63 @@
     margin-left: 1rem;
     font-size: 1.6rem;
 }
+
+
+
+@media (max-width: 1080px) {
+ .sign-in-container-inner,
+.sign-up-container-inner {
+  width: 65%;
+
+}
+
+.create-profile-container-inner {
+  width: 80%;
+}
+}
+@media (max-width: 768px) {
+ .sign-in-container-inner,
+.sign-up-container-inner {
+  width: 70%;
+
+}
+
+.create-profile-container-inner {
+  width: 100%;
+}
+}
+@media (max-width: 500px) {
+ .sign-in-container-inner,
+.sign-up-container-inner {
+  width: 95%;
+
+}
+
+
+.sign-in-container input,
+.sign-up-container input, .profile-input {
+  padding: 1rem !important;
+  margin-bottom: 1rem;
+
+}
+
+.auth-button-google {
+   padding: 0.5rem;
+}
+
+.sign-in-container-heading-2,
+.sign-up-container-heading-2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sign-in-button, .sign-up-button {
+  font-size: 1.5rem;
+}
+
+}
+
+
 
 
 @keyframes scale-in {

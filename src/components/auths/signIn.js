@@ -22,7 +22,7 @@ const SignIn = () => {
           <h1 className="sign-in-container-heading-2">or Sign In With</h1>
           <button className="auth-button auth-button-google">
             <FcGoogle size={25} />
-            <h3>sign in with google</h3>
+            <h3>google sign in</h3>
           </button>
           <p className="sign-p">
             Forgot password ?{" "}

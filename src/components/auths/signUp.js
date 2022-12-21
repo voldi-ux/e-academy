@@ -24,7 +24,7 @@ const SignUp = () => {
         <h1 className="sign-up-container-heading-2">or Sign In With</h1>
         <button className="auth-button auth-button-google">
           <FcGoogle size={25} />
-          <h3>sign in with google</h3>
+          <h3>google sign in</h3>
         </button>
         <p className="sign-up">Please note a verification email will be sent to the email provided so ensure that it is correct and active</p>
       </div>
