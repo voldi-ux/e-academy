@@ -22,5 +22,11 @@
     color: var(--blue-dark);
 }
 
+@media (max-width: 768px) {
+    .bookmarks .search 
+{
+  width: 90%;
+}
+}
 
 

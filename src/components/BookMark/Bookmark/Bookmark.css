@@ -88,3 +88,37 @@ p h1, h2 small {
 {
     cursor: pointer;
 }
+
+/* Media queries */
+/* tablets and below */
+
+
+@media (max-width:768px) {
+    
+
+    .bookmark 
+    {
+        display: grid;
+        place-items: start;
+    }
+
+    .bookmark .first-content 
+    {
+        display: grid;
+    }
+}
+
+/* Media queries */
+/* cellphone and below */
+
+@media (max-width:360px) {
+
+
+    .bookmark .illustrate 
+    {
+        display: grid;
+        margin: auto;
+        
+    }
+    
+}
