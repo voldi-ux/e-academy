@@ -10,11 +10,7 @@ div.ms
  margin-bottom: 4rem;
 }
 
-div.ms .ms-table
-{
-    background-color: #fff;
 
-}
 div.ms .ms-table .ms-header 
 {
     background-color: var(--red);
@@ -36,30 +32,11 @@ div.ms .ms-table .ms-header input
     border: none;
     border-radius: 1rem;
     padding-left: 1rem;
-
-    
 }
 
-div.ms .ms-table .ms-titles
-{
-    display: flex;
-    justify-content: space-between;
-    
-    padding: 1rem 3rem;
-    color: var(--blue-dark);
 
-   
-}
 
-.ms-students
-{    
-    display: block;
-    width: 100%;
-    padding: 2rem;
-    place-items: center;
-    place-content: center;
-    margin: auto;
-}
+
 
 .ms-filter
 {
@@ -100,3 +77,102 @@ div.ms .ms-table .ms-titles
  
 
 /*  box anaylysis */
+
+table {
+    font-size: 1rem;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  
+  
+  table tr {
+  
+    border-radius: 1rem;
+    background: #fff;
+    padding: 1rem;
+    padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+   
+  }
+
+
+  
+  table th,
+  table td {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  table th {
+    color: var(--blue-dark);
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: .1em;
+    
+  }
+
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    div.ms .ms-table .ms-header 
+    {
+        display: grid;
+        place-items: center;
+        place-content: center;
+        margin: auto;
+        width: 100%; 
+    }
+
+    div.ms .ms-table .ms-header div 
+    {
+        padding-top: 1rem;
+    }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+  
+  
