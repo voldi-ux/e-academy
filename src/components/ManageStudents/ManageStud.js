@@ -1,17 +1,15 @@
 
-import "./ManageStud.css"
-
+import './ManageStud.css'
 import Filter from "../../filter/filter"
 import Button from "../Button/Button"
-import Student from "./Student/Student"
 import { Link , Outlet} from "react-router-dom"
 
 //styling compoenents
 import {FaRocket} from 'react-icons/fa'
+import { Badge } from "@tremor/react"
 
 const ManageStud = () => {
 
- 
   return (
     <div className="ms">
       
@@ -22,32 +20,82 @@ const ManageStud = () => {
       <div className="ms-table">
        
        <div className="ms-header">
-          
           <input className="search-student" type="text" placeholder="Search Student..." />
-         <div > <Link to='analysis'> <Button>    <FaRocket fontSize="20px"/>  Run Analysis   </Button></Link>  </div>
+         <div > <Link to='analysis'> <Button>    <FaRocket fontSize="20px"/>  Analysis   </Button></Link>  </div>
        </div>
 
-       <div className="ms-titles">
-        <h2>Name</h2>
-        <h2>Surname</h2>
-        <h2>School</h2>
-        <h2>Student No</h2>
-        <h2>Questions</h2>
-        <h2> Practice</h2>
-        <h2>Success Rate</h2>
-       </div>
+       <table>
+  
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">School</th>
+      <th scope="col">Student no</th>
+      <th scope="col">Questions</th>
+      <th scope="col">Practice</th>
+      <th scope="col">Success rate</th>
 
-       <hr style={{width: "96%", margin: "auto"}}></hr>
 
-       <div className="ms-students">
-         <Student/>
-         <Student/>
-         <Student/>
-         <Student/>
-         <Student/>
-         <Student/>
 
-       </div>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="name">Voldi</td>
+      <td data-label="surname">Muyumba</td>
+      <td data-label="school">Barnato</td>
+      <td data-label="stdnumber">22200844</td>
+      <td data-label="questions">33</td>
+      <td data-label="practice"><Badge text="24" color="red"/></td>
+      <td data-label="rate"><Badge text="+89" color="green"/></td>
+    </tr>
+    <tr>
+      <td data-label="name">Voldi</td>
+      <td data-label="surname">Muyumba</td>
+      <td data-label="school">Barnato</td>
+      <td data-label="stdnumber">22200844</td>
+      <td data-label="questions">33</td>
+      <td data-label="practice"><Badge text="24" color="red"/></td>
+      <td data-label="rate"><Badge text="+89" color="green"/></td>
+    </tr>
+    <tr>
+      <td data-label="name">Voldi</td>
+      <td data-label="surname">Muyumba</td>
+      <td data-label="school">Barnato</td>
+      <td data-label="stdnumber">22200844</td>
+      <td data-label="questions">33</td>
+      <td data-label="practice"><Badge text="24" color="red"/></td>
+      <td data-label="rate"><Badge text="+89" color="green"/></td>
+    </tr>
+    <tr>
+      <td data-label="name">Voldi</td>
+      <td data-label="surname">Muyumba</td>
+      <td data-label="school">Barnato</td>
+      <td data-label="stdnumber">22200844</td>
+      <td data-label="questions">33</td>
+      <td data-label="practice"><Badge text="24" color="red"/></td>
+      <td data-label="rate"><Badge text="+89" color="green"/></td>
+    </tr>
+    <tr>
+      <td data-label="name">Voldi</td>
+      <td data-label="surname">Muyumba</td>
+      <td data-label="school">Barnato</td>
+      <td data-label="stdnumber">22200844</td>
+      <td data-label="questions">33</td>
+      <td data-label="practice"><Badge text="24" color="red"/></td>
+      <td data-label="rate"><Badge text="+89" color="green"/></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+      
+
+     
+
+      
 
       </div>
 
