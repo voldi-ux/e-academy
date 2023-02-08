@@ -7,4 +7,4 @@ Answer student questions ,
 Monitor student performance 
 And many more. 
 
-Feel free to fork the prject and contribute or send me an email @ voldimuyumba57@gmail.com and i will add as you a contributor to the project😎😎 
+Feel free to fork the prject and contribute or send me an email @ voldimuyumba57@gmail.com and i will add you as a contributor to the project😎😎 
