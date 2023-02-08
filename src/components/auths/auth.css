@@ -29,6 +29,7 @@
   box-shadow: var(--shadow);
   padding: 2rem;
   color: var(--blue-dark);
+  overflow: scroll;
 
 }
 
