@@ -7,12 +7,19 @@
 .side-links  .link-item {
   display: flex;
   align-items: center;
-  margin: 2rem 1rem ;
+  margin: 2rem .5rem ;
   user-select: none;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.3rem;
   color: var(--white);
+  transition: all .5s;
+}
+
+.side-links .link-item:hover {
+   padding: 1rem;
+   margin-left: 1rem;
+
 }
 
 
