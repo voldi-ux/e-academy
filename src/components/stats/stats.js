@@ -2,15 +2,15 @@
 
 import { Badge, BadgeDelta } from "@tremor/react";
 import React from "react";
-import Filter from "../../filter/filter";
+import Filter from "../filter/filter";
 import "./stats.css";
 
 const Stats = () => {
   return (
     <div className="stats-container">
       <div className="stats-container-filters">
-         <Filter title={'Subject'} defaultSelect={'Maths'}/>
-         <Filter title={'Grade'} defaultSelect={10}/>
+        <Filter title={"Subject"} defaultSelect={"Maths"} />
+        <Filter title={"Grade"} defaultSelect={10} />
       </div>
       <div className="cotainer-1">
         <div className="table-1">

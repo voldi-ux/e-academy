@@ -1,9 +1,9 @@
+/** @format */
 
-import './Notifications.css'
-import Notification from "../Notification/Notification"
-import Search from '../../Search/Search'
-import Filter from '../../../filter/filter'
-
+import "./Notifications.css";
+import Notification from "../Notification/Notification";
+import Search from "../../Search/Search";
+import Filter from "../../filter/filter";
 
 const Notifications = () => {
   return (
@@ -14,12 +14,12 @@ const Notifications = () => {
       <div className="search">
         <Search />
       </div>
-        <div className="notification-filers-container">
-          <Filter title={"Time"} defaultSelect={"New"} />
-          <Filter title={"Seen"} defaultSelect={"false"} />
-          <Filter title={"Grade"} defaultSelect={"All"} />
-          <Filter title={"Subject"} defaultSelect={"All"} />
-        </div>
+      <div className="notification-filers-container">
+        <Filter title={"Time"} defaultSelect={"New"} />
+        <Filter title={"Seen"} defaultSelect={"false"} />
+        <Filter title={"Grade"} defaultSelect={"All"} />
+        <Filter title={"Subject"} defaultSelect={"All"} />
+      </div>
       <div className="quest">
         <Notification name="Axel" question="Eh, what is trig?" />
         <Notification name="Benjamin" question="What is the integration of the following question?" />
@@ -32,6 +32,6 @@ const Notifications = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Notifications
+export default Notifications;

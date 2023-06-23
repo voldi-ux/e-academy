@@ -1,15 +1,15 @@
+/** @format */
 
-import './ManageStud.css'
-import Filter from "../../filter/filter"
-import Button from "../Button/Button"
-import { Link , Outlet} from "react-router-dom"
+import "./ManageStud.css";
+import Filter from "../filter/filter";
+import Button from "../Button/Button";
+import { Link, Outlet } from "react-router-dom";
 
 //styling compoenents
-import {FaRocket} from 'react-icons/fa'
-import { Badge } from "@tremor/react"
+import { FaRocket } from "react-icons/fa";
+import { Badge } from "@tremor/react";
 
 const ManageStud = () => {
-
   return (
     <div className="manage-container">
       <div className="ms">
@@ -120,10 +120,10 @@ const ManageStud = () => {
         </div>
 
         {/* the analysis component will be automatically be rendered by this outlet */}
-        <Outlet />
       </div>
+        <Outlet />
     </div>
   );
-}
+};
 
-export default ManageStud
+export default ManageStud;

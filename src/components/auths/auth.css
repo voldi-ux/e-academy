@@ -36,10 +36,12 @@
 .sign-in-container-inner,
 .sign-up-container-inner {
   padding: 2rem;
-  background-color: var(--white);
+ 
   width: 40%;
   box-shadow: var(--shadow);
   animation: scale-in .3s linear;
+   background-color: #c8c9cc74;
+  backdrop-filter: blur(2rem);
 }
 
 .auth-heading {

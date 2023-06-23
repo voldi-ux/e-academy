@@ -1,13 +1,14 @@
 /** @format */
 
 .quest {
-  background-color: var(--white);
+    background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
   padding: 3rem;
   border-radius: 1rem;
 }
 
 div.header {
-  color: var(--blue-dark);
+  color: var(--green);
   margin-left: 3rem;
   padding-bottom: 2rem;
 }
