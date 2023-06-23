@@ -1,0 +1,24 @@
+.blockText-container {
+    position: relative;
+     overflow: hidden;
+}
+
+.block-content {
+    width: 100%;
+    color: var(--white);
+    font-size: 1.6rem;
+}
+
+.block-icons {
+    position: absolute;
+    top: 70%;
+    right: -100%;
+    transform: translateY(-50%);
+    transition: all .8s;
+    color: var(--grey);
+    cursor: pointer;
+}
+
+.blockText-container:hover .block-icons {
+    right: 1%;
+}

@@ -4,8 +4,9 @@ import Block from "./Block";
 export default class imageBlock extends Block {
     
   constructor(image) {
-       super();
-      this.image = image; //string form representation of the image
+    super();
+    type = null; // either a url string or binary form of the image 
+      this.image = image; 
       this.width = 400;
       this.height = 300;
     }

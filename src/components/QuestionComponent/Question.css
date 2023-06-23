@@ -5,6 +5,7 @@
   justify-content: center;
   margin: 4rem 0;
   flex-wrap: wrap;
+   
 }
 
 /*  Question  */
@@ -13,7 +14,7 @@ div.question {
   box-shadow: var(--shadow);
   width: 90%;
   border-radius: 20px;
-  background: #fff;
+  background-color: var(--white);
 }
 
 div.question header.q-header {
@@ -82,12 +83,14 @@ div.question footer div.btns {
 
 /*Questions */
 div.questions {
-  background: var(--white);
+
   width: 95%;
   border-radius: 20px;
   padding: 2rem 0;
   margin: auto;
   margin-top: 3rem;
+  background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
 }
 div.questions div#questions div {
   margin-bottom: 2rem;

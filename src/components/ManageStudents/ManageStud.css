@@ -1,13 +1,17 @@
 
+.manage-container {
+  padding:1rem;
+}
 div.ms
 {
  padding: 3rem;
- background-color: var(--white);
- width: 95%;
+
  border-radius: 1rem;
  margin: auto;
  margin-top: 4rem;
  margin-bottom: 4rem;
+  background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
 }
 
 

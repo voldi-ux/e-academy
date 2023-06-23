@@ -2,12 +2,13 @@
 
 .topNav {
   height: 10rem;
-  background-color: var(--white);
   padding: 0.5rem 3rem;
   box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
+   background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
 }
 
 .topNav .icons {

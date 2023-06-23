@@ -1,15 +1,15 @@
 /** @format */
 
 .stats-container {
-  width: 90%;
-  margin: 0 auto;
-  background: var(--white);
+   width: 100%;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: var(--shadow);
   margin-bottom: 10rem;
   color: var(--blue-dark);
   text-transform: capitalize;
+   background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
 }
 
 .stats-container-filters {
@@ -87,7 +87,7 @@
   justify-content: space-between;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.219);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.438);
 }
 
 @media (max-width: 968px) {

@@ -1,5 +1,6 @@
 .sideNav {
   height: 100%;
-  background-color: var(--blue-dark);
+  background-color: #20385c74;
+  backdrop-filter: blur(2rem);
   overflow: scroll;
 }

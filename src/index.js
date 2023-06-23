@@ -49,7 +49,7 @@ const Router = createBrowserRouter([
 
       {
         path: "create-questions",
-        element: <CQuestion />
+        element: <MainEditor />
       },
 
       {

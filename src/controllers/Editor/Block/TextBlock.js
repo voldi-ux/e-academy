@@ -28,4 +28,8 @@ export default class TextBlock extends Block {
     setTextTransform(transform) { 
         this.textTransform = transform;
     }
+
+    editContent(newContent) { 
+        this.content = newContent;
+    }
 }

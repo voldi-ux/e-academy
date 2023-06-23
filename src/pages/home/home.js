@@ -1,8 +1,5 @@
-/** @format */
 
-// you guys can replace the h1 with the respective components you have built. no need to touch app.js file.
-// I will implemnting routing as soon as possible.
-
+import "./home.css"
 
 import Blocks from '../../components/listBlocks/blocks';
 import Questions from '../../components/QuestionComponent/Questions'
@@ -14,7 +11,7 @@ import Stats from '../../components/stats/stats';
 
 const Home = () => {
   return (
-    <div>
+    <div className='home-container'>
       <Slider />
       <Blocks />
       <Graph />

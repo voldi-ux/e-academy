@@ -3,8 +3,12 @@
 .main-editor-container {
   display: flex;
   flex-direction: column;
-   height: 100vh;
+  height: 100%;
+  padding: 1rem;
+}
 
+.question-properties-container {
+align-self: center;
 }
 
 .main-editor-header {
@@ -13,23 +17,22 @@
 }
 
 .main-editor-header {
-  background-color: var(--white);
-  color: var(--blue-dark);
+  color: var(--white);
   padding: 1rem;
   font-size: 2rem;
   text-transform: capitalize;
   box-shadow: var(--shadow);
   margin: 1rem 1rem;
   border-radius: 1rem;
+  background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
   
 }
 
 .main-editor-icons-left {
   display: flex;
-  color: var(--green);
+  color:var(--white);
 }
-
-
 
 .main-editor-header .icons-container {
   display: flex;
@@ -44,11 +47,13 @@
 .main-editor-content {
   height: 100%;
   box-shadow: var(--shadow);
-  background-color: var(--white);
   margin: 0 1rem;
   margin-bottom: 1rem;
   overflow: scroll;
   border-radius: 1rem;
+  padding: 1rem;
+  background-color: #9d9e9d87;
+  backdrop-filter: blur(5px);
 }
 
 

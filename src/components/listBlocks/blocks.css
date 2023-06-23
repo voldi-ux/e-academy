@@ -6,9 +6,11 @@
   align-items: center;
   flex-wrap: wrap;
 
-  width: 90%;
+
   margin: 1rem auto;
   margin-bottom: 5rem;
+
+ 
 }
 
 .blocks-container .block {
