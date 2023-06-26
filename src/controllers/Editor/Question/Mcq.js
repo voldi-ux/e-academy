@@ -1,8 +1,8 @@
 import Question from "./Question";
 
 export default class MCQ extends Question {
-  constructor(questionType, subject, grade, level, topic) {
-    super(questionType, subject, grade, level, topic);
+  constructor( subject, grade, level, topic) {
+    super("MCQ", subject, grade, level, topic);
     this.options = [];
     this.answer = null; //answer must be an index that represents the right option in the option array
   }
