@@ -2,17 +2,19 @@
 
 .drop-down-container {
   display: inline-block;
-  margin: 1rem 1rem;
+  padding: 1rem 1rem;
   position: relative;
   text-transform: capitalize;
   user-select: none;
-
+  will-change: padding;
+  transition: all .5s;
 }
 
 .drop-down-header {
   display: flex;
   cursor: pointer;
   box-shadow: 10px 0px 10px 0px rgba(196, 191, 191, 0.567);
+  transition: all 5.s;
 }
 
 #drop-down-heading {
@@ -58,6 +60,9 @@
   color: rgb(39, 179, 132);
 }
 
+.drop-down-container:hover {
+  padding: 2rem;
+}
 .drop-down-container:hover .drop-down-content {
   display: block;
 }
