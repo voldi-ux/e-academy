@@ -42,9 +42,10 @@
  padding: .5rem;
  box-shadow: var(--shadow);
  display: none;
- animation: fade .2s ease-in;
+ animation: fade .5s ease-in;
  z-index: 1;
  background-color: var(--white);
+ text-align: center;
 }
 
 .drop-down-content h3 {
@@ -63,11 +64,3 @@
 }
 
 
-@keyframes fade {
-   from {
-     opacity: 0;
-   }
-   to {
-     opacity: 1;
-   }
-}
