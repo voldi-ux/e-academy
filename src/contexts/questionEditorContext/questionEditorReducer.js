@@ -1,6 +1,8 @@
 import MCQ from "../../controllers/Editor/Question/Mcq";
 import { handleChangeText } from "./actionHandlers";
 
+
+
 //inital state
 export const intitialState = {
   question: new MCQ("Mathematics", 10, 3, "Algebra"), //default question type that the editor will assume the user wants to create
@@ -24,8 +26,19 @@ export function EditorQuestionReducer(state, action) {
             
         }
             
-        case "change-text": { 
-           return handleChangeText(state,action.data);
+        case "change-text": {
+            return handleChangeText(state, action.data);
+        }
+            
+        case "add-image": { 
+             let description = state.question.description.concat([action.data]);
+            return {
+                ...state,
+                question: {
+                    ...state.question,
+                    description 
+                }
+            }
         }
     }
 

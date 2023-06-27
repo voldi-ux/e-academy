@@ -3,9 +3,10 @@ import TextBlock from "../../controllers/Editor/Block/TextBlock";
 export function handleChangeText(state, data) { 
     let question = state.question;
     //finds and updates the textBlock that the user wants to update
-    question.description = question.description.map(item => { 
-        if (item instanceof TextBlock && item.blockId === data.blockId) { 
-            console.log(data.content);
+    let description = question.description.map(item => { 
+
+        console.log(item, data);
+        if (item instanceof TextBlock && item.blockId === data.id) { 
             item.setContent(data.content);
         }
         return item;
@@ -15,5 +16,9 @@ export function handleChangeText(state, data) {
 
     return {
         ...state,
+        question: {
+             ...question,
+            description
+        }
     }
 } 

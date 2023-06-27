@@ -1,0 +1,25 @@
+.image-block-container {
+    position: relative;  
+    width: 100%;
+    user-select: none;
+}
+
+#block-image {
+    max-width: 50%;
+    margin: 1rem auto;
+    display: block;
+}
+
+
+.block-icons {
+    position: absolute;
+    top: 0%;
+    right: -100%;
+    transform: translateY(-50%);
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.image-block-container:hover .block-icons {
+    right: 1%;
+}

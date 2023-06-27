@@ -3,6 +3,12 @@
     
 }
 
+.blockText-container > textarea {
+    background: transparent;
+    border: transparent;
+    margin:0;
+}
+
 .block-content {
     width: 100%;
     color: var(--white);

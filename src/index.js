@@ -17,6 +17,7 @@ import Profile from './components/auths/profile';
 import ManageStud from './components/ManageStudents/ManageStud';
 import Analysis from './components/Analysis/Analysis';
 import MainEditor from './components/EditorMain/mainEditor';
+import QuestionEditorProvider from './contexts/questionEditorContext/questionEditorProvider';
 
 
 const Router = createBrowserRouter([
@@ -48,7 +49,12 @@ const Router = createBrowserRouter([
 
       {
         path: "create-questions",
-        element: <MainEditor />
+        element: (
+          <QuestionEditorProvider>
+            {" "}
+            <MainEditor />
+          </QuestionEditorProvider>
+        )
       },
 
       {

@@ -39,7 +39,7 @@ export default class Question {
   }
 
   // block => a textblock or an image block
-  addToDescrtion(block) {
+  addToDescription(block) {
     this.description.push(block);
   }
 }
