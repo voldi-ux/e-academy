@@ -11,13 +11,14 @@
 }
 
 
-.block-icons {
-    position: absolute;
-    top: 0%;
-    right: -100%;
-    transform: translateY(-50%);
-    transition: all .4s;
-    cursor: pointer;
+
+.image-block-container .block-icons {
+  position: absolute;
+  top: 50%;
+  right: -100%;
+  transform: translateY(-50%);
+  transition: all 0.4s;
+  cursor: pointer;
 }
 
 .image-block-container:hover .block-icons {

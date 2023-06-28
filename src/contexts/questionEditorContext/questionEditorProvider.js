@@ -1,4 +1,5 @@
-import React, { useReducer} from "react"
+import React, { useReducer } from "react"
+import { useImmerReducer } from "use-immer"
 import { questionEditorContext } from "./questionEditorcontext";
 import { EditorQuestionReducer, intitialState } from "./questionEditorReducer";
 
@@ -9,7 +10,7 @@ import { EditorQuestionReducer, intitialState } from "./questionEditorReducer";
 
 const QuestionEditorProvider = ({ children }) => { 
     
-    const [editorState, dispatch] = useReducer(EditorQuestionReducer, intitialState); 
+    const [editorState, dispatch] = useImmerReducer(EditorQuestionReducer, intitialState); 
       
     return <questionEditorContext.Provider value={{
         question: editorState.question,

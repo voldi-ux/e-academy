@@ -30,8 +30,8 @@ const TextBlockConponent = ({ blockText }) => {
     //   newBlock.setContent(e.target.value);
     //   return newBlock;
     // });
+    
     if (e.target.value.length > 0) { 
-      console.log(e.target.value)
       dispatch({
         type: "change-text",
         data: {

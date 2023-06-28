@@ -1,30 +1,31 @@
+/** @format */
+
 .blockText-container {
-    position: relative;
-    
+  position: relative;
 }
 
 .blockText-container > textarea {
-    background: transparent;
-    border: transparent;
-    margin:0;
+  background: transparent;
+  border: transparent;
+  margin: 0;
 }
 
 .block-content {
-    width: 100%;
-    color: var(--white);
-    font-size: 1.6rem;
-    height: min-content;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.6rem;
+  height: min-content;
 }
 
 .block-icons {
-    position: absolute;
-    top: 0%;
-    right: -100%;
-    transform: translateY(-50%);
-    transition: all .4s;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: -100%;
+  transform: translateY(-50%);
+  transition: all 0.4s;
+  cursor: pointer;
 }
 
 .blockText-container:hover .block-icons {
-    right: 1%;
+  right: 1%;
 }

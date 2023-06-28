@@ -7,8 +7,8 @@ export default class TextBlock extends Block {
         this.weight = 300; //default weight
         this.color = "#20385C";
         this.textTransform = false;  // false here indicates the default text transform
-        this.content = null;
-        
+        this.content = "Type something...";
+       
     }
     
     setContent(content) { 

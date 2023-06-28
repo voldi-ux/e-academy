@@ -34,8 +34,6 @@ const MainEditor = () => {
   const onFileSelect = (e) => { 
     
     let files = e.target.files;
-    console.log(files)
-
     let reader = new FileReader();
 
     reader.onload = e => {
@@ -48,6 +46,13 @@ const MainEditor = () => {
      };
     reader.readAsDataURL(files[0]);
   }
+
+
+  const addText = () => {
+    dispatch({
+      type:"add-text"
+    })
+   }
 
   return (
     <div className="main-editor-container">
@@ -73,7 +78,7 @@ const MainEditor = () => {
               <BsFillImageFill  onClick={chooseFile}/>
             </div>
             <div className="icons-container">
-              <RxHeading />
+              <RxHeading  onClick={addText}/>
             </div>
             <div className="icons-container">
               <IoMdOptions />

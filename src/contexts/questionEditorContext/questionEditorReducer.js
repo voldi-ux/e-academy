@@ -1,5 +1,6 @@
+import TextBlock from "../../controllers/Editor/Block/TextBlock";
 import MCQ from "../../controllers/Editor/Question/Mcq";
-import { handleChangeText } from "./actionHandlers";
+import { conflate, handleChangeText } from "./actionHandlers";
 
 
 
@@ -25,11 +26,13 @@ export function EditorQuestionReducer(state, action) {
         case "redo": {
             
         }
-            
+        
+            //handles the editing of texts
         case "change-text": {
             return handleChangeText(state, action.data);
         }
-            
+        
+            //handles the adding of an image the editor
         case "add-image": { 
              let description = state.question.description.concat([action.data]);
             return {
@@ -40,6 +43,17 @@ export function EditorQuestionReducer(state, action) {
                 }
             }
         }
+        case "add-text": { 
+            let description = state.question.description.concat([new TextBlock()]);
+                 return {
+                   ...state,
+                   question: {
+                     ...state.question,
+                     description: conflate(description)
+                   }
+                 };
+        }
     }
+
 
 } 
