@@ -4,7 +4,7 @@ export default class TextBlock extends Block {
     constructor() {
         super();
         this.fontSize = 16; //default fontSize
-        this.weight = 300; //default weight
+        this.weight = 400; //default weight
         this.color = "#20385C";
         this.textTransform = false;  // false here indicates the default text transform
         this.content = "Type something...";

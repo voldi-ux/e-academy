@@ -2,26 +2,25 @@
 
 import React, { useState } from "react";
 import "./contextMenu.css";
-import Menu from "./Menu";
 import MenuItem from "./MenuItem";
 
-const ContextMenuItem = ({ menus, MenuTitle, children }) => {
-  const [menu, setMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
+const ContextMenuItem = ({ menus, menuTitle, children }) => {
+  const renderMenuItems = () => { 
+     if(menuTitle.toLowerCase() === "change color") return  menus.map((menu) => (
+       <MenuItem menu={menu} key={menu.option} color={true} />
+     ))
+    
+    return menus.map((menu) => <MenuItem key={menu.option} menu={menu} />);
+  }
   return (
-    <div onClick={toggleMenu} className="context-menu-item">
+    <div className="context-menu-item">
       <div className="context-menu-item-content">
         <div className="context-menu-item-icon">{children}</div>
-        <h3> {MenuTitle} </h3>
+        <h3> {menuTitle} </h3>
       </div>
         <div className="menu-container">
          <div className="menu-container-inner">
-          {menus.map((menu) => (
-            <MenuItem menu={menu} />
-          ))}
+          { renderMenuItems()}
          </div>
         </div>
     </div>

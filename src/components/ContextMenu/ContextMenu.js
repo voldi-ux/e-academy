@@ -3,18 +3,25 @@ import "./contextMenu.css";
 
 import ContextMenuItem from "./ContextMenuItem";
 import { IconContext } from "react-icons";
-import { AiOutlineFontSize, AiOutlineBgColors, AiOutlineBold } from "react-icons/ai"
-import { VscTextSize } from "react-icons/vsc";
 
-const ContextMenu = ({ }) => { 
-    console.log("context loaded");
+
+const ContextMenu = ({ contextMenu }) => { 
+  const renderMenus = () =>
+    contextMenu.map((contextMenuItem) => (
+      <ContextMenuItem key={contextMenuItem.title} menus={contextMenuItem.options} menuTitle={contextMenuItem.title}>
+        {" "}
+        {contextMenuItem.icon}
+      </ContextMenuItem>
+    ));
     return (
       <div className="context-menu-container">
         <IconContext.Provider value={{ size: 15 }}>
-           <ContextMenuItem MenuTitle={"Capitalize"}> <AiOutlineFontSize  /> </ContextMenuItem>
+           {/* <ContextMenuItem MenuTitle={"Capitalize"}> <AiOutlineFontSize  /> </ContextMenuItem>
            <ContextMenuItem MenuTitle={"Font Size"}> <VscTextSize /> </ContextMenuItem>
            <ContextMenuItem  MenuTitle={"Bold"}> <AiOutlineBold /> </ContextMenuItem>
-           <ContextMenuItem MenuTitle={"Color"}>  <AiOutlineBgColors /> </ContextMenuItem>
+           <ContextMenuItem MenuTitle={"Color"}>  <AiOutlineBgColors /> </ContextMenuItem> */}
+          
+          { renderMenus()}
         </IconContext.Provider>
       </div>
     );

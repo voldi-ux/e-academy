@@ -1,16 +1,23 @@
+/** @format */
+
 .image-block-container {
-    position: relative;  
-    width: 100%;
-    user-select: none;
+  position: relative;
+  width: 100%;
+  user-select: none;
+  animation: fade 0.5s ease-in;
+  transition: all 0.4s;
 }
 
 #block-image {
-    max-width: 50%;
-    margin: 1rem auto;
-    display: block;
+  max-width: 50%;
+  margin: 1rem auto;
+  display: block;
 }
 
-
+#block-image:hover {
+  scale: 1.01;
+  transition: all 0.4s;
+}
 
 .image-block-container .block-icons {
   position: absolute;
@@ -22,5 +29,5 @@
 }
 
 .image-block-container:hover .block-icons {
-    right: 1%;
+  right: 1%;
 }

@@ -13,7 +13,11 @@ export default class imageBlock extends Block {
     resize(width, height) { 
       //resize the image in the server
       // and return a new one
-    }
+  }
+  
+  setImage(image) { 
+    this.image = image;
+  }
 
 
 }

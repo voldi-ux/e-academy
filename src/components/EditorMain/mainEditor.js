@@ -2,17 +2,16 @@
 
 import React, { useContext , useRef } from "react";
 import { IconContext } from "react-icons";
-import { BsFillImageFill, BsTypeBold, BsTypeUnderline, BsTextLeft, BsTextCenter } from "react-icons/bs";
+import { BsFillImageFill, BsTypeBold, BsTypeUnderline, BsTextLeft, BsTextCenter, BsEyeFill, BsInputCursorText } from "react-icons/bs";
 import { RxHeading } from "react-icons/rx";
 import { AiFillSave, AiOutlineRedo, AiOutlineUndo, AiOutlinRedo } from "react-icons/ai";
 import { IoMdOptions } from "react-icons/io";
 
 import "./mainEditor.css";
 import TextBlock from "../../controllers/Editor/Block/TextBlock";
-import InputQuestion from "../../controllers/Editor/Question/InputQuestion";
+
 import TextBlockConponent from "../TextBlock/TextBlockComp";
 import Filter from "../filter/filter";
-import QuestionEditorProvider from "../../contexts/questionEditorContext/questionEditorProvider";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 import ImageBlockComp from "../ImageBlock/ImageBlockComp";
 import imageBlock from "../../controllers/Editor/Block/ImageBlock";
@@ -44,7 +43,7 @@ const MainEditor = () => {
       })
 
      };
-    reader.readAsDataURL(files[0]);
+    if (files.length > 0) reader.readAsDataURL(files[0]);
   }
 
 
@@ -60,7 +59,7 @@ const MainEditor = () => {
         onChange={onFileSelect}
         ref={fileChooser}
         type="file"
-         accept="image/jpeg, image/png, image/pjpeg"
+        accept="image/jpeg, image/png, image/pjpeg"
         style={{
           display: "none"
         }}
@@ -75,13 +74,19 @@ const MainEditor = () => {
         <IconContext.Provider value={{ className: "editor-icons-left", size: 25 }}>
           <div className="main-editor-icons-left">
             <div className="icons-container">
-              <BsFillImageFill  onClick={chooseFile}/>
+              <BsFillImageFill onClick={chooseFile} />
             </div>
             <div className="icons-container">
-              <RxHeading  onClick={addText}/>
+              <RxHeading onClick={addText} />
             </div>
             <div className="icons-container">
               <IoMdOptions />
+            </div>
+            <div className="icons-container">
+              <BsInputCursorText />
+            </div>
+            <div className="icons-container">
+              <BsEyeFill />
             </div>
             <div className="icons-container">
               <AiOutlineUndo />
@@ -97,9 +102,7 @@ const MainEditor = () => {
           </div>
         </IconContext.Provider>
       </header>
-      <div className="main-editor-content">
-        {displayDescription()}
-      </div>
+      <div className="main-editor-content">{displayDescription()}</div>
     </div>
   );
 };

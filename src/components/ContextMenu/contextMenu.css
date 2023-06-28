@@ -4,7 +4,7 @@
   position: absolute;
   left: -300%;
   width: 15rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   box-shadow: var(--shadow);
   z-index: 1;
   background-color: var(--white);
@@ -12,6 +12,7 @@
   overflow: scroll;
   transition: all 5s;
   animation: fade 0.5s ease-in;
+    text-transform: capitalize;
 }
 
 .context-menu-item {
@@ -58,8 +59,14 @@
 
 .menu-item {
   transition: inherit;
+
 }
 
 .menu-item:hover {
   color: var(--red);
+}
+
+
+.menu-item-color {
+  padding: .5rem;
 }
