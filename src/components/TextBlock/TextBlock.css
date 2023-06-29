@@ -28,6 +28,6 @@
   cursor: pointer;
 }
 
-.blockText-container:hover .block-icons {
+.blockText-container:hover .block-icons{
   right: 1%;
 }

@@ -176,15 +176,18 @@ const TextBlockConponent = ({ blockText }) => {
  
   ];
 
-  useEffect(() => {
-    tArea.current.style.height = tArea.current.scrollHeight + "px";
-  },[blockText.content]);
+   useEffect(() => {
+  //   console.log("changing height", tArea.current.scrollHeight);
+     tArea.current.style.height = tArea.current.scrollHeight + "px";
+
+   },[blockText.content]);
 
   const handleContext = () => {
     setContextMenu(!contextMenu);
   };
 
-  const handleContentChange = (e) => {     
+  const handleContentChange = (e) => {    
+   //  tArea.current.style.height = e.target.scrollHeight + "px";
       dispatch({
         type: "change-text",
         data: {
@@ -210,7 +213,7 @@ const TextBlockConponent = ({ blockText }) => {
             fontSize: blockText.fontSize,
             fontWeight: blockText.weight + "", //convert it to a string
             color: blockText.color,
-            textTransform: blockText.textTransform ? blockText.textTransform : "none"
+            textTransform: blockText.textTransform ? blockText.textTransform : "none",
           }}
         ></textarea>
 

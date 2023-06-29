@@ -7,9 +7,10 @@ export function handleChangeText(state, data) {
   let question = state.question;
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
-    console.log(item, data);
     if (item instanceof TextBlock && item.blockId === data.id) {
-      item.setContent(data.content);
+      let newBlock = Object.create(item);
+      newBlock.setContent(data.content);
+      return newBlock
     }
     return item;
   });
@@ -111,14 +112,14 @@ export function conflate(description) {
       //this code allows us to only conflate two or more blocks if they have the same properties
       if (description[j] instanceof TextBlock && newArrDes[i] instanceof TextBlock && equalBlocksProps(description[j], newArrDes[i])) {
         //we need to create a new textblock object since we don't want to modify any of the blocks stored in our state
-        let block = new TextBlock();
+        let block = Object.create(newArrDes[i]);
 
         //here we combine the contents of the two blocks
         let newContent = newArrDes[i].content + "\n" + description[j].content;
         block.setContent(newContent); //updating the content
         newArrDes[i] = block; // reassign the value at index i
       } else {
-        //if the block is not an textblock or it is but is previous element is not a textblock then we just add into the new array at position i + 1 since there is already an element at postion at i
+        //if the block is not a textblock or it is but its previous element is not a textblock then we just add into the new array at position i + 1 since there is already an element at postion at i
         newArrDes[++i] = description[j];
       }
       ++j; //increment j to avoid an infinite loop
@@ -138,7 +139,5 @@ function equalBlocksProps(block1, block2) {
   if (block1.fontSize === block2.fontSize && block1.weight === block2.weight && block1.color === block2.color && block1.textTransform === block2.textTransform) {
     return true;
   }
-  console.log("block1", block1);
-  console.log("block2", block2);
   return false;
 }
