@@ -1,4 +1,4 @@
-This is the admin dashboard for E-acadmy mobile app. Here  teachers and Qualified tutors will be given access to log in and manage contents.
+# This is the admin dashboard for E-acadmy mobile app. Here  teachers and Qualified tutors will be given access to log in and manage contents.
 # Project link [https://github.com/voldi-ux/e-academy-mobile](https://github.com/voldi-ux/e-academy-mobile) 
  ![image](https://github.com/S-ciz/e-academy-1/assets/95995178/5ec1b634-3367-48c0-ab07-b2b20050964a)
 
