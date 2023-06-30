@@ -14,10 +14,10 @@ This is the admin dashboard for E-acadmy mobile app. Here  teachers and Qualifie
 
 # Monitor student performance 
 ![image](https://github.com/S-ciz/e-academy-1/assets/95995178/6bb53db1-6376-440e-8b89-5b50014a8bee) 
+
 ![image](https://github.com/S-ciz/e-academy-1/assets/95995178/56048e1e-0f4d-45d6-91b7-fa5d80cc2030)
 
-
-And many more. 
+# And many more. 
 ![image](https://github.com/S-ciz/e-academy-1/assets/95995178/caeaea64-4d5c-47f0-b781-b44bd5712a3d)
 
 
