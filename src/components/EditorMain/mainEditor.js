@@ -2,9 +2,9 @@
 
 import React, { useContext , useRef } from "react";
 import { IconContext } from "react-icons";
-import { BsFillImageFill, BsTypeBold, BsTypeUnderline, BsTextLeft, BsTextCenter, BsEyeFill, BsInputCursorText } from "react-icons/bs";
+import { BsFillImageFill, BsEyeFill, BsInputCursorText } from "react-icons/bs";
 import { RxHeading } from "react-icons/rx";
-import { AiFillSave, AiOutlineRedo, AiOutlineUndo, AiOutlinRedo } from "react-icons/ai";
+import { AiFillSave, AiOutlineRedo, AiOutlineUndo } from "react-icons/ai";
 import { IoMdOptions } from "react-icons/io";
 
 import "./mainEditor.css";
@@ -21,6 +21,7 @@ import imageBlock from "../../controllers/Editor/Block/ImageBlock";
 const MainEditor = () => {
   
   const { dispatch, question } = useContext(questionEditorContext);
+
   const displayDescription = () => { 
     return question.description.map((block) => (block instanceof TextBlock ? <TextBlockConponent key={block.blockId} blockText={block} /> : <ImageBlockComp imageBlock={block} key={block.blockId} />));
   }

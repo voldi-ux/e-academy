@@ -4,10 +4,6 @@ import { questionEditorContext } from "./questionEditorcontext";
 import { EditorQuestionReducer, intitialState } from "./questionEditorReducer";
 
 
-
-
-
-
 const QuestionEditorProvider = ({ children }) => { 
     
     const [editorState, dispatch] = useImmerReducer(EditorQuestionReducer, intitialState); 

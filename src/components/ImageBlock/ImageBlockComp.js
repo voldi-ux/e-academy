@@ -9,7 +9,7 @@ import { questionEditorContext } from "../../contexts/questionEditorContext/ques
 
 
 const ImageBlockComp = ({ imageBlock }) => {
-  console.log(imageBlock.blockId)
+ // console.log(imageBlock.blockId)
   const [contextMenu, setContextMenu] = useState(false);
   const { dispatch } = useContext(questionEditorContext); 
       const handleContext = () => {
