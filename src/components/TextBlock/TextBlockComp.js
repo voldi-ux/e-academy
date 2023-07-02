@@ -206,7 +206,6 @@ const TextBlockConponent = ({ blockText }) => {
       <div className="blockText-container">
         <textarea
           ref={tArea}
-          placeholder="Type something"
           onChange={handleContentChange}
           value={blockText.content}
           className="block-content"

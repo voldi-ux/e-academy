@@ -15,9 +15,7 @@ import Filter from "../filter/filter";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 import ImageBlockComp from "../ImageBlock/ImageBlockComp";
 import imageBlock from "../../controllers/Editor/Block/ImageBlock";
-
-
-
+ 
 const MainEditor = () => {
   
   const { dispatch, question } = useContext(questionEditorContext);
@@ -53,6 +51,10 @@ const MainEditor = () => {
       type:"add-text"
     })
    }
+  
+   const preview_Question = ()=>{
+    console.log(displayDescription());
+   }
 
   return (
     <div className="main-editor-container">
@@ -87,7 +89,7 @@ const MainEditor = () => {
               <BsInputCursorText />
             </div>
             <div className="icons-container">
-              <BsEyeFill />
+              <BsEyeFill  onClick={preview_Question} />
             </div>
             <div className="icons-container">
               <AiOutlineUndo />

@@ -19,7 +19,6 @@ import Analysis from './components/Analysis/Analysis';
 import MainEditor from './components/EditorMain/mainEditor';
 import QuestionEditorProvider from './contexts/questionEditorContext/questionEditorProvider';
 
-
 const Router = createBrowserRouter([
   {
     path: "/",
