@@ -10,7 +10,7 @@
 
 #block-image {
   max-width: 50%;
-  margin: 1rem auto;
+  margin: 1rem .5rem;
   display: block;
 }
 
