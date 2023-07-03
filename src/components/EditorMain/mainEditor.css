@@ -18,13 +18,15 @@ align-self: center;
 
 .main-editor-header {
   color: var(--white);
+  /* color: var(--white); */
   padding: 1rem;
   font-size: 2rem;
   text-transform: capitalize;
   box-shadow: var(--shadow);
   margin: 1rem 1rem;
   border-radius: 1rem;
-  background-color: #9d9e9d87;
+  /* background-color: #9d9e9d87; */
+  background-color: var(--blue);
   backdrop-filter: blur(5px);
   
 }
@@ -32,6 +34,7 @@ align-self: center;
 .main-editor-icons-left {
   display: flex;
   color:var(--white);
+ 
 }
 
 .main-editor-header .icons-container {
@@ -52,7 +55,8 @@ align-self: center;
   overflow: scroll;
   border-radius: 1rem;
   padding: 1rem;
-  background-color: #9d9e9d87;
+  /* background-color: #9d9e9d87; */
+  background-color: var(--white);
   backdrop-filter: blur(5px);
 }
 

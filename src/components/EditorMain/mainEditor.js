@@ -2,9 +2,9 @@
 
 import React, { useContext , useRef } from "react";
 import { IconContext } from "react-icons";
-import { BsFillImageFill, BsTypeBold, BsTypeUnderline, BsTextLeft, BsTextCenter, BsEyeFill, BsInputCursorText } from "react-icons/bs";
+import { BsFillImageFill, BsEyeFill, BsInputCursorText } from "react-icons/bs";
 import { RxHeading } from "react-icons/rx";
-import { AiFillSave, AiOutlineRedo, AiOutlineUndo, AiOutlinRedo } from "react-icons/ai";
+import { AiFillSave, AiOutlineRedo, AiOutlineUndo } from "react-icons/ai";
 import { IoMdOptions } from "react-icons/io";
 
 import "./mainEditor.css";
@@ -15,12 +15,11 @@ import Filter from "../filter/filter";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 import ImageBlockComp from "../ImageBlock/ImageBlockComp";
 import imageBlock from "../../controllers/Editor/Block/ImageBlock";
-
-
-
+ 
 const MainEditor = () => {
   
   const { dispatch, question } = useContext(questionEditorContext);
+
   const displayDescription = () => { 
     return question.description.map((block) => (block instanceof TextBlock ? <TextBlockConponent key={block.blockId} blockText={block} /> : <ImageBlockComp imageBlock={block} key={block.blockId} />));
   }
@@ -51,6 +50,10 @@ const MainEditor = () => {
     dispatch({
       type:"add-text"
     })
+   }
+  
+   const preview_Question = ()=>{
+    console.log(displayDescription());
    }
 
   return (
@@ -86,7 +89,7 @@ const MainEditor = () => {
               <BsInputCursorText />
             </div>
             <div className="icons-container">
-              <BsEyeFill />
+              <BsEyeFill  onClick={preview_Question} />
             </div>
             <div className="icons-container">
               <AiOutlineUndo />
