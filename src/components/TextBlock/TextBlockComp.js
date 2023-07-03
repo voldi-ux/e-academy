@@ -180,7 +180,7 @@ const TextBlockConponent = ({ blockText }) => {
   //   console.log("changing height", tArea.current.scrollHeight);
      tArea.current.style.height = tArea.current.scrollHeight + "px";
 
-   },[blockText.content]);
+   },[blockText]);
 
   const handleContext = () => {
     setContextMenu(!contextMenu);
