@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext , useRef } from "react";
+import React, { useContext , useRef , useState } from "react";
 import { IconContext } from "react-icons";
 import { BsFillImageFill, BsEyeFill, BsInputCursorText } from "react-icons/bs";
 import { RxHeading } from "react-icons/rx";
@@ -15,20 +15,51 @@ import Filter from "../filter/filter";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 import ImageBlockComp from "../ImageBlock/ImageBlockComp";
 import imageBlock from "../../controllers/Editor/Block/ImageBlock";
+import OverLay from "../overlay/Overlay";
+import MCQ from "../MCQ/MCQ";
+import InputQuestion from "../InputQuestion/InputQuestion";
+import Preview from "../Preview/Preview";
  
 const MainEditor = () => {
   
   const { dispatch, question } = useContext(questionEditorContext);
+  const [overlay, setOverlay] = useState(false);
+  const [preview, setPreview] = useState(false);
 
+  // will render different overlay depending on what question type the user is currently creating
+  const renderOverlay = () => { 
+    switch (question.questionType) {
+      case "MCQ": { 
+        return (
+          <OverLay>
+            <MCQ close={closeOverlay} />
+          </OverLay>
+        );
+      }
+      case "input":
+        { 
+          return (
+            <OverLay>
+              <InputQuestion close={closeOverlay} />
+            </OverLay>
+          );
+        }
+    }
+  }
+
+  //displayes content on the editor
   const displayDescription = () => { 
     return question.description.map((block) => (block instanceof TextBlock ? <TextBlockConponent key={block.blockId} blockText={block} /> : <ImageBlockComp imageBlock={block} key={block.blockId} />));
   }
   const fileChooser = useRef();
   
+
+  //opens the filechooser
   const chooseFile = () => { 
     fileChooser.current.click();
   }
 
+  //called when a user has selected a file
   const onFileSelect = (e) => { 
     
     let files = e.target.files;
@@ -52,12 +83,25 @@ const MainEditor = () => {
     })
    }
   
-   const preview_Question = ()=>{
-    console.log(displayDescription());
-   }
+   const previewQuestion = ()=>{
+     if (overlay) setOverlay(false)
+     setPreview(true);
+  }
+  
+  //a function to close the preview overlay
+  const closeOverlay = () => { 
+    if (preview) setPreview(false);
+    else if (overlay) setOverlay(false)
+  };
 
   return (
     <div className="main-editor-container">
+      {overlay && renderOverlay()}
+      {preview && (
+        <OverLay>
+          <Preview close={closeOverlay} />
+        </OverLay>
+      )}
       <input
         onChange={onFileSelect}
         ref={fileChooser}
@@ -83,13 +127,21 @@ const MainEditor = () => {
               <RxHeading onClick={addText} />
             </div>
             <div className="icons-container">
-              <IoMdOptions />
+              <IoMdOptions
+                onClick={() => {
+                  setOverlay(true);
+                }}
+              />
             </div>
             <div className="icons-container">
-              <BsInputCursorText />
+              <BsInputCursorText
+                onClick={() => {
+                  setOverlay(true);
+                }}
+              />
             </div>
             <div className="icons-container">
-              <BsEyeFill  onClick={preview_Question} />
+              <BsEyeFill onClick={previewQuestion} />
             </div>
             <div className="icons-container">
               <AiOutlineUndo />

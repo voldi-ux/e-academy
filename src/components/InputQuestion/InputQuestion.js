@@ -3,50 +3,46 @@ import "./InputQuestion.css"
 
 import {FaArrowLeft} from "react-icons/fa"
 
-const InputQuestion = () => {
+const InputQuestion = ({ close}) => {
   return (
-    <div className="preview">
-      <div className="preview-header">
+    <div className="inputquestion">
+      <div className="inputquestion-header">
         <div>
-          <button>
+          <button onClick={close}>
             <FaArrowLeft size={16} /> Back
           </button>
         </div>
         <div></div>
       </div>
 
-      <div className="preview-container">
+      <div className="inputquestion-container">
         <h1>Input Questions</h1>
-        <div className="preview-container-content">
-          <h2>
-           Numerical Answer
-          </h2>
+        <div className="inputquestion-container-content">
+          <h2>Numerical Answer</h2>
 
           <div className="question-inputs">
-            <input className="question-input" type="text"  placeholder='Enter your numerical answer' />
-            <input className="question-input" type="text"  placeholder='Enter your tolerance' />
+            <input className="question-input" type="text" placeholder="Enter your numerical answer" />
+            <input className="question-input" type="text" placeholder="Enter your tolerance" />
           </div>
-          
+
           <div className="question-additions">
-            
-            <div className='question-line'></div>
-             <div><h2>OR</h2></div>
+            <div className="question-line"></div>
+            <div>
+              <h2>OR</h2>
+            </div>
             <div className="question-line"></div>
           </div>
 
-          <h2>
-           Textual Answer
-          </h2>
+          <h2>Textual Answer</h2>
           <div className="textual-answer">
-          <input className="question-input" type="text" placeholder='Enter your numerical textual' />
+            <input className="question-input" type="text" placeholder="Enter your numerical textual" />
           </div>
 
-          <button className='question-btn'>Save</button>
+          <button className="question-btn">Save</button>
         </div>
       </div>
     </div>
-
-  )
+  );
 }
 
 export default InputQuestion

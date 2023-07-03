@@ -1,48 +1,50 @@
-.preview {
-  background-color: #fff;
+
+
+.mcq {
+  background-color: #9d9e9d53;
+  backdrop-filter: blur(5px);
   box-shadow: none;
+  height: 100%;
 }
-.preview .preview-header {
+
+
+.mcq .mcq-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 1rem 3rem;
 }
 
-.preview button.back {
+.mcq button.back {
   background: var(--green);
   color: #fff;
   padding: 1rem;
-  font-size: 18px;
-  border-radius: 50px;
+  font-size: 1.6rem;
 }
 
-.preview-container {
+.mcq-container {
   width: 440px;
   margin: auto;
-  padding-bottom: 3rem;
+  background-color: var(--white);
+  padding: 1rem;
 }
-.preview-container h1 {
+.mcq-container h1 {
   font-size: 2rem;
-  color: var(--blue-light);
-  text-align: center;
-  padding-bottom: 2rem;
 }
 
-.preview-container-content h2 {
-  margin: auto;
-  width: 90%;
+.mcq-container-content  h2 {
   color: var(--blue-dark);
 }
-
-.preview-container-content {
-  border: 1px solid #ccc;
-  box-shadow: var(--shadow);
-  padding: 2rem;
-  margin-bottom: 3rem;
+.mcq-container-content > h2 {
+  text-align: center;
+  margin: 1rem 0;
+  text-transform: capitalize;
 }
 
-.option-card {
+.mcq-container-content {
+  margin-bottom: auto;
+}
+.mcq .option-card {
   background: #fff;
   padding: 3rem 2rem 2rem 2rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -50,26 +52,24 @@
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   width: 100%;
 }
 
-.option-card button.mcq-add {
+.mcq .option-card button.mcq-add {
   background: #333;
   color: var(--white);
 }
 
-.option-card input {
-  width: 100%;
+.mcq .option-card input {
   height: 4rem;
   padding-left: 1rem;
-  display: grid;
   border: 1px solid #ccc;
   border-radius: 50px;
+  flex: 1;
 }
 
-.choice 
+.mcq .choice 
 {
   display: flex;
   padding: 3rem 2rem 2rem 2rem;
@@ -80,22 +80,23 @@
   align-content: center;
 }
 
-.choice h4 
+.mcq .choice h4 
 {
   font-size: 15px;
   color: var(--blue-dark);
 }
 
-.question-btn 
+.mcq .question-btn 
 {
   width: 100%;
   background: var(--blue-dark);
-  margin-top: 2rem;
+  margin-top: 5rem;
   padding: 1rem 0;
+  border-radius: 0;
 }
   
 
-.choice-header
+.mcq .choice-header
 {
   display: flex;
   justify-content: space-between;
@@ -103,8 +104,9 @@
   padding: 2rem;
   margin-bottom: 1rem;
   border-bottom: 2px solid #ccc;
+  margin-bottom: 3rem;
 }
-.choice-option 
+.mcq .choice-option 
 {
   display: flex;
   gap: 2rem;
