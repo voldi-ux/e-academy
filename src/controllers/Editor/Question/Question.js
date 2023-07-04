@@ -42,4 +42,8 @@ export default class Question {
   addToDescription(block) {
     this.description.push(block);
   }
+
+  setDescription(des) { 
+    this.description = des;
+  }
 }

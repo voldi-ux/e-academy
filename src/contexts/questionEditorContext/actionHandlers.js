@@ -2,6 +2,9 @@
 
 import imageBlock from "../../controllers/Editor/Block/ImageBlock";
 import TextBlock from "../../controllers/Editor/Block/TextBlock";
+import InputQuestion from "../../controllers/Editor/Question/InputQuestion";
+import MCQ from "../../controllers/Editor/Question/Mcq";
+import { getTopicArrays, getTopics } from "../../utils/topics";
 
 export function handleChangeText(state, data) {
   let question = state.question;
@@ -10,19 +13,19 @@ export function handleChangeText(state, data) {
     if (item instanceof TextBlock && item.blockId === data.id) {
       let newBlock = Object.create(item);
       newBlock.setContent(data.content);
-      return newBlock
+      return newBlock;
     }
     return item;
   });
 
   //this action must be logged in the redo stack
 
+  question = Object.create(question);
+  question.setDescription(conflate(description));
+
   return {
     ...state,
-    question: {
-      ...question,
-      description: conflate(description)
-    }
+    question
   };
 }
 
@@ -60,12 +63,12 @@ export function handleTextProps(state, { data, type }) {
   });
 
   //this action must be logged in the redo stack
+  question = Object.create(question);
+  question.setDescription(conflate(description));
+
   return {
     ...state,
-    question: {
-      ...question,
-      description: conflate(description)
-    }
+    question
   };
 }
 
@@ -87,14 +90,12 @@ export function handleImageProps(state, { data, type }) {
     return item;
   });
 
-  //this action must be logged in the redo stack
+  question = Object.create(question);
+  question.setDescription(conflate(description));
 
   return {
     ...state,
-    question: {
-      ...question,
-      description: conflate(description)
-    }
+    question
   };
 }
 
@@ -131,7 +132,6 @@ export function conflate(description) {
   }
 }
 
-
 //a helper function to filter textblocks with no contents
 
 //a helper function to determine if two textblocks have the same properties
@@ -140,4 +140,60 @@ function equalBlocksProps(block1, block2) {
     return true;
   }
   return false;
+}
+
+//creates a new questiontype
+export function createQuestionType(state, action) {
+  let {
+    question: { subject, grade, level, topic }
+  } = state;
+  if (action.to === "MCQ") {
+    return new MCQ(subject, grade, level, topic);
+  } else if (action.to === "Input") {
+    return new InputQuestion(subject, grade, level, topic);
+  }
+}
+
+//we change a subject
+//to => the new subject
+export function changeSub(state, { to }) {
+  let question = Object.create(state.question);
+  question.changeSubject(to);
+  //we use a helper function to get a list of subjects assosicated with a particular subject and set the first topic on the list to be the default topic
+  question.changeTopic(getTopics(question.grade, to)[0]);
+  return {
+    ...state,
+    question
+  };
+}
+
+export function changeTopic(state, { to }) {
+  let question = Object.create(state.question);
+  question.changeTopic(to);
+  return {
+    ...state,
+    question
+  };
+}
+
+export function changeLevel(state, { to }) {
+  let question = Object.create(state.question);
+  question.changeLevel(to);
+
+  return {
+    ...state,
+    question
+  };
+}
+
+export function changeGrade(state, { to }) {
+  let question = Object.create(state.question);
+  question.changeGrade(to);
+  // we also change the topic whenever the grade is changed
+  question.changeTopic(getTopics(question.grade, question.subject)[0]);
+
+  return {
+    ...state,
+    question
+  };
 }

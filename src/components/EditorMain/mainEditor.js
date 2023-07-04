@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext , useRef , useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { BsFillImageFill, BsEyeFill, BsInputCursorText } from "react-icons/bs";
 import { RxHeading } from "react-icons/rx";
@@ -19,80 +19,111 @@ import OverLay from "../overlay/Overlay";
 import MCQ from "../MCQ/MCQ";
 import InputQuestion from "../InputQuestion/InputQuestion";
 import Preview from "../Preview/Preview";
- 
+import { getTopics } from "../../utils/topics";
+
 const MainEditor = () => {
-  
   const { dispatch, question } = useContext(questionEditorContext);
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
 
+  console.log(question)
+  
   // will render different overlay depending on what question type the user is currently creating
-  const renderOverlay = () => { 
+  const renderOverlay = () => {
     switch (question.questionType) {
-      case "MCQ": { 
+      case "MCQ": {
         return (
           <OverLay>
             <MCQ close={closeOverlay} />
           </OverLay>
         );
       }
-      case "input":
-        { 
-          return (
-            <OverLay>
-              <InputQuestion close={closeOverlay} />
-            </OverLay>
-          );
-        }
+      case "input-type": {
+        return (
+          <OverLay>
+            <InputQuestion close={closeOverlay} />
+          </OverLay>
+        );
+      }
     }
-  }
+  };
 
   //displayes content on the editor
-  const displayDescription = () => { 
+  const displayDescription = () => {
     return question.description.map((block) => (block instanceof TextBlock ? <TextBlockConponent key={block.blockId} blockText={block} /> : <ImageBlockComp imageBlock={block} key={block.blockId} />));
-  }
+  };
   const fileChooser = useRef();
-  
 
   //opens the filechooser
-  const chooseFile = () => { 
+  const chooseFile = () => {
     fileChooser.current.click();
-  }
+  };
 
   //called when a user has selected a file
-  const onFileSelect = (e) => { 
-    
+  const onFileSelect = (e) => {
     let files = e.target.files;
     let reader = new FileReader();
 
-    reader.onload = e => {
+    reader.onload = (e) => {
       let image = new imageBlock(e.target.result);
       dispatch({
         type: "add-image",
         data: image
-      })
-
-     };
+      });
+    };
     if (files.length > 0) reader.readAsDataURL(files[0]);
-  }
-
+  };
 
   const addText = () => {
     dispatch({
-      type:"add-text"
-    })
-   }
-  
-   const previewQuestion = ()=>{
-     if (overlay) setOverlay(false)
-     setPreview(true);
-  }
-  
-  //a function to close the preview overlay
-  const closeOverlay = () => { 
-    if (preview) setPreview(false);
-    else if (overlay) setOverlay(false)
+      type: "add-text"
+    });
   };
+
+  const previewQuestion = () => {
+    if (overlay) setOverlay(false);
+    setPreview(true);
+  };
+
+  //a function to close the preview overlay
+  const closeOverlay = () => {
+    if (preview) setPreview(false);
+    else if (overlay) setOverlay(false);
+  };
+
+  //===========================================================================
+  //These objects will help with filtering of topics, subjects etc.
+  const filterGrades = {
+    title: "Grade",
+    options: ["10", "11", "12"],
+    action: (grade) => dispatch({ type: "change-grade", to: grade })
+  };
+
+  const filterQuestionType = {
+    title: "Question Type",
+    options: ["MCQ", "Input"],
+    action: (questionType) => dispatch({ type: "change-questionType", to: questionType })
+  };
+
+  const filterSubjects = {
+    title: "Subjects",
+    options: ["Mathematics", "Physics"],
+    action: (subject) => dispatch({ type: "change-subject", to: subject })
+  };
+
+  const filterLevels = {
+    title: "Level",
+    options: [1, 2, 3, 4, 5],
+    action: (level) => dispatch({ type: "change-level", to: level })
+  };
+
+  const filterTopics = {
+    title: "Topic",
+    options: getTopics(question.grade, question.subject),
+    action: (topic) => dispatch({ type: "change-topic", to: topic })
+  };
+
+  //=====================================================================================
 
   return (
     <div className="main-editor-container">
@@ -112,10 +143,12 @@ const MainEditor = () => {
         }}
       />
       <div className="question-properties-container">
-        <Filter title={"Question Type"} defaultSelect={"MCQ"} />
-        <Filter title={"Subject"} defaultSelect={"Maths"} />
-        <Filter title={"Grade"} defaultSelect={"10"} />
-        <Filter title={"Level"} defaultSelect={"3"} />
+        {/* each of these filters should get their selected values from the context*/}
+        <Filter title={"Question Type"} filter={filterQuestionType} defaultSelect={question.questionType} />
+        <Filter title={"topic"} filter={filterTopics} defaultSelect={question.topic} />
+        <Filter title={"Subject"} filter={filterSubjects} defaultSelect={question.subject} />
+        <Filter title={"Grade"} filter={filterGrades} defaultSelect={question.grade} />
+        <Filter title={"Level"} filter={filterLevels} defaultSelect={question.level} />
       </div>
       <header className="main-editor-header">
         <IconContext.Provider value={{ className: "editor-icons-left", size: 25 }}>
@@ -130,6 +163,7 @@ const MainEditor = () => {
               <IoMdOptions
                 onClick={() => {
                   setOverlay(true);
+                  console.log("setting overlay")
                 }}
               />
             </div>
@@ -137,6 +171,7 @@ const MainEditor = () => {
               <BsInputCursorText
                 onClick={() => {
                   setOverlay(true);
+                  console.log("setting overlay");
                 }}
               />
             </div>

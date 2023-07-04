@@ -1,8 +1,8 @@
+/** @format */
+
 import TextBlock from "../../controllers/Editor/Block/TextBlock";
 import MCQ from "../../controllers/Editor/Question/Mcq";
-import { conflate, handColor, handleChangeText, handleImageProps, handleTextProps } from "./actionHandlers";
-
-
+import { changeGrade, changeLevel, changeSub, changeTopic, conflate, createQuestionType, handColor, handleChangeText, handleImageProps, handleTextProps } from "./actionHandlers";
 
 //inital state
 export const intitialState = {
@@ -11,76 +11,96 @@ export const intitialState = {
   redoStack: [] //stores actions popped out from the undoStack
 };
 
-export function EditorQuestionReducer(state, action) { 
-    switch (action.type) {
-      //this runs whenever the user wants to change the type of question they are working on
-      case "change-question-type": {
-        return {
-          ...state,
-          question: action.data // data == the new question
-        };
-      }
-      case "un-do": {
-      }
-      case "redo": {
-      }
-
-      //handles the editing of texts
-      case "change-text": {
-        return handleChangeText(state, action.data);
-      }
-
-      //handles the adding of an image the editor
-      case "add-image": {
-        let description = state.question.description.concat([action.data]);
-        return {
-          ...state,
-          question: {
-            ...state.question,
-            description
-          }
-        };
-      }
-      case "add-text": {
-        let description = state.question.description.concat([new TextBlock()]);
-        return {
-          ...state,
-          question: {
-            ...state.question,
-            description: conflate(description)
-          }
-        };
-      }
-
-      case "change-casing": {
-        return handleTextProps(state, action);
-      }
-
-      case "change-fontsize": {
-        return handleTextProps(state, action);
-      }
-
-      case "change-bold": {
-        return handleTextProps(state, action);
-      }
-
-      case "change-color": {
-        return handleTextProps(state, action);
-      }
-      case "change-image": {
-        return handleImageProps(state, action);
-      }
-      case "remove-image": {
-        let description = state.question.description.filter(block => block.blockId !== action.id)
-        return {
-          ...state,
-          question: {
-            ...state.question,
-            description: conflate(description) // we need to conflate incase the image removed was sandwiched between two textblock elements with the same properties
-          }
-        };
-      }
+export function EditorQuestionReducer(state, action) {
+  switch (action.type) {
+    case "un-do": {
+    }
+    case "redo": {
     }
 
+    //handles the editing of texts
+    case "change-text": {
+      return handleChangeText(state, action.data);
+    }
 
-} 
+    //handles the adding of an image the editor
+    case "add-image": {
+      let question = state.question;
+      let description = state.question.description.concat([action.data]);
+      question = Object.create(question);
+      question.setDescription(conflate(description));
+      return {
+        ...state,
+        question
+      };
+    }
+    case "add-text": {
+      let question = state.question;
+      let description = state.question.description.concat([new TextBlock()]);
+      question = Object.create(question);
+      question.setDescription(conflate(description));
+
+      return {
+        ...state,
+        question
+      };
+    }
+
+    case "change-casing": {
+      return handleTextProps(state, action);
+    }
+
+    case "change-fontsize": {
+      return handleTextProps(state, action);
+    }
+
+    case "change-bold": {
+      return handleTextProps(state, action);
+    }
+
+    case "change-color": {
+      return handleTextProps(state, action);
+    }
+    case "change-image": {
+      return handleImageProps(state, action);
+    }
+    case "remove-image": {
+      let question = state.question;
+      let description = state.question.description.filter((block) => block.blockId !== action.id);
+      question = Object.create(question);
+      question.setDescription(conflate(description));
+
+      return {
+        ...state,
+        question
+      };
+    }
+
+    case "change-questionType": {
+      if (action.to == state.question.questionType) {
+        return state;
+      }
+
+      return {
+        ...state,
+        question: createQuestionType(state, action)
+      };
+    }
+
+    case "change-subject": {
+      return changeSub(state, action);
+    }
+
+    case "change-topic": {
+      return changeTopic(state, action);
+    }
+
+    case "change-level": {
+      return changeLevel(state, action);
+    }
+
+    case "change-grade": {
+      return changeGrade(state, action);
+    }
+  }
+}
