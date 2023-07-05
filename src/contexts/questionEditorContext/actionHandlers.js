@@ -14,7 +14,7 @@ export function handleChangeText(state, data) {
     if (item instanceof TextBlock && item.blockId === data.id) {
       let newBlock = Object.create(item);
       newBlock.setContent(data.content);
-      return newBlock;
+     return newBlock;
     }
     return item;
   });

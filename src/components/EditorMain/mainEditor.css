@@ -8,7 +8,7 @@
 }
 
 .question-properties-container {
-align-self: center;
+  align-self: center;
 }
 
 .main-editor-header {
@@ -28,13 +28,11 @@ align-self: center;
   /* background-color: #9d9e9d87; */
   background-color: var(--blue);
   backdrop-filter: blur(5px);
-  
 }
 
 .main-editor-icons-left {
   display: flex;
-  color:var(--white);
- 
+  color: var(--white);
 }
 
 .main-editor-header .icons-container {
@@ -44,26 +42,39 @@ align-self: center;
   margin-right: 3rem;
   cursor: pointer;
   user-select: none;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
-.main-editor-content {
-  height: 100%;
+.editor-content-container {
+ height: 100%;
   box-shadow: var(--shadow);
   margin: 0 1rem;
   margin-bottom: 1rem;
-  overflow: scroll;
   border-radius: 1rem;
   padding: 1rem;
-  /* background-color: #9d9e9d87; */
   background-color: var(--white);
   backdrop-filter: blur(5px);
+  display: flex;
+  overflow: hidden;
 }
 
+.main-editor-content {
+ overflow-y: scroll;
+ overflow-x: hidden;
+ flex: 1;
+}
 
-.main-editor-icons-left .icons-container:hover, .editor-icon-right .icons-container:hover {
-  color:var(--white);
+.editor-content-preview {
+  width: 30%;
+  height: 100%;
+  border: 1px dashed var(--grey);
+  padding: 1rem;
+}
+
+.main-editor-icons-left .icons-container:hover,
+.editor-icon-right .icons-container:hover {
+  color: var(--white);
   background-color: var(--red);
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
 }

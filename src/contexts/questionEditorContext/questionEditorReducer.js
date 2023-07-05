@@ -137,5 +137,23 @@ export function EditorQuestionReducer(state, action) {
     case "change-grade": {
       return changeGrade(state, action);
     }
+      
+    case "add-option": {
+  
+      let { grade, level, subject, topic, description, options } = state.question;
+      let newQuestion = new MCQ(subject, grade, level, topic);
+      newQuestion.setDescription(description);
+      newQuestion.options = [...options, action.data];
+      return {
+        ...state,
+        question: newQuestion
+      }
+    } 
+      
+      
+      
+   
+      
+      
   }
 }

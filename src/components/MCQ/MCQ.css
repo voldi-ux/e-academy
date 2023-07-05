@@ -27,11 +27,16 @@
   margin: auto;
   background-color: var(--white);
   padding: 1rem;
+  max-height: 70%;
+ 
 }
 .mcq-container h1 {
   font-size: 2rem;
 }
 
+.mcq-options {
+ 
+}
 .mcq-container-content  h2 {
   color: var(--blue-dark);
 }
@@ -43,6 +48,7 @@
 
 .mcq-container-content {
   margin-bottom: auto;
+ 
 }
 .mcq .option-card {
   background: #fff;

@@ -187,6 +187,7 @@ const TextBlockConponent = ({ blockText }) => {
   };
 
   const handleContentChange = (e) => {    
+    console.log(e.target.value)
    //  tArea.current.style.height = e.target.scrollHeight + "px";
       dispatch({
         type: "change-text",

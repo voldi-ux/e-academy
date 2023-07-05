@@ -1,9 +1,12 @@
+import { useContext } from "react"
 import "./MCQ.css"
 import {FaTrash, FaEdit, FaThumbsUp} from "react-icons/fa"
+import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext"
 
 
-function Choice()
-{
+function Choice(option) {
+   const { dispatch } = useContext(questionEditorContext)
+   //const del
     return(
        <div className="choice">
          

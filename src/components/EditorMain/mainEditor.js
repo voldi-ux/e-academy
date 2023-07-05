@@ -26,8 +26,6 @@ const MainEditor = () => {
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
 
-  console.log(question)
-  
   // will render different overlay depending on what question type the user is currently creating
   const renderOverlay = () => {
     switch (question.questionType) {
@@ -52,6 +50,28 @@ const MainEditor = () => {
   const displayDescription = () => {
     return question.description.map((block) => (block instanceof TextBlock ? <TextBlockConponent key={block.blockId} blockText={block} /> : <ImageBlockComp imageBlock={block} key={block.blockId} />));
   };
+
+  //displayes content on the editor
+  const displayPreviewDescription = () => {
+    return question.description.map((block) =>
+      block instanceof TextBlock ? (
+        <p
+          style={{
+            fontSize: block.fontSize,
+            fontWeight: block.weight + "", //convert it to a string
+            color: block.color,
+            textTransform: block.textTransform ? block.textTransform : "none"
+          }}
+          key={block.blockId}
+        >
+          {`${block.content}`}
+        </p>
+      ) : (
+        <img style={{ width: "100%", display: "block" }} src={block.image} key={block.blockId} />
+      )
+    );
+  };
+
   const fileChooser = useRef();
 
   //opens the filechooser
@@ -93,9 +113,9 @@ const MainEditor = () => {
 
   //a function that allows to dispatch undo actions
 
-  const undo = () => dispatch({type:"undo"});
-  const redo = () => dispatch({type:"redo"});
-  
+  const undo = () => dispatch({ type: "undo" });
+  const redo = () => dispatch({ type: "redo" });
+
   //===========================================================================
   //These objects will help with filtering of topics, subjects etc.
   const filterGrades = {
@@ -168,7 +188,7 @@ const MainEditor = () => {
               <IoMdOptions
                 onClick={() => {
                   setOverlay(true);
-                  console.log("setting overlay")
+                  console.log("setting overlay");
                 }}
               />
             </div>
@@ -184,7 +204,7 @@ const MainEditor = () => {
               <BsEyeFill onClick={previewQuestion} />
             </div>
             <div className="icons-container">
-              <AiOutlineUndo  onClick={undo}/>
+              <AiOutlineUndo onClick={undo} />
             </div>
             <div className="icons-container">
               <AiOutlineRedo onClick={redo} />
@@ -197,7 +217,10 @@ const MainEditor = () => {
           </div>
         </IconContext.Provider>
       </header>
-      <div className="main-editor-content">{displayDescription()}</div>
+      <div className="editor-content-container">
+        <div className="main-editor-content">{displayDescription()}</div>
+        <div className="editor-content-preview">{displayPreviewDescription()}</div>
+      </div>
     </div>
   );
 };
