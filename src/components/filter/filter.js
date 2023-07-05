@@ -11,7 +11,6 @@ selections = {
 */
 
 const Filter = ({ title, defaultSelect, filter }) => { 
-  console.log(filter)
   const renderFilters = () => { 
     return filter.options.map(option => <h3 key={option} onClick={() => filter.action(option)}>{ option }</h3>)
   }

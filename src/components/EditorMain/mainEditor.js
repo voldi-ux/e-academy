@@ -91,6 +91,11 @@ const MainEditor = () => {
     else if (overlay) setOverlay(false);
   };
 
+  //a function that allows to dispatch undo actions
+
+  const undo = () => dispatch({type:"undo"});
+  const redo = () => dispatch({type:"redo"});
+  
   //===========================================================================
   //These objects will help with filtering of topics, subjects etc.
   const filterGrades = {
@@ -179,10 +184,10 @@ const MainEditor = () => {
               <BsEyeFill onClick={previewQuestion} />
             </div>
             <div className="icons-container">
-              <AiOutlineUndo />
+              <AiOutlineUndo  onClick={undo}/>
             </div>
             <div className="icons-container">
-              <AiOutlineRedo />
+              <AiOutlineRedo onClick={redo} />
             </div>
           </div>
           <div className="editor-icon-right">

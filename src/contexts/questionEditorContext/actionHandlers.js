@@ -8,6 +8,7 @@ import { getTopicArrays, getTopics } from "../../utils/topics";
 
 export function handleChangeText(state, data) {
   let question = state.question;
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
     if (item instanceof TextBlock && item.blockId === data.id) {
@@ -25,12 +26,15 @@ export function handleChangeText(state, data) {
 
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
 
 export function handleTextProps(state, { data, type }) {
   let question = state.question;
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
     if (item instanceof TextBlock && item.blockId === data.id) {
@@ -68,12 +72,15 @@ export function handleTextProps(state, { data, type }) {
 
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
 
 export function handleImageProps(state, { data, type }) {
   let question = state.question;
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
     if (item instanceof imageBlock && item.blockId === data.id) {
@@ -95,7 +102,9 @@ export function handleImageProps(state, { data, type }) {
 
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
 
@@ -145,12 +154,16 @@ function equalBlocksProps(block1, block2) {
 //creates a new questiontype
 export function createQuestionType(state, action) {
   let {
-    question: { subject, grade, level, topic }
+    question: { subject, grade, level, topic, description }
   } = state;
   if (action.to === "MCQ") {
-    return new MCQ(subject, grade, level, topic);
+    let newQuestion = new MCQ(subject, grade, level, topic);
+    newQuestion.setDescription(description) // we want to inherit the previous descriptions so that we can swtich between different questions without losing content on the screen
+    return newQuestion;
   } else if (action.to === "Input") {
-    return new InputQuestion(subject, grade, level, topic);
+    let newQuestion = new InputQuestion(subject, grade, level, topic);
+    newQuestion.setDescription(description); // we want to inherit the previous descriptions so that we can swtich between different questions without losing content on the screen
+    return newQuestion;
   }
 }
 
@@ -158,42 +171,54 @@ export function createQuestionType(state, action) {
 //to => the new subject
 export function changeSub(state, { to }) {
   let question = Object.create(state.question);
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   question.changeSubject(to);
   //we use a helper function to get a list of subjects assosicated with a particular subject and set the first topic on the list to be the default topic
   question.changeTopic(getTopics(question.grade, to)[0]);
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
 
 export function changeTopic(state, { to }) {
   let question = Object.create(state.question);
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   question.changeTopic(to);
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
 
 export function changeLevel(state, { to }) {
   let question = Object.create(state.question);
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   question.changeLevel(to);
 
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
 
 export function changeGrade(state, { to }) {
   let question = Object.create(state.question);
+  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   question.changeGrade(to);
   // we also change the topic whenever the grade is changed
   question.changeTopic(getTopics(question.grade, question.subject)[0]);
 
   return {
     ...state,
-    question
+    question,
+    undoStack,
+    redoStack: []
   };
 }
