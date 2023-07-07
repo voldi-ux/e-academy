@@ -25,11 +25,17 @@ export default class MCQ extends Question {
   addOption(option) {
     this.options.push(option);
   }
-
+  
+ 
   //removes the option from the array
   removeOption(optionID) {}
 
   setAnswer(answer) {
     this.answer = answer;
+  }
+  
+  getAnswer()
+  {
+    return this.answer
   }
 }
