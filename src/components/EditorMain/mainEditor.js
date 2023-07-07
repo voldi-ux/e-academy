@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { IconContext } from "react-icons";
 import { BsFillImageFill, BsEyeFill, BsInputCursorText } from "react-icons/bs";
 import { RxHeading } from "react-icons/rx";
@@ -22,9 +22,26 @@ import Preview from "../Preview/Preview";
 import { getTopics } from "../../utils/topics";
 
 const MainEditor = () => {
+  const equation = "When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are\n$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$";
+
   const { dispatch, question } = useContext(questionEditorContext);
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
+
+   useEffect(() => {
+     const script = document.createElement("script");
+     script.type = "text/javascript";
+     script.text = `
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+      });
+      MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+    `;
+     document.head.appendChild(script);
+     return () => {
+       document.head.removeChild(script);
+     };
+   });
 
   // will render different overlay depending on what question type the user is currently creating
   const renderOverlay = () => {
@@ -219,7 +236,10 @@ const MainEditor = () => {
       </header>
       <div className="editor-content-container">
         <div className="main-editor-content">{displayDescription()}</div>
-        <div className="editor-content-preview">{displayPreviewDescription()}</div>
+        <div className="editor-content-preview">
+          {displayPreviewDescription()}
+       
+        </div>
       </div>
     </div>
   );
