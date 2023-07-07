@@ -222,3 +222,4 @@ export function changeGrade(state, { to }) {
     redoStack: []
   };
 }
+
