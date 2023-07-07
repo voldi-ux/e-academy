@@ -77,14 +77,16 @@ const MainEditor = () => {
             fontSize: block.fontSize,
             fontWeight: block.weight + "", //convert it to a string
             color: block.color,
-            textTransform: block.textTransform ? block.textTransform : "none"
+            textTransform: block.textTransform ? block.textTransform : "none",
+            marginBottom: "10px",
+            lineHeight:"3rem"
           }}
           key={block.blockId}
         >
           {`${block.content}`}
         </p>
       ) : (
-        <img style={{ width: "100%", display: "block" }} src={block.image} key={block.blockId} />
+        <img style={{ width: "100%", display: "block", marginBottom: "10px" }} src={block.image} key={block.blockId} />
       )
     );
   };
