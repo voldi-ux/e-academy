@@ -2,43 +2,53 @@
 
 import TextBlock from "../../controllers/Editor/Block/TextBlock";
 import MCQ from "../../controllers/Editor/Question/Mcq";
-import { changeGrade, changeLevel, changeSub, changeTopic, conflate, createQuestionType, handColor, handleChangeText, handleImageProps, handleTextProps } from "./actionHandlers";
+import {
+  changeGrade,
+  changeLevel,
+  changeSub,
+  changeTopic,
+  conflate,
+  createQuestionType,
+  handColor,
+  handleChangeText,
+  handleImageProps,
+  handleTextProps,
+} from "./actionHandlers";
 
 //inital state
 export const intitialState = {
   question: new MCQ("Mathematics", 10, 3, "Algebra"), //default question type that the editor will assume the user wants to create
   undoStack: [], // stores the operations the user has recently carried out.
-  redoStack: [] //stores actions popped out from the undoStack
+  redoStack: [], //stores actions popped out from the undoStack
 };
 
 export function EditorQuestionReducer(state, action) {
   switch (action.type) {
-
     case "undo": {
       if (!state.undoStack.length) return state; // we don't want to do anything if the stack is already empty other we create a new stack since we don't want to modify the one that leave in the state.
       let newStack = [...state.undoStack];
       let preVquestion = newStack.pop();
-      let newRedoStack = state.redoStack.concat(state.question) // we push the current question on the redoStack
+      let newRedoStack = state.redoStack.concat(state.question); // we push the current question on the redoStack
 
       return {
         ...state,
         question: preVquestion,
         undoStack: newStack,
-        redoStack:newRedoStack
-      }
+        redoStack: newRedoStack,
+      };
     }
     case "redo": {
       if (!state.redoStack.length) return state;
-        let newStack = [...state.redoStack];
-        let preVquestion = newStack.pop();
-        let newUndoStack = state.undoStack.concat(state.question); // we push the current question on the undostack
+      let newStack = [...state.redoStack];
+      let preVquestion = newStack.pop();
+      let newUndoStack = state.undoStack.concat(state.question); // we push the current question on the undostack
 
-        return {
-          ...state,
-          question: preVquestion,
-          undoStack: newUndoStack,
-          redoStack: newStack
-        };
+      return {
+        ...state,
+        question: preVquestion,
+        undoStack: newUndoStack,
+        redoStack: newStack,
+      };
     }
 
     //handles the editing of texts
@@ -49,7 +59,7 @@ export function EditorQuestionReducer(state, action) {
     //handles the adding of an image the editor
     case "add-image": {
       let question = state.question;
-      let undoStack = state.undoStack.concat(question) // we log the previous state of the question before modifying it
+      let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
       let description = state.question.description.concat([action.data]);
       question = Object.create(question);
       question.setDescription(conflate(description));
@@ -57,7 +67,7 @@ export function EditorQuestionReducer(state, action) {
         ...state,
         question,
         undoStack,
-         redoStack: []
+        redoStack: [],
       };
     }
     case "add-text": {
@@ -71,7 +81,7 @@ export function EditorQuestionReducer(state, action) {
         ...state,
         question,
         undoStack,
-         redoStack: []
+        redoStack: [],
       };
     }
 
@@ -96,7 +106,9 @@ export function EditorQuestionReducer(state, action) {
     case "remove-image": {
       let question = state.question;
       let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
-      let description = state.question.description.filter((block) => block.blockId !== action.id);
+      let description = state.question.description.filter(
+        (block) => block.blockId !== action.id
+      );
       question = Object.create(question);
       question.setDescription(conflate(description));
 
@@ -104,7 +116,7 @@ export function EditorQuestionReducer(state, action) {
         ...state,
         question,
         undoStack,
-         redoStack: []
+        redoStack: [],
       };
     }
 
@@ -118,7 +130,7 @@ export function EditorQuestionReducer(state, action) {
         ...state,
         question: createQuestionType(state, action),
         undoStack,
-        redoStack: []
+        redoStack: [],
       };
     }
 
@@ -137,23 +149,75 @@ export function EditorQuestionReducer(state, action) {
     case "change-grade": {
       return changeGrade(state, action);
     }
-      
+
     case "add-option": {
-  
-      let { grade, level, subject, topic, description, options } = state.question;
+      let { grade, level, subject, topic, description, options } =
+        state.question;
       let newQuestion = new MCQ(subject, grade, level, topic);
       newQuestion.setDescription(description);
       newQuestion.options = [...options, action.data];
       return {
         ...state,
-        question: newQuestion
+        question: newQuestion,
+      };
+    }
+
+    case "remove-mcq": {
+      let { grade, level, subject, topic, description, options } =
+        state.question;
+      let newQuestion = new MCQ(subject, grade, level, topic);
+      newQuestion.setDescription(description);
+      // newQuestion.options = [...options, action.data]
+      newQuestion.options = options.filter((key) => key !== action.data);
+
+      return {
+        ...state,
+        question: newQuestion,
+      };
+    }
+
+    case "edit-mcq-option": {
+      let { grade, level, subject, topic, description, options } =
+        state.question;
+      let newQuestion = new MCQ(subject, grade, level, topic);
+      newQuestion.setDescription(description);
+
+      //loop through and  update
+      options.map((item, index) => {
+        if (item == action.data.old) {
+          options[index] = action.data.option;
+        }
+      });
+
+      newQuestion.options = options;
+
+      return {
+        ...state,
+        question: newQuestion,
+      };
+    }
+
+
+    case "set-mcq-answer": 
+    {
+      let { grade, level, subject, topic, description, options } =
+      state.question;
+      let newQuestion = new MCQ(subject, grade, level, topic);
+     newQuestion.setDescription(description);
+     //loop through  array and get index
+     options.map((item, index) => {
+      if (item === action.data) { 
+        newQuestion.setAnswer(index)
       }
-    } 
-      
-      
-      
-   
-      
-      
+    });
+      newQuestion.options = options;
+     //answer index
+     console.log("the answer is " + newQuestion.getAnswer())
+  
+    return {
+      ...state,
+      question: newQuestion,
+    };
+    }
   }
 }

@@ -1,12 +1,9 @@
-
-
 .mcq {
   background-color: #9d9e9d53;
   backdrop-filter: blur(5px);
   box-shadow: none;
   height: 100%;
 }
-
 
 .mcq .mcq-header {
   display: flex;
@@ -27,17 +24,13 @@
   margin: auto;
   background-color: var(--white);
   padding: 1rem;
-  max-height: 70%;
- 
+  
 }
 .mcq-container h1 {
   font-size: 2rem;
 }
 
-.mcq-options {
- 
-}
-.mcq-container-content  h2 {
+.mcq-container-content h2 {
   color: var(--blue-dark);
 }
 .mcq-container-content > h2 {
@@ -48,7 +41,6 @@
 
 .mcq-container-content {
   margin-bottom: auto;
- 
 }
 .mcq .option-card {
   background: #fff;
@@ -64,46 +56,92 @@
 
 .mcq .option-card button.mcq-add {
   background: #333;
+  padding: .8rem;
   color: var(--white);
 }
 
 .mcq .option-card input {
   height: 4rem;
-  padding-left: 1rem;
+  padding: 0 1rem;
   border: 1px solid #ccc;
   border-radius: 50px;
-  flex: 1;
+  flex: 2;
 }
 
-.mcq .choice 
-{
+.mcq .choice {
+  position: relative;
+  opacity: 0;
   display: flex;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  animation: mcqFade 1s ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  transition: all 1s ease-in;
 }
 
-.mcq .choice h4 
-{
+@keyframes mcqFade {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  75% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(360deg);
+  }
+}
+
+#choice-removed {
+  position: relative;
+  opacity: 1;
+  animation: mcqRemoved 1s ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  transition: all 0.5s ease;
+}
+
+@keyframes mcqRemoved {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  75% {
+    opacity: 0.5;
+    transform: rotateX(180deg)
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.mcq .choice h4 {
   font-size: 15px;
+  padding:0 1.5rem;
   color: var(--blue-dark);
 }
 
-.mcq .question-btn 
-{
+.mcq .question-btn {
   width: 100%;
   background: var(--blue-dark);
   margin-top: 5rem;
   padding: 1rem 0;
   border-radius: 0;
 }
-  
 
-.mcq .choice-header
-{
+.mcq .choice-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -112,10 +150,26 @@
   border-bottom: 2px solid #ccc;
   margin-bottom: 3rem;
 }
-.mcq .choice-option 
-{
+.mcq .choice-option {
   display: flex;
   gap: 2rem;
   font-size: 18px;
   color: #ccc;
 }
+
+.mcq .choice-option div {
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.mcq .choice-option div:hover {
+  transform: scale(1.5);
+}
+
+.mcq-options 
+{
+  /* just for now */
+  height: 250px;
+  overflow-y: scroll;
+}
+
