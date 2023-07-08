@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useRef } from "react";
 import "./MCQ.css";
 import { FaTrash, FaEdit, FaCircle } from "react-icons/fa";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 
 function Choice({ option, currentEdit }) {
   const { dispatch } = useContext(questionEditorContext);
+   const choiceContainer = useRef(null)
 
   const setAnswer = () => {
     dispatch({ type: "set-mcq-answer", data: option });
@@ -20,10 +21,10 @@ function Choice({ option, currentEdit }) {
 
   // remove / delete choice
   const removeChoice = (e) => {
-    let div = e.target.parentNode.parentNode.parentNode.parentNode;
+  
+    choiceContainer.current.id = choiceContainer.current.className == "choice" ? "choice-removed" : "";
     //assing id for css animation with id choice-removed
-    div.id = div.className == "choice" ? "choice-removed" : "";
-
+  
     setTimeout(() => {
       dispatch({ type: "remove-mcq", data: option });
     }, 900);
@@ -35,7 +36,7 @@ function Choice({ option, currentEdit }) {
   };
 
   return (
-    <div className="choice">
+    <div ref={choiceContainer} className="choice">
       <div className="choice-txt">
         <h4>{option}</h4>
       </div>
