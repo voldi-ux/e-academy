@@ -155,7 +155,20 @@ export function EditorQuestionReducer(state, action) {
         state.question;
       let newQuestion = new MCQ(subject, grade, level, topic);
       newQuestion.setDescription(description);
-      newQuestion.options = [...options, action.data];
+
+      //assume  option does not exist
+      let optionExists = false;
+      options.forEach((element) => {
+        if (element.trim() == action.data.trim()) {
+          optionExists = true;
+        }
+      });
+
+      //validate and assign new array of options
+      optionExists
+        ? (newQuestion.options = options)
+        : (newQuestion.options = [...options, action.data]);
+
       return {
         ...state,
         question: newQuestion,
@@ -169,7 +182,7 @@ export function EditorQuestionReducer(state, action) {
       newQuestion.setDescription(description);
       // newQuestion.options = [...options, action.data]
       newQuestion.options = options.filter((key) => key !== action.data);
-
+       
       return {
         ...state,
         question: newQuestion,
@@ -182,9 +195,17 @@ export function EditorQuestionReducer(state, action) {
       let newQuestion = new MCQ(subject, grade, level, topic);
       newQuestion.setDescription(description);
 
+      //assume new edit != option in array
+      let optionExists = false;
+      options.forEach((element) => {
+        if (element.trim() === action.data.option.trim()) {
+          optionExists = true;
+        }
+      });
+
       //loop through and  update
       options.map((item, index) => {
-        if (item == action.data.old) {
+        if (item.trim() === action.data.old.trim() && optionExists === false) {
           options[index] = action.data.option;
         }
       });
@@ -197,27 +218,23 @@ export function EditorQuestionReducer(state, action) {
       };
     }
 
-
-    case "set-mcq-answer": 
-    {
+    case "set-mcq-answer": {
       let { grade, level, subject, topic, description, options } =
-      state.question;
+        state.question;
       let newQuestion = new MCQ(subject, grade, level, topic);
-     newQuestion.setDescription(description);
-     //loop through  array and get index
-     options.map((item, index) => {
-      if (item === action.data) { 
-        newQuestion.setAnswer(index)
-      }
-    });
+      newQuestion.setDescription(description);
+      //loop through  array and get index
+      options.map((item, index) => {
+        if (item.trim() === action.data.trim()) {
+          newQuestion.setAnswer(index);
+        }
+      });
       newQuestion.options = options;
-     //answer index
-     console.log("the answer is " + newQuestion.getAnswer())
-  
-    return {
-      ...state,
-      question: newQuestion,
-    };
+
+      return {
+        ...state,
+        question: newQuestion,
+      };
     }
   }
 }

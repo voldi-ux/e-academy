@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./time.css";
 
 const Time = () => {
@@ -36,8 +35,9 @@ const Time = () => {
 
   // current time format
   const getTime = () => {
+    let ampm = date.getHours() <12 ? "AM" : "PM"
     return (
-      validateDigit(date.getHours()) + ":" + validateDigit(date.getMinutes())
+      validateDigit(date.getHours()) + ":" + validateDigit(date.getMinutes()) + ` ${ampm}`
     );
   };
 

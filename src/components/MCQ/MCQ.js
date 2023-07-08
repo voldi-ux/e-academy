@@ -22,7 +22,6 @@ const MCQ = ({ close }) => {
     setOption("");
   };
 
-  //get color for styling
   const options = question.options.map((option) => (
     <Choice currentEdit={currentEdit} option={option} key={option} />
   ));
@@ -37,6 +36,10 @@ const MCQ = ({ close }) => {
     //clear field
     setOption("");
   };
+
+  const optionSize = ()=>{
+    return question.options.length >= 0 ? question.options.length: ""
+  }
 
   return (
     <div className="mcq">
@@ -62,24 +65,26 @@ const MCQ = ({ close }) => {
             {editing ? (
               <button className="mcq-add" onClick={updateContent}>
                 {" "}
-               <FaEdit/>  Update
+                <FaEdit /> Update
               </button>
             ) : (
               <button className="mcq-add" onClick={() => addOption(option)}>
                 {" "}
-                <FaPlus/> Add
+                <FaPlus /> Add
               </button>
             )}
           </div>
           <div className="choice-header">
             <div>
-              <h2>Choices {question.options.length > 0 ? "(" + question.options.length + ")"  : ""  } </h2>
+              <h2>Choices:{optionSize()}  </h2>
             </div>
             <div>
               <h2>Options</h2>
             </div>
           </div>
-          <div className="mcq-options">{options}</div>
+          <div className="mcq-options">
+            {question.options.length > 0 ? options : ""}
+          </div>
         </div>
         {/* <button className="question-btn">Save options</button> */}
       </div>
