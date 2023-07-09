@@ -2,7 +2,7 @@ import Block from "./Block";
 
 export default class TextBlock extends Block { 
     constructor() {
-        super();
+        super("text");
         this.fontSize = 16; //default fontSize
         this.weight = 400; //default weight
         this.color = "#20385C";

@@ -1,7 +1,6 @@
 /** @format */
 
 export default class Question {
-
   constructor(questionType, subject, grade, level, topic) {
     this.questionType = questionType;
     this.subject = subject;
@@ -25,13 +24,7 @@ export default class Question {
     this.level = newLevel;
   }
 
-  //converts the question into jason form so it can written to a database
-  toJason() {}
 
-  saveQuestion() {
-    //must save the question in json format to the database
-    //let question  = question.json();
-  }
 
   //changes the current topic
   changeTopic(newTopic) {
@@ -43,7 +36,12 @@ export default class Question {
     this.description.push(block);
   }
 
-  setDescription(des) { 
+  setDescription(des) {
     this.description = des;
+  }
+
+  //converts the question into jason form so it can written to a database
+  toJsonFormat() {
+    return JSON.stringify(this, null, true);
   }
 }

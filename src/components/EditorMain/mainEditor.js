@@ -20,13 +20,17 @@ import MCQ from "../MCQ/MCQ";
 import InputQuestion from "../InputQuestion/InputQuestion";
 import Preview from "../Preview/Preview";
 import { getTopics } from "../../utils/topics";
+import ErrorBox from "../error/Error";
 
 const MainEditor = () => {
-  const equation = "When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are\n$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$";
-
-  const { dispatch, question } = useContext(questionEditorContext);
+  const { dispatch, question, redoStack, undoStack } = useContext(questionEditorContext);
+  const [saving, setSaving] = useState(false);
+  const [err, setErr] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
+
+
 
    useEffect(() => {
      const script = document.createElement("script");
@@ -42,6 +46,22 @@ const MainEditor = () => {
        document.head.removeChild(script);
      };
    });
+  
+  
+  const saveQuestion =  () => { 
+    try {
+      setSaving(true);
+      question.saveQuestion();
+      console.log(question)
+      console.log("saving succeded");
+      //  setSaving(false);
+        ///dispatch({type: "clear-question"})
+      } catch (err) {
+      console.log(err)
+      setErrMsg(err.message)
+      setErr(true) // we display an error message if we were unable to save the question
+    }
+  } 
 
   // will render different overlay depending on what question type the user is currently creating
   const renderOverlay = () => {
@@ -79,11 +99,11 @@ const MainEditor = () => {
             color: block.color,
             textTransform: block.textTransform ? block.textTransform : "none",
             marginBottom: "10px",
-            lineHeight:"3rem"
+            lineHeight: "3rem"
           }}
           key={block.blockId}
         >
-          {`${block.content}`}
+         {`${block.content}`}
         </p>
       ) : (
         <img style={{ width: "100%", display: "block", marginBottom: "10px" }} src={block.image} key={block.blockId} />
@@ -177,6 +197,10 @@ const MainEditor = () => {
           <Preview close={closeOverlay} />
         </OverLay>
       )}
+
+      {err && <OverLay>
+        <ErrorBox message={errMsg} buttonClick={() => setErr(false)} />
+      </OverLay>}
       <input
         onChange={onFileSelect}
         ref={fileChooser}
@@ -205,17 +229,21 @@ const MainEditor = () => {
             </div>
             <div className="icons-container">
               <IoMdOptions
+                style={{
+                  opacity: question.questionType === "input-type" ? "0.5" : "1"
+                }}
                 onClick={() => {
-                  setOverlay(true);
-                  console.log("setting overlay");
+                  question.questionType === "MCQ" && setOverlay(true);
                 }}
               />
             </div>
             <div className="icons-container">
               <BsInputCursorText
+                style={{
+                  opacity: question.questionType === "input-type" ? "1" : "0.5"
+                }}
                 onClick={() => {
-                  setOverlay(true);
-                  console.log("setting overlay");
+                  question.questionType === "input-type" && setOverlay(true);
                 }}
               />
             </div>
@@ -223,25 +251,32 @@ const MainEditor = () => {
               <BsEyeFill onClick={previewQuestion} />
             </div>
             <div className="icons-container">
-              <AiOutlineUndo onClick={undo} />
+              <AiOutlineUndo
+                onClick={undo}
+                style={{
+                  opacity: undoStack.length > 0 ? "1" : "0.5"
+                }}
+              />
             </div>
             <div className="icons-container">
-              <AiOutlineRedo onClick={redo} />
+              <AiOutlineRedo
+                onClick={redo}
+                style={{
+                  opacity: redoStack.length > 0 ? "1" : "0.5"
+                }}
+              />
             </div>
           </div>
           <div className="editor-icon-right">
             <div className="icons-container">
-              <AiFillSave />
+              <AiFillSave  onClick={saveQuestion}/>
             </div>
           </div>
         </IconContext.Provider>
       </header>
       <div className="editor-content-container">
         <div className="main-editor-content">{displayDescription()}</div>
-        <div className="editor-content-preview">
-          {displayPreviewDescription()}
-       
-        </div>
+        <div className="editor-content-preview">{displayPreviewDescription()}</div>
       </div>
     </div>
   );

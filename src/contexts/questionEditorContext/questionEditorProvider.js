@@ -9,7 +9,9 @@ const QuestionEditorProvider = ({ children }) => {
       
     return <questionEditorContext.Provider value={{
         question: editorState.question,
-        dispatch
+        dispatch,
+        redoStack: editorState.redoStack,
+        undoStack: editorState.undoStack
     }}>
         {children}
     </questionEditorContext.Provider> 

@@ -1,0 +1,33 @@
+.error-container {
+    height: 100%;
+    overflow: hidden;
+    background-color: #9d9e9d53;
+    backdrop-filter: blur(5px);
+}
+
+.error-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    height: 100%;
+}
+
+.error-content img {
+    width: 30rem;
+}
+
+.error-content h1 {
+    text-transform: capitalize;
+    color: var(--red);
+    margin-bottom: 1rem;
+}
+
+.error-button {
+  padding: 1rem 2rem;
+  background: var(--blue-dark);
+  border-radius: 2px;
+  margin: 2rem 0;
+}

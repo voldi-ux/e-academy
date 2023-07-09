@@ -12,21 +12,21 @@ export function handleChangeText(state, data) {
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
     if (item instanceof TextBlock && item.blockId === data.id) {
-      let newBlock = Object.create(item);
+      let newBlock = { ...item };
+      Object.setPrototypeOf(newBlock, Object.getPrototypeOf(item));
       newBlock.setContent(data.content);
-     return newBlock;
+      return newBlock;
     }
     return item;
   });
 
-  //this action must be logged in the redo stack
-
-  question = Object.create(question);
-  question.setDescription(conflate(description));
+  let cloneQuestion = { ...question }; // copy the question
+  Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.setDescription(conflate(description));
 
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
@@ -38,7 +38,8 @@ export function handleTextProps(state, { data, type }) {
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
     if (item instanceof TextBlock && item.blockId === data.id) {
-      let newBlock = Object.create(item);
+      let newBlock = { ...item };
+      Object.setPrototypeOf(newBlock, Object.getPrototypeOf(item));
 
       switch (type) {
         case "change-casing": {
@@ -65,14 +66,13 @@ export function handleTextProps(state, { data, type }) {
     }
     return item;
   });
-
-  //this action must be logged in the redo stack
-  question = Object.create(question);
-  question.setDescription(conflate(description));
+  let cloneQuestion = { ...question }; // copy the question
+  Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.setDescription(conflate(description));
 
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
@@ -84,7 +84,8 @@ export function handleImageProps(state, { data, type }) {
   //finds and updates the textBlock that the user wants to update
   let description = question.description.map((item) => {
     if (item instanceof imageBlock && item.blockId === data.id) {
-      let newBlock = Object.create(item);
+      let newBlock = { ...item };
+      Object.setPrototypeOf(newBlock, Object.getPrototypeOf(item));
       switch (type) {
         case "change-image": {
           newBlock.setImage(data.to);
@@ -97,12 +98,13 @@ export function handleImageProps(state, { data, type }) {
     return item;
   });
 
-  question = Object.create(question);
-  question.setDescription(conflate(description));
+  let cloneQuestion = { ...question }; // copy the question
+  Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.setDescription(conflate(description));
 
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
@@ -113,7 +115,9 @@ export function handleImageProps(state, { data, type }) {
 export function conflate(description) {
   if (description.length > 0) {
     let newArrDes = [];
-    newArrDes[0] = Object.create(description[0]); // copying the initial object and updating its prototype
+    let initBlock = { ...description[0] } // intital block
+    Object.setPrototypeOf(initBlock, Object.getPrototypeOf(description[0]));
+    newArrDes[0] = initBlock;
 
     let i = 0;
     let j = 1;
@@ -122,8 +126,8 @@ export function conflate(description) {
       //this code allows us to only conflate two or more blocks if they have the same properties
       if (description[j] instanceof TextBlock && newArrDes[i] instanceof TextBlock && equalBlocksProps(description[j], newArrDes[i])) {
         //we need to create a new textblock object since we don't want to modify any of the blocks stored in our state
-        let block = Object.create(newArrDes[i]);
-
+        let block = { ...newArrDes[i] };
+         Object.setPrototypeOf(block, Object.getPrototypeOf(newArrDes[i]));
         //here we combine the contents of the two blocks
         let newContent = newArrDes[i].content + "\n" + description[j].content;
         block.setContent(newContent); //updating the content
@@ -158,7 +162,7 @@ export function createQuestionType(state, action) {
   } = state;
   if (action.to === "MCQ") {
     let newQuestion = new MCQ(subject, grade, level, topic);
-    newQuestion.setDescription(description) // we want to inherit the previous descriptions so that we can swtich between different questions without losing content on the screen
+    newQuestion.setDescription(description); // we want to inherit the previous descriptions so that we can swtich between different questions without losing content on the screen
     return newQuestion;
   } else if (action.to === "Input") {
     let newQuestion = new InputQuestion(subject, grade, level, topic);
@@ -170,56 +174,63 @@ export function createQuestionType(state, action) {
 //we change a subject
 //to => the new subject
 export function changeSub(state, { to }) {
-  let question = Object.create(state.question);
+  let question = state.question;
   let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
-  question.changeSubject(to);
+  let cloneQuestion = { ...question }; // copy the question
+  Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.changeSubject(to);
   //we use a helper function to get a list of subjects assosicated with a particular subject and set the first topic on the list to be the default topic
-  question.changeTopic(getTopics(question.grade, to)[0]);
+  cloneQuestion.changeTopic(getTopics(question.grade, to)[0]);
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
 }
 
 export function changeTopic(state, { to }) {
-  let question = Object.create(state.question);
+  let question = state.question;
   let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
-  question.changeTopic(to);
+  let cloneQuestion = { ...question }; // copy the question
+  Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.changeTopic(to);
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
 }
 
 export function changeLevel(state, { to }) {
-  let question = Object.create(state.question);
+  let question = state.question;
   let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
-  question.changeLevel(to);
+  let cloneQuestion = { ...question }; // copy the question
+  Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.changeLevel(to);
 
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
 }
 
 export function changeGrade(state, { to }) {
-  let question = Object.create(state.question);
-  let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
-  question.changeGrade(to);
+   let question = state.question;
+   let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
+   let cloneQuestion = { ...question }; // copy the question
+   Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+  cloneQuestion.changeGrade(to);
   // we also change the topic whenever the grade is changed
-  question.changeTopic(getTopics(question.grade, question.subject)[0]);
+  cloneQuestion.changeTopic(getTopics(cloneQuestion.grade, cloneQuestion.subject)[0]);
 
   return {
     ...state,
-    question,
+    question: cloneQuestion,
     undoStack,
     redoStack: []
   };
 }
-

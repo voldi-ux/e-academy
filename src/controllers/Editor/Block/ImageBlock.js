@@ -4,7 +4,7 @@ import Block from "./Block";
 export default class imageBlock extends Block {
     
   constructor(image) {
-    super();
+    super("image");
       this.image = image; 
       this.width = 400;
       this.height = 300;
