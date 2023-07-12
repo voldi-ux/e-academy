@@ -36,13 +36,13 @@
   align-items: center;
 }
 
-.context-menu-item:hover .menu-container {
+/* .context-menu-item:hover .menu-container {
   max-height: 5rem;
-}
+} */
 
-.context-menu-item:hover .menu-container-inner {
+/* .context-menu-item:hover .menu-container-inner {
   display: block;
-}
+} */
 
 .context-menu-item-icon {
   display: flex;
