@@ -6,18 +6,19 @@ import SideNav from "./components/sideNav/sideNav.js";
 
 import "./main.css";
 import { Outlet } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext/AuthProvider.js";
+import { useAuth } from "./contexts/AuthContext/useAuth.js";
 
+const closeMenu = (e) => {
+  const menu = document.getElementById("nav-menu");
+  const element = e.target;
+  if (element.classList.contains("nav-menu") || element.classList.contains("link-item") || element.parentElement.classList.contains("link-item")) {
+    menu.style.display = "none";
+  }
+};
 function App() {
-  //function to close the menu on small devices
-  const closeMenu = (e) => {
-    const menu = document.getElementById("nav-menu");
-    const element = e.target;
-    if (element.classList.contains("nav-menu") || element.classList.contains("link-item") || element.parentElement.classList.contains("link-item")) {
-      menu.style.display = "none";
-    }
-  };
+  const auth = useAuth();
 
- 
   return (
     <div className="main-container">
       <div className="nav1">

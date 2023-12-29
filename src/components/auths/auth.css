@@ -30,6 +30,7 @@
   padding: 2rem;
   color: var(--blue-dark);
   overflow: scroll;
+  animation: scale-in .3s linear;
 
 }
 

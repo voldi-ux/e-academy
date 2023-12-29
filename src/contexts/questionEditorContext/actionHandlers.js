@@ -4,7 +4,7 @@ import imageBlock from "../../controllers/Editor/Block/ImageBlock";
 import TextBlock from "../../controllers/Editor/Block/TextBlock";
 import InputQuestion from "../../controllers/Editor/Question/InputQuestion";
 import MCQ from "../../controllers/Editor/Question/Mcq";
-import { getTopicArrays, getTopics } from "../../utils/topics";
+import {  getTopics } from "../../utils/topics";
 
 export function handleChangeText(state, data) {
   let question = state.question;
@@ -61,6 +61,7 @@ export function handleTextProps(state, { data, type }) {
           newBlock.setColor(data.to);
           break;
         }
+        default:
       }
       return newBlock;
     }
@@ -91,6 +92,8 @@ export function handleImageProps(state, { data, type }) {
           newBlock.setImage(data.to);
           break;
         }
+          
+          default:
       }
 
       return newBlock;
@@ -111,7 +114,7 @@ export function handleImageProps(state, { data, type }) {
 }
 
 //============================================================================
-//combines any subsquent textblocks into one
+//combines any subsquent ans similar textblocks into one
 export function conflate(description) {
   if (description.length > 0) {
     let newArrDes = [];
@@ -119,8 +122,8 @@ export function conflate(description) {
     Object.setPrototypeOf(initBlock, Object.getPrototypeOf(description[0]));
     newArrDes[0] = initBlock;
 
-    let i = 0;
-    let j = 1;
+    let i = 0; // will represent the previous block
+    let j = 1; // will denote the next block (not necessarily consecutive to i)
 
     while (j < description.length) {
       //this code allows us to only conflate two or more blocks if they have the same properties
@@ -133,7 +136,7 @@ export function conflate(description) {
         block.setContent(newContent); //updating the content
         newArrDes[i] = block; // reassign the value at index i
       } else {
-        //if the block is not a textblock or it is but its previous element is not a textblock then we just add into the new array at position i + 1 since there is already an element at postion at i
+        //if the block is not a textblock or it is but its previous element is not a textblock or the both are textblocks but not equal then we just add into the new array at position (i + 1) since there is already an element at postion at i
         newArrDes[++i] = description[j];
       }
       ++j; //increment j to avoid an infinite loop

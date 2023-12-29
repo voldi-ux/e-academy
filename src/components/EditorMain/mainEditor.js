@@ -21,6 +21,7 @@ import InputQuestion from "../InputQuestion/InputQuestion";
 import Preview from "../Preview/Preview";
 import { getTopics } from "../../utils/topics";
 import ErrorBox from "../error/Error";
+import { saveCreatedQuestion } from "../../apis/AcademyApi";
 
 const MainEditor = () => {
   const { dispatch, question, redoStack, undoStack } = useContext(questionEditorContext);
@@ -30,38 +31,39 @@ const MainEditor = () => {
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
 
-
-
-   useEffect(() => {
-     const script = document.createElement("script");
-     script.type = "text/javascript";
-     script.text = `
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.text = `
       MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
       });
       MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
     `;
-     document.head.appendChild(script);
-     return () => {
-       document.head.removeChild(script);
-     };
-   });
-  
-  
-  const saveQuestion =  () => { 
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  });
+
+  const saveQuestion = async () => {
     try {
       setSaving(true);
-      question.saveQuestion();
-      console.log(question)
+      // todo
+      //==========================
+      //create a transform function that will tranform the question into a form required 
+      //by the backend
+      //then we can save it properly
+      
       console.log("saving succeded");
       //  setSaving(false);
-        ///dispatch({type: "clear-question"})
-      } catch (err) {
-      console.log(err)
-      setErrMsg(err.message)
-      setErr(true) // we display an error message if we were unable to save the question
+      ///dispatch({type: "clear-question"})
+    } catch (err) {
+      console.log(err);
+      setErrMsg(err.message);
+      setErr(true); // we display an error message if we were unable to save the question
     }
-  } 
+  };
 
   // will render different overlay depending on what question type the user is currently creating
   const renderOverlay = () => {
@@ -103,7 +105,7 @@ const MainEditor = () => {
           }}
           key={block.blockId}
         >
-         {`${block.content}`}
+          {`${block.content}`}
         </p>
       ) : (
         <img style={{ width: "100%", display: "block", marginBottom: "10px" }} src={block.image} key={block.blockId} />
@@ -198,9 +200,11 @@ const MainEditor = () => {
         </OverLay>
       )}
 
-      {err && <OverLay>
-        <ErrorBox message={errMsg} buttonClick={() => setErr(false)} />
-      </OverLay>}
+      {err && (
+        <OverLay>
+          <ErrorBox message={errMsg} buttonClick={() => setErr(false)} />
+        </OverLay>
+      )}
       <input
         onChange={onFileSelect}
         ref={fileChooser}
@@ -269,7 +273,7 @@ const MainEditor = () => {
           </div>
           <div className="editor-icon-right">
             <div className="icons-container">
-              <AiFillSave  onClick={saveQuestion}/>
+              <AiFillSave onClick={saveQuestion} />
             </div>
           </div>
         </IconContext.Provider>

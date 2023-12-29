@@ -1,28 +1,30 @@
+/** @format */
+
 .error-container {
-    height: 100%;
-    overflow: hidden;
-    background-color: #9d9e9d53;
-    backdrop-filter: blur(5px);
+  height: 100%;
+  overflow: hidden;
+  background-color: #9d9e9d53;
+  backdrop-filter: blur(5px);
 }
 
 .error-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
-    margin: 0 auto;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+  height: 100%;
 }
 
 .error-content img {
-    width: 30rem;
+  width: 30rem;
 }
 
 .error-content h1 {
-    text-transform: capitalize;
-    color: var(--red);
-    margin-bottom: 1rem;
+  text-transform: capitalize;
+  color: var(--red);
+  margin-bottom: 1rem;
 }
 
 .error-button {
@@ -30,4 +32,44 @@
   background: var(--blue-dark);
   border-radius: 2px;
   margin: 2rem 0;
+}
+
+.auth-error {
+  width: 100%;
+  padding: 1rem;
+  background-color: tomato;
+  margin-bottom: 2rem;
+  animation: scale-in 0.3s linear;
+}
+
+.auth-error p {
+  font-size: 2rem;
+  color: white;
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.3);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.error-element-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  color: var(--blue-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  flex-direction: column;
+}
+.error-element-container p {
+  margin-bottom: 3rem;
 }
