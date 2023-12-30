@@ -14,14 +14,13 @@ import TextBlockConponent from "../TextBlock/TextBlockComp";
 import Filter from "../filter/filter";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 import ImageBlockComp from "../ImageBlock/ImageBlockComp";
-import imageBlock from "../../controllers/Editor/Block/ImageBlock";
 import OverLay from "../overlay/Overlay";
 import MCQ from "../MCQ/MCQ";
 import InputQuestion from "../InputQuestion/InputQuestion";
 import Preview from "../Preview/Preview";
-import { getTopics } from "../../utils/topics";
 import ErrorBox from "../error/Error";
 import { saveCreatedQuestion } from "../../apis/AcademyApi";
+import { configMathjx, getEditorFilters, getfileSelectHandler } from "../../utils/utils";
 
 const MainEditor = () => {
   const { dispatch, question, redoStack, undoStack } = useContext(questionEditorContext);
@@ -30,16 +29,10 @@ const MainEditor = () => {
   const [errMsg, setErrMsg] = useState("");
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
+  const fileChooser = useRef();
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.text = `
-      MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-      });
-      MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
-    `;
+    const script =  configMathjx()
     document.head.appendChild(script);
     return () => {
       document.head.removeChild(script);
@@ -51,13 +44,14 @@ const MainEditor = () => {
       setSaving(true);
       // todo
       //==========================
-      //create a transform function that will tranform the question into a form required 
+      //create a transform function that will tranform the question into a form required
       //by the backend
       //then we can save it properly
-      
-      console.log("saving succeded");
+
+      const resp = await saveCreatedQuestion(question.transformQuestion());
       //  setSaving(false);
       ///dispatch({type: "clear-question"})
+      console.log(resp.data)
     } catch (err) {
       console.log(err);
       setErrMsg(err.message);
@@ -101,7 +95,8 @@ const MainEditor = () => {
             color: block.color,
             textTransform: block.textTransform ? block.textTransform : "none",
             marginBottom: "10px",
-            lineHeight: "3rem"
+            lineHeight: "3rem",
+            whiteSpace: "pre-line"
           }}
           key={block.blockId}
         >
@@ -113,7 +108,6 @@ const MainEditor = () => {
     );
   };
 
-  const fileChooser = useRef();
 
   //opens the filechooser
   const chooseFile = () => {
@@ -121,19 +115,8 @@ const MainEditor = () => {
   };
 
   //called when a user has selected a file
-  const onFileSelect = (e) => {
-    let files = e.target.files;
-    let reader = new FileReader();
+  const onFileSelect = getfileSelectHandler(dispatch)
 
-    reader.onload = (e) => {
-      let image = new imageBlock(e.target.result);
-      dispatch({
-        type: "add-image",
-        data: image
-      });
-    };
-    if (files.length > 0) reader.readAsDataURL(files[0]);
-  };
 
   const addText = () => {
     dispatch({
@@ -152,43 +135,13 @@ const MainEditor = () => {
     else if (overlay) setOverlay(false);
   };
 
-  //a function that allows to dispatch undo actions
-
+  //a function that allows to dispatch undo/redo actions
   const undo = () => dispatch({ type: "undo" });
   const redo = () => dispatch({ type: "redo" });
 
   //===========================================================================
   //These objects will help with filtering of topics, subjects etc.
-  const filterGrades = {
-    title: "Grade",
-    options: ["10", "11", "12"],
-    action: (grade) => dispatch({ type: "change-grade", to: grade })
-  };
-
-  const filterQuestionType = {
-    title: "Question Type",
-    options: ["MCQ", "Input"],
-    action: (questionType) => dispatch({ type: "change-questionType", to: questionType })
-  };
-
-  const filterSubjects = {
-    title: "Subjects",
-    options: ["Mathematics", "Physics"],
-    action: (subject) => dispatch({ type: "change-subject", to: subject })
-  };
-
-  const filterLevels = {
-    title: "Level",
-    options: [1, 2, 3, 4, 5],
-    action: (level) => dispatch({ type: "change-level", to: level })
-  };
-
-  const filterTopics = {
-    title: "Topic",
-    options: getTopics(question.grade, question.subject),
-    action: (topic) => dispatch({ type: "change-topic", to: topic })
-  };
-
+  const { filterGrades, filterLevels, filterQuestionType, filterSubjects,filterTopics } = getEditorFilters(question,dispatch)
   //=====================================================================================
 
   return (

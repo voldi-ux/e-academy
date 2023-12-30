@@ -74,24 +74,21 @@ export const physSciGrade12 = [
   "Nuclear Reactions"
 ];
 
-
-
-export function getTopics(grade, subject) { 
-    if (grade == 10) {
-        return getTopicArrays(subject)[0]
-    } else if (grade == 11) {
-        return getTopicArrays(subject)[1]
-    } else if (grade == 12) { 
-        return getTopicArrays(subject)[2]
-    }
+export function getTopics(grade, subject) {
+  if (grade == 10) {
+    return getTopicArrays(subject)[0];
+  } else if (grade == 11) {
+    return getTopicArrays(subject)[1];
+  } else if (grade == 12) {
+    return getTopicArrays(subject)[2];
+  }
 }
 
-
-export function getTopicArrays(subject) { 
-    switch (subject.toLowerCase()) { 
-        case "physics":
-            return [physSciGrade10, physSciGrade11, physSciGrade12]
-        case "mathematics":
-            return [mathGrade10,mathGrade11, mathGrade12]
-    }
+export function getTopicArrays(subject) {
+  switch (subject.toLowerCase()) {
+    case "physics":
+      return [physSciGrade10, physSciGrade11, physSciGrade12];
+    case "mathematics":
+      return [mathGrade10, mathGrade11, mathGrade12];
+  }
 }

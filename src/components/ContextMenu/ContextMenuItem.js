@@ -5,6 +5,8 @@ import "./contextMenu.css";
 import MenuItem from "./MenuItem";
 
 const ContextMenuItem = ({ menus, menuTitle, children }) => {
+
+
   const renderMenuItems = () => {
     if (menuTitle.toLowerCase() === "change color")
       return menus.map((menu) => (
@@ -22,7 +24,6 @@ const ContextMenuItem = ({ menus, menuTitle, children }) => {
       menuItem.current.style.maxHeight = "0";
     } else {
       menuContainer.current.style.display = "block";
-
       menuItem.current.style.maxHeight = "6rem";
     }
   };

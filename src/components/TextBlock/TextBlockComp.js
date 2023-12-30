@@ -1,21 +1,22 @@
 /** @format */
 
-import React, { useContext, useState, useRef, useEffect } from "react";
+import React, { useContext, useState, useRef, useEffect, useTransition } from "react";
 import "./TextBlock.css";
 import { IconContext } from "react-icons";
-import { AiOutlineBars, AiOutlineEdit , AiOutlineFontSize, AiOutlineBgColors, AiOutlineBold} from "react-icons/ai";
+import { AiOutlineBars, AiOutlineEdit, AiOutlineFontSize, AiOutlineBgColors, AiOutlineBold } from "react-icons/ai";
 import { VscTextSize } from "react-icons/vsc";
 
 import ContextMenu from "../ContextMenu/ContextMenu";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
 
 const TextBlockConponent = ({ blockText }) => {
-  const [contextMenu, setContextMenu] = useState(false);
-  const {dispatch } = useContext(questionEditorContext);
+  const [contextMenu, setContextMenu] = useState(blockText.content);
+  const { dispatch } = useContext(questionEditorContext);
   const tArea = useRef();
 
+  
   const textBlockContextMenu = [
-     {
+    {
       title: "Change Color",
       icon: <AiOutlineBgColors />,
       options: [
@@ -172,29 +173,35 @@ const TextBlockConponent = ({ blockText }) => {
             })
         }
       ]
-    },
- 
+    }
   ];
 
-   useEffect(() => {
-  //   console.log("changing height", tArea.current.scrollHeight);
-     tArea.current.style.height = tArea.current.scrollHeight + "px";
-
-   },[blockText]);
+  useEffect(() => {
+    let e = tArea.current;
+    e.style.height = 0;
+    e.style.height = `${e.scrollHeight}px`;
+  }, [blockText.content]);
 
   const handleContext = () => {
+    //const elem = document.querySelector(".block-content");
     setContextMenu(!contextMenu);
   };
 
-  const handleContentChange = (e) => {    
-   //  tArea.current.style.height = e.target.scrollHeight + "px";
-      dispatch({
-        type: "change-text",
-        data: {
-          id: blockText.blockId,
-          content: e.target.value
-        }
-      });
+  const handleContentChange = (e) => {
+    // e.target.style.height = 0;
+    // e.target.style.height = `${e.target.scrollHeight}px`;
+
+    // startTransition(() => {
+    //   setContent(e.target.value)
+    // });
+
+    dispatch({
+      type: "change-text",
+      data: {
+        id: blockText.blockId,
+        content: e.target.value
+      }
+    });
   };
 
   return (
@@ -207,19 +214,28 @@ const TextBlockConponent = ({ blockText }) => {
         <textarea
           ref={tArea}
           onChange={handleContentChange}
-          value={blockText.content}
           className="block-content"
+          value={blockText.content}
+          // onBlur={(e) => {
+          //   dispatch({
+          //     type: "change-text",
+          //     data: {
+          //       id: blockText.blockId,
+          //       content: e.target.value
+          //     }
+          //   });
+          // }}
           style={{
             fontSize: blockText.fontSize,
             fontWeight: blockText.weight + "", //convert it to a string
             color: blockText.color,
-            textTransform: blockText.textTransform ? blockText.textTransform : "none",
+            textTransform: blockText.textTransform ? blockText.textTransform : "none"
           }}
         ></textarea>
 
         <div className="block-icons">
           <AiOutlineBars className="block-icon" onClick={handleContext} />
-          {contextMenu ? <ContextMenu contextMenu={textBlockContextMenu} /> : null}
+          {/* {contextMenu ? <ContextMenu contextMenu={textBlockContextMenu} /> : null} */}
         </div>
       </div>
     </IconContext.Provider>

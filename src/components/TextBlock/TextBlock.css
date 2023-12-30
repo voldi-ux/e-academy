@@ -2,27 +2,22 @@
 
 .blockText-container {
   position: relative;
+  
 }
 
 .blockText-container > textarea {
   background: transparent;
   border: transparent;
   margin: 0;
-  transition: all 0.4s;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-   line-height: 2rem;
+  line-height: 2rem;
 }
 
 .block-content {
   width: 100%;
-  color: var(--white);
-  font-size: 1.6rem;
-  height: min-content;
   resize: none;
 }
 
@@ -35,6 +30,6 @@
   cursor: pointer;
 }
 
-.blockText-container:hover .block-icons{
+.blockText-container:hover .block-icons {
   right: 1%;
 }
