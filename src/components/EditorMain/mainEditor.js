@@ -20,7 +20,8 @@ import InputQuestion from "../InputQuestion/InputQuestion";
 import Preview from "../Preview/Preview";
 import ErrorBox from "../error/Error";
 import { saveCreatedQuestion } from "../../apis/AcademyApi";
-import { configMathjx, getEditorFilters, getfileSelectHandler } from "../../utils/utils";
+import { configMathjx, formater, getEditorFilters, getfileSelectHandler } from "../../utils/utils";
+import PreviewTextComponent from "./PrevTextComponent";
 
 const MainEditor = () => {
   const { dispatch, question, redoStack, undoStack } = useContext(questionEditorContext);
@@ -30,7 +31,6 @@ const MainEditor = () => {
   const [overlay, setOverlay] = useState(false);
   const [preview, setPreview] = useState(false);
   const fileChooser = useRef();
-
 
   useEffect(() => {
     const script = configMathjx();
@@ -89,20 +89,7 @@ const MainEditor = () => {
   const displayPreviewDescription = () => {
     return question.description.map((block) =>
       block instanceof TextBlock ? (
-        <p
-          style={{
-            fontSize: block.fontSize,
-            fontWeight: block.weight + "", //convert it to a string
-            color: block.color,
-            textTransform: block.textTransform ? block.textTransform : "none",
-            marginBottom: "10px",
-            lineHeight: "3rem",
-            whiteSpace: "pre-line"
-          }}
-          key={block.blockId}
-        >
-          {`${block.content}`}
-        </p>
+             <PreviewTextComponent key={block.blockId} block={block}/>
       ) : (
         <img style={{ width: "100%", display: "block", marginBottom: "10px" }} src={block.image} key={block.blockId} />
       )

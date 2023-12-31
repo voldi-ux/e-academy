@@ -25,6 +25,10 @@ export default class TextBlock extends Block {
         this.fontSize = size;
     }
 
+    getFontSize() { 
+        return this.fontSize
+    }
+    
     setWeight(weight) { 
         this.weight = weight;
     }
@@ -35,5 +39,16 @@ export default class TextBlock extends Block {
 
     editContent(newContent) { 
         this.content = newContent;
+    }
+    getContent() { 
+        return this.content
+    }
+
+    getTextTransform() { 
+       return this.textTransform
+    }
+
+    getWeight() { 
+        return this.weight
     }
 }

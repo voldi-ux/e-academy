@@ -11,10 +11,11 @@
   margin-top: .5rem;
   text-align: center;
   overflow: scroll;
-  /* transition: all 5s; */
-  /* animation: fade 0.5s ease-in; */
+  /* transition: all .5s; */
+  /* animation: fade 0.3s ease-in; */
   text-transform: capitalize;
   display: none;
+  border-radius: 1rem;
 }
 
 .context-menu-item {
