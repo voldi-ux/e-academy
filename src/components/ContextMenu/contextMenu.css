@@ -3,17 +3,18 @@
 .context-menu-container {
   position: absolute;
   width: 15rem;
-  left: -15rem;
+  /* left: -15rem; */
   padding: 2rem 1rem;
   box-shadow: var(--shadow);
   z-index: 3;
   background-color: var(--white);
-  margin-top: -5rem;
+  margin-top: .5rem;
   text-align: center;
   overflow: scroll;
-  transition: all 5s;
-  animation: fade 0.5s ease-in;
+  /* transition: all 5s; */
+  /* animation: fade 0.5s ease-in; */
   text-transform: capitalize;
+  display: none;
 }
 
 .context-menu-item {
@@ -60,6 +61,8 @@
 
 .menu-item {
   transition: inherit;
+  cursor: pointer;
+  user-select: none;
 
 }
 
@@ -70,4 +73,10 @@
 
 .menu-item-color {
   padding: .5rem;
+}
+
+.menu-color-chooser {
+ width: 100%;
+ border: 0;
+  cursor: pointer;
 }

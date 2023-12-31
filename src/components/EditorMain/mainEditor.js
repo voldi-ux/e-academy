@@ -31,8 +31,9 @@ const MainEditor = () => {
   const [preview, setPreview] = useState(false);
   const fileChooser = useRef();
 
+
   useEffect(() => {
-    const script =  configMathjx()
+    const script = configMathjx();
     document.head.appendChild(script);
     return () => {
       document.head.removeChild(script);
@@ -51,7 +52,7 @@ const MainEditor = () => {
       const resp = await saveCreatedQuestion(question.transformQuestion());
       //  setSaving(false);
       ///dispatch({type: "clear-question"})
-      console.log(resp.data)
+      console.log(resp.data);
     } catch (err) {
       console.log(err);
       setErrMsg(err.message);
@@ -108,15 +109,13 @@ const MainEditor = () => {
     );
   };
 
-
   //opens the filechooser
   const chooseFile = () => {
     fileChooser.current.click();
   };
 
   //called when a user has selected a file
-  const onFileSelect = getfileSelectHandler(dispatch)
-
+  const onFileSelect = getfileSelectHandler(dispatch);
 
   const addText = () => {
     dispatch({
@@ -141,7 +140,7 @@ const MainEditor = () => {
 
   //===========================================================================
   //These objects will help with filtering of topics, subjects etc.
-  const { filterGrades, filterLevels, filterQuestionType, filterSubjects,filterTopics } = getEditorFilters(question,dispatch)
+  const { filterGrades, filterLevels, filterQuestionType, filterSubjects, filterTopics } = getEditorFilters(question, dispatch);
   //=====================================================================================
 
   return (

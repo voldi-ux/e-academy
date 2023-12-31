@@ -1,55 +1,35 @@
 /** @format */
 
-import React, { useContext, useState, useRef, useEffect, useTransition } from "react";
+import React, { useContext, useRef, useEffect} from "react";
 import "./TextBlock.css";
 import { IconContext } from "react-icons";
-import { AiOutlineBars, AiOutlineEdit, AiOutlineFontSize, AiOutlineBgColors, AiOutlineBold } from "react-icons/ai";
+import { AiOutlineFontSize, AiOutlineBgColors, AiOutlineBold } from "react-icons/ai";
 import { VscTextSize } from "react-icons/vsc";
 
 import ContextMenu from "../ContextMenu/ContextMenu";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
+import { getContextMenuHandler } from "../../utils/utils";
 
 const TextBlockConponent = ({ blockText }) => {
-  const [contextMenu, setContextMenu] = useState(blockText.content);
+
   const { dispatch } = useContext(questionEditorContext);
   const tArea = useRef();
 
-  
+  const blockTextContainer = useRef();
+
   const textBlockContextMenu = [
     {
       title: "Change Color",
       icon: <AiOutlineBgColors />,
       options: [
         {
-          option: "#20385C", //blue-dark
-          action: () =>
+          option: blockText.getColor(), //the current color for the text component
+          action: (color) =>
             dispatch({
               type: "change-color",
               data: {
                 id: blockText.blockId,
-                to: "#20385C"
-              }
-            })
-        },
-        {
-          option: "#F1F8FF", //white
-          action: () =>
-            dispatch({
-              type: "change-color",
-              data: {
-                id: blockText.blockId,
-                to: "#F1F8FF"
-              }
-            })
-        },
-        {
-          option: "#F65858", //white
-          action: () =>
-            dispatch({
-              type: "change-color",
-              data: {
-                id: blockText.blockId,
-                to: "#F65858"
+                to: color
               }
             })
         }
@@ -180,28 +160,32 @@ const TextBlockConponent = ({ blockText }) => {
     let e = tArea.current;
     e.style.height = 0;
     e.style.height = `${e.scrollHeight}px`;
-  }, [blockText.content]);
+  }, [blockText.fontSize, blockText.fontWeight, blockText.content, blockText.textTransform]);
 
-  const handleContext = () => {
-    //const elem = document.querySelector(".block-content");
-    setContextMenu(!contextMenu);
-  };
+  //handling the  context menu
+  const handleContext = getContextMenuHandler(blockText, blockTextContainer);
 
   const handleContentChange = (e) => {
-    // e.target.style.height = 0;
-    // e.target.style.height = `${e.target.scrollHeight}px`;
+    let value = e.target.value;
+     dispatch({
+       type: "change-text",
+       data: {
+         id: blockText.blockId,
+         content: value
+       }
+     });
+  };
 
-    // startTransition(() => {
-    //   setContent(e.target.value)
-    // });
-
-    dispatch({
-      type: "change-text",
-      data: {
-        id: blockText.blockId,
-        content: e.target.value
-      }
-    });
+  const handleKey = (e) => {
+    let value = e.target.value;
+    if (value.length == 0 && e.repeat && e.code == "Backspace") {
+      dispatch({
+        type: "delete-text",
+        data: {
+          id: blockText.blockId
+        }
+      });
+    }
   };
 
   return (
@@ -210,21 +194,13 @@ const TextBlockConponent = ({ blockText }) => {
         size: 35
       }}
     >
-      <div className="blockText-container">
+      <div ref={blockTextContainer} className="blockText-container" id={blockText.blockId} onContextMenu={handleContext}>
         <textarea
           ref={tArea}
-          onChange={handleContentChange}
+          onKeyDown={handleKey}
+          onInput={handleContentChange}
           className="block-content"
           value={blockText.content}
-          // onBlur={(e) => {
-          //   dispatch({
-          //     type: "change-text",
-          //     data: {
-          //       id: blockText.blockId,
-          //       content: e.target.value
-          //     }
-          //   });
-          // }}
           style={{
             fontSize: blockText.fontSize,
             fontWeight: blockText.weight + "", //convert it to a string
@@ -233,10 +209,7 @@ const TextBlockConponent = ({ blockText }) => {
           }}
         ></textarea>
 
-        <div className="block-icons">
-          <AiOutlineBars className="block-icon" onClick={handleContext} />
-          {/* {contextMenu ? <ContextMenu contextMenu={textBlockContextMenu} /> : null} */}
-        </div>
+        <ContextMenu contextMenu={textBlockContextMenu} />
       </div>
     </IconContext.Provider>
   );

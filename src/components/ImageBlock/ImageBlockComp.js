@@ -6,17 +6,20 @@ import { AiOutlineBars, AiOutlineDelete } from "react-icons/ai";
 import { BsImageFill} from "react-icons/bs"
 import ContextMenu from "../ContextMenu/ContextMenu";
 import { questionEditorContext } from "../../contexts/questionEditorContext/questionEditorcontext";
+import { getContextMenuHandler } from "../../utils/utils";
 
 
 const ImageBlockComp = ({ imageBlock }) => {
- // console.log(imageBlock.blockId)
-  const [contextMenu, setContextMenu] = useState(false);
-  const { dispatch } = useContext(questionEditorContext); 
-      const handleContext = () => {
-        setContextMenu(!contextMenu);
-  };
-
+  
+  const { dispatch } = useContext(questionEditorContext);
   const fileChooser = useRef();
+  const imgContainer = useRef()
+  //     const handleContext = () => {
+  //       setContextMenu(!contextMenu);
+  // };
+
+  //handling the  context menu
+  const handleContext =  getContextMenuHandler(imageBlock, imgContainer)
 
   const chooseFile = () => {
     fileChooser.current.click();
@@ -28,19 +31,17 @@ const ImageBlockComp = ({ imageBlock }) => {
 
     reader.onload = (e) => {
       let image = e.target.result; // the image in base64 encoding
-       dispatch({
-         type: "change-image",
-         data: {
-           id: imageBlock.blockId,
-           to: image
-         }
-       });
-  
+      dispatch({
+        type: "change-image",
+        data: {
+          id: imageBlock.blockId,
+          to: image
+        }
+      });
     };
-   if(files.length > 0) reader.readAsDataURL(files[0]);
+    if (files.length > 0) reader.readAsDataURL(files[0]);
   };
 
-  
   const imageBlockContextMenu = [
     {
       title: "Change Image",
@@ -67,24 +68,25 @@ const ImageBlockComp = ({ imageBlock }) => {
       ]
     }
   ];
-    return (
-      <div className="image-block-container">
-        <input
-          onChange={onFileSelect}
-          ref={fileChooser}
-          type="file"
-          accept="image/jpeg, image/png, image/pjpeg"
-          style={{
-            display: "none"
-          }}
-        />
-        <img src={imageBlock.image} alt="editor image" id="block-image" />;
-        <div className="block-icons">
+  return (
+    <div className="image-block-container" id={imageBlock.blockId} onContextMenu={handleContext} ref={imgContainer}>
+      <input
+        onChange={onFileSelect}
+        ref={fileChooser}
+        type="file"
+        accept="image/jpeg, image/png, image/pjpeg"
+        style={{
+          display: "none"
+        }}
+      />
+      <img src={imageBlock.image} alt="editor image" id="block-image" />;
+      {/* <div className="block-icons">
           <AiOutlineBars size={35} className="block-icon" onClick={handleContext} />
           {contextMenu ? <ContextMenu contextMenu={imageBlockContextMenu} /> : null}
-        </div>
-      </div>
-    ); 
+        </div> */}
+      <ContextMenu contextMenu={imageBlockContextMenu} />
+    </div>
+  );
 };
 
 export default ImageBlockComp;

@@ -14,6 +14,10 @@ export default class TextBlock extends Block {
     setContent(content) { 
         this.content = content;
     }
+
+    getColor() { 
+        return this.color
+    }
     setColor(color) { 
         this.color = color;
     }

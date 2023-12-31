@@ -3,7 +3,7 @@
 import TextBlock from "../../controllers/Editor/Block/TextBlock";
 import InputQuestion from "../../controllers/Editor/Question/InputQuestion";
 import MCQ from "../../controllers/Editor/Question/Mcq";
-import { changeGrade, changeLevel, changeSub, changeTopic, conflate, createQuestionType, handColor, handleChangeText, handleImageProps, handleTextProps } from "./actionHandlers";
+import { changeGrade, changeLevel, changeSub, changeTopic, conflate, createQuestionType, handleChangeText, handleImageProps, handleTextProps } from "./actionHandlers";
 
 //inital state
 export const intitialState = {
@@ -45,9 +45,12 @@ export function EditorQuestionReducer(state, action) {
 
     //handles the editing of texts
     case "change-text": {
-      return handleChangeText(state, action.data);
+      return handleChangeText(state, action.data, "u"); // u for update
     }
 
+    case "delete-text": {
+      return handleChangeText(state, action.data, "d"); /// d for delete
+    }
     //handles the adding of an image the editor
     case "add-image": {
       let question = state.question;
@@ -56,11 +59,11 @@ export function EditorQuestionReducer(state, action) {
 
       let cloneQuestion = { ...question }; // copy the question
       Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
-      cloneQuestion.setDescription(conflate(description)); 
+      cloneQuestion.setDescription(conflate(description));
 
       return {
         ...state,
-        question:cloneQuestion,
+        question: cloneQuestion,
         undoStack,
         redoStack: []
       };
@@ -69,13 +72,13 @@ export function EditorQuestionReducer(state, action) {
       let question = state.question;
       let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
       let description = state.question.description.concat([new TextBlock()]);
-       let cloneQuestion = { ...question }; // copy the question
-       Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
-       cloneQuestion.setDescription(conflate(description)); 
+      let cloneQuestion = { ...question }; // copy the question
+      Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+      cloneQuestion.setDescription(conflate(description));
 
       return {
         ...state,
-        question:cloneQuestion,
+        question: cloneQuestion,
         undoStack,
         redoStack: []
       };
@@ -103,13 +106,13 @@ export function EditorQuestionReducer(state, action) {
       let question = state.question;
       let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
       let description = state.question.description.filter((block) => block.blockId !== action.id);
-       let cloneQuestion = { ...question }; // copy the question
-       Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
-       cloneQuestion.setDescription(conflate(description)); 
+      let cloneQuestion = { ...question }; // copy the question
+      Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
+      cloneQuestion.setDescription(conflate(description));
 
       return {
         ...state,
-        question:cloneQuestion,
+        question: cloneQuestion,
         undoStack,
         redoStack: []
       };
@@ -117,7 +120,7 @@ export function EditorQuestionReducer(state, action) {
 
     case "change-questionType": {
       if (action.to == state.question.questionType) {
-        return state;
+        return { ...state };
       }
       let question = state.question;
       let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
@@ -194,13 +197,11 @@ export function EditorQuestionReducer(state, action) {
       });
 
       //loop through and  update
-      options.map((item, index) => {
+      newQuestion.options = options.map((item, index) => {
         if (item.trim() === action.data.old.trim() && optionExists === false) {
           options[index] = action.data.option;
         }
       });
-
-      newQuestion.options = options;
 
       return {
         ...state,
@@ -253,10 +254,9 @@ export function EditorQuestionReducer(state, action) {
         question: newQuestion
       };
     }
-      
 
     default: {
-      return state;
+      return { ...state };
     }
   }
 }

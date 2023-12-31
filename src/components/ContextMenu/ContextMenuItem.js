@@ -8,10 +8,13 @@ const ContextMenuItem = ({ menus, menuTitle, children }) => {
 
 
   const renderMenuItems = () => {
-    if (menuTitle.toLowerCase() === "change color")
-      return menus.map((menu) => (
-        <MenuItem menu={menu} key={menu.option} color={true} />
-      ));
+    
+    if (menuTitle.toLowerCase() === "change color") { 
+      const handleChangeColor = (e) => { 
+        menus[0].action(e.target.value) // upating the color of the text
+      }
+      return <input type="color"  onChange={handleChangeColor} className="menu-color-chooser" value={ menus[0].option} />
+    }
 
     return menus.map((menu) => <MenuItem key={menu.option} menu={menu} />);
   };

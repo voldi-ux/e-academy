@@ -6,7 +6,7 @@ import InputQuestion from "../../controllers/Editor/Question/InputQuestion";
 import MCQ from "../../controllers/Editor/Question/Mcq";
 import { getTopics } from "../../utils/topics";
 
-export function handleChangeText(state, data) {
+export function handleChangeText(state, data, type) {
   let question = state.question;
   let undoStack = state.undoStack.concat(question); // we log the previous state of the question before modifying it
   //finds and updates the textBlock that the user wants to update
@@ -25,7 +25,7 @@ export function handleChangeText(state, data) {
   //   return item;
   // });
 
-  let description = data.content.length ? updateTextContent(question.description, data) : filterDescription(question.description, data.id);
+  let description = type === "u" ? updateTextContent(question.description, data) : filterDescription(question.description, data.id);
   let cloneQuestion = { ...question }; // copy the question
   Object.setPrototypeOf(cloneQuestion, Object.getPrototypeOf(question));
   cloneQuestion.setDescription(conflate(description));

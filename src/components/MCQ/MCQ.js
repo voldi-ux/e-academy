@@ -76,7 +76,7 @@ const MCQ = ({ close }) => {
           </div>
           <div className="choice-header">
             <div>
-              <h2>Choices:{optionSize()}  </h2>
+              <h2>Choices : {optionSize()}  </h2>
             </div>
             <div>
               <h2>Options</h2>
